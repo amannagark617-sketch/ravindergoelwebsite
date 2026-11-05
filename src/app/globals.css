@@ -2509,3 +2509,18 @@ body::before {
 }
 @media (max-width: 64rem) { .rec-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 40rem) { .rec-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Vision: orbiting logos and motion ---------- */
+.vs-orbit { opacity: 0; transition: opacity 0.9s ease; }
+.vs-orbit.is-on { opacity: 1; }
+.vs-logo-bg { fill: #fff; stroke: var(--glass-edge); stroke-width: 0.25; filter: drop-shadow(0 0.6px 1.2px rgba(27, 34, 56, 0.25)); }
+.vs-dot { fill: var(--garnet); }
+.vs-wave { fill: none; stroke: var(--garnet); stroke-width: 0.3; opacity: 0; transform-origin: 0 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .vs-wave.is-on { animation: vsWave 4.5s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+  .vs-ring-label.is-on { animation: vsGlow 2.4s ease-in-out infinite alternate; }
+  .vs.is-scrubbed .vs-lines li.is-active { animation: vsRise 0.7s cubic-bezier(.2,.7,.2,1) both; }
+}
+@keyframes vsWave { 0% { opacity: 0.55; transform: scale(1); } 100% { opacity: 0; transform: scale(1.18); } }
+@keyframes vsGlow { from { opacity: 0.65; } to { opacity: 1; } }
+@keyframes vsRise { from { clip-path: inset(0 0 100% 0); letter-spacing: 0.04em; } to { clip-path: inset(0); letter-spacing: -0.04em; } }
