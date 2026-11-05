@@ -13,6 +13,7 @@ export default function LaZBoy() {
   return (
     <>
       <PageIntro title="La-Z-Boy" lede={laZBoy.intro} />
+      <p className="partner-note">{laZBoy.partnerNote}</p>
       <GlobeJourney stops={laZBoy.stops} ariaLabel="A globe showing La-Z-Boy from Michigan to Thailand, India, Delhi and Little Nap" />
       <div className="split">
         <section className="prose-block">

@@ -296,6 +296,8 @@ export const laZBoy = {
         "On 20 April 2023 a contract ceremony was held at Little Nap's office, attended by La-Z-Boy's Asia team.",
     },
   ] as Stop[],
+  partnerNote:
+    "Exclusive partner means Little Nap makes and sells La-Z-Boy recliners in India, to La-Z-Boy standards, under the licence of La-Z-Boy, Incorporated, Michigan, USA.",
   whyTitle: "Why they chose Little Nap",
   why:
     "According to CEO Insights, La-Z-Boy selected Little Nap as its authorised partner in India because of its business ethics and core values, its team, and its growth over ten years.",
@@ -551,3 +553,10 @@ export const recliner = [
   { year: "2022", title: "Twelve showrooms.", text: "From a 600 sq. ft. showroom to 12 showrooms and 75,000 sq. ft. of production units." },
   { year: "2026", title: "In 1,300+ cinema screens.", text: "2 factories, 18 showrooms, a team of 470+ and a monthly capacity of 5,000 recliners." },
 ];
+
+/* ---------- Ravinder in his own words ----------
+   Only verbatim, sourced quotations go here. Each needs text, source and (where known) a link.
+   Nothing is shown on a page until an entry exists, so no line is ever written in his voice for him. */
+
+export type Quote = { text: string; source: string; href?: string };
+export const quotes: Record<string, Quote | undefined> = {};
