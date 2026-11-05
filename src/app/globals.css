@@ -2533,3 +2533,37 @@ body::before {
 .partner-logos span { font-family: var(--display); font-size: 1.8rem; color: var(--garnet); }
 .group-name { flex: 1; text-align: left; }
 .group-logo { width: 8rem; max-width: none; flex: none; object-position: left center; box-sizing: border-box; }
+
+/* ---------- Vision: 3D Earth ---------- */
+.vs-tags { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.vs-tag { position: absolute; left: 0; top: 0; opacity: 0; white-space: nowrap; padding: 0.3rem 0.7rem; background: var(--glass-strong); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); font-family: var(--display); font-weight: 700; font-size: 0.85rem; color: var(--ink); will-change: transform, opacity; }
+.vs.is-scrubbed .vs-stage { max-width: 70rem; }
+
+/* ---------- Showroom map ---------- */
+.sf-mapwrap { display: grid; grid-template-columns: minmax(0, 32rem) minmax(0, 1fr); gap: 2rem; align-items: center; margin: 1.5rem 0 2rem; padding: 1.5rem; background: var(--glass); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); }
+.im { width: 100%; height: auto; max-height: 72svh; display: block; }
+.im-land { fill: url(#im-fill); stroke: var(--ink); stroke-opacity: 0.45; stroke-width: 1.1; }
+.im-pin { cursor: pointer; outline: none; }
+.im-dot { fill: var(--garnet); stroke: #fff; stroke-width: 1.6; transition: transform 0.25s ease; }
+.im-pulse { fill: var(--garnet); opacity: 0; }
+.im-pin.is-dim { opacity: 0.2; }
+.im-pin.is-hot .im-dot, .im-pin:focus-visible .im-dot { transform: scale(1.7); }
+.im-tag, .im-fac-label { font-family: var(--display); font-weight: 700; font-size: 15px; fill: var(--ink); paint-order: stroke; stroke: #fff; stroke-width: 4px; stroke-linejoin: round; }
+.im-sq { fill: var(--ink); stroke: #fff; stroke-width: 2; }
+.im-fac { cursor: pointer; }
+.sf-side { min-width: 0; }
+.sf-side img { width: 100%; max-height: 16rem; object-fit: cover; margin-bottom: 1rem; }
+.sf-side h3 { font-family: var(--display); font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -0.03em; margin-bottom: 0.4rem; }
+.sf-side p { color: var(--slate); margin-bottom: 1rem; }
+.sf-key { list-style: none; display: grid; gap: 0.6rem; margin: 0.6rem 0 1rem; font-family: var(--display); font-weight: 600; }
+.k-dot, .k-sq { display: inline-block; width: 0.9rem; height: 0.9rem; margin-right: 0.5rem; vertical-align: -0.1rem; }
+.k-dot { background: var(--garnet); }
+.k-sq { background: var(--ink); }
+.sf-card.is-hot { box-shadow: 0 0 0 2px var(--garnet), var(--glass-shadow); }
+@media (prefers-reduced-motion: no-preference) {
+  .im-in { animation: imPop 0.6s cubic-bezier(.2,.9,.3,1.4) both; transform-box: fill-box; transform-origin: center; }
+  .im-pulse { animation: imPulse 2.8s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+}
+@keyframes imPop { from { opacity: 0; transform: scale(0); } }
+@keyframes imPulse { 0% { opacity: 0.5; transform: scale(0.5); } 100% { opacity: 0; transform: scale(2.6); } }
+@media (max-width: 52rem) { .sf-mapwrap { grid-template-columns: 1fr; padding: 1rem; } .im { max-height: 60svh; } }
