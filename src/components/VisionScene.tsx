@@ -13,12 +13,6 @@ const BEATS = [
   { line: "that reaches the world.", ring: "The world" },
 ];
 const R = [0.2, 0.31, 0.42];
-// Real company logos travel round the rings, each arriving with its part of the vision.
-const LOGOS = [
-  { src: "/logos/little-nap.png", alt: "Little Nap Recliners", w: 16, h: 9.3, dur: 46, from: 200 },
-  { src: "/logos/la-z-boy.png", alt: "La-Z-Boy", w: 20, h: 6.7, dur: 62, from: 20 },
-  { src: "/logos/seating-spectrum.png", alt: "Seating Spectrum", w: 21, h: 6.4, dur: 80, from: 110 },
-];
 
 export default function VisionScene() {
   const root = useRef<HTMLElement>(null);
@@ -137,21 +131,6 @@ export default function VisionScene() {
               {BEATS[i].ring}
             </text>
           ))}
-          {live
-            ? LOGOS.map((l, i) => (
-                <g key={l.alt} className={"vs-orbit" + (active >= i ? " is-on" : "")}>
-                  <animateTransform attributeName="transform" type="rotate" from={`${l.from} 0 0`} to={`${l.from + (i % 2 ? -360 : 360)} 0 0`} dur={`${l.dur}s`} repeatCount="indefinite" />
-                  <g transform={`translate(${R[i] * 100} 0)`}>
-                    <g transform={`rotate(0)`}>
-                      <animateTransform attributeName="transform" type="rotate" from={`${-l.from} 0 0`} to={`${-(l.from + (i % 2 ? -360 : 360))} 0 0`} dur={`${l.dur}s`} repeatCount="indefinite" additive="replace" />
-                      <rect x={-l.w / 2 - 1.2} y={-l.h / 2 - 1.2} width={l.w + 2.4} height={l.h + 2.4} className="vs-logo-bg" />
-                      <image href={l.src} x={-l.w / 2} y={-l.h / 2} width={l.w} height={l.h} preserveAspectRatio="xMidYMid meet" />
-                      <title>{l.alt}</title>
-                    </g>
-                  </g>
-                </g>
-              ))
-            : null}
           {live
             ? R.map((r, i) => (
                 <circle key={"p" + i} r="0.9" className="vs-dot">

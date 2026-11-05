@@ -2524,3 +2524,12 @@ body::before {
 @keyframes vsWave { 0% { opacity: 0.55; transform: scale(1); } 100% { opacity: 0; transform: scale(1.18); } }
 @keyframes vsGlow { from { opacity: 0.65; } to { opacity: 1; } }
 @keyframes vsRise { from { clip-path: inset(0 0 100% 0); letter-spacing: 0.04em; } to { clip-path: inset(0); letter-spacing: -0.04em; } }
+
+/* ---------- Partner logos ---------- */
+.group-logo { height: 2.4rem; width: auto; max-width: 8rem; object-fit: contain; margin-right: 1rem; vertical-align: middle; background: #fff; padding: 0.25rem 0.5rem; box-shadow: var(--raise-sm); }
+.group summary { display: flex; align-items: center; }
+.partner-logos { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin: 1.5rem auto 0.5rem; padding: 0 var(--gutter); }
+.partner-logos img { height: clamp(2.4rem, 6vw, 4rem); width: auto; background: #fff; padding: 0.6rem 1rem; box-shadow: var(--raise-sm); }
+.partner-logos span { font-family: var(--display); font-size: 1.8rem; color: var(--garnet); }
+.group-name { flex: 1; text-align: left; }
+.group-logo { width: 8rem; max-width: none; flex: none; object-position: left center; box-sizing: border-box; }

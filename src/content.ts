@@ -459,16 +459,19 @@ export const littleNap = {
   group: [
     {
       name: "Little Nap Designs Pvt. Ltd.",
+      logo: "/logos/little-nap.png",
       text: "The company he founded in July 2011, which makes Little Nap Recliners. It runs 2 manufacturing units at IMT Manesar, Haryana, and 18 exclusive showrooms.",
     },
     {
       name: "La-Z-Boy India",
+      logo: "/logos/la-z-boy.png",
       text: "Little Nap is La-Z-Boy's exclusive partner in India. The recliners are made to its standards under the licence of La-Z-Boy, Incorporated, Michigan, USA.",
       href: "/la-z-boy",
       hrefLabel: "Read how it happened",
     },
     {
       name: "Seating Spectrum, Malaysia",
+      logo: "/logos/seating-spectrum.png",
       text: "A global partner and joint venture. The first Seating Spectrum chairs made in India were produced at the Little Nap factory and launched at Big Cine Expo 2026 in Chennai, on 18 and 19 August 2026.",
     },
     {

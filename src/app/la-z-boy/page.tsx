@@ -13,6 +13,13 @@ export default function LaZBoy() {
   return (
     <>
       <PageIntro title="La-Z-Boy" lede={laZBoy.intro} />
+      <div className="partner-logos" aria-label="La-Z-Boy and Little Nap Recliners">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/logos/la-z-boy.png" alt="La-Z-Boy" />
+        <span aria-hidden="true">+</span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/logos/little-nap.png" alt="Little Nap Recliners" />
+      </div>
       <p className="partner-note">{laZBoy.partnerNote}</p>
       <GlobeJourney stops={laZBoy.stops} ariaLabel="A globe showing La-Z-Boy from Michigan to Thailand, India, Delhi and Little Nap" />
       <div className="split">

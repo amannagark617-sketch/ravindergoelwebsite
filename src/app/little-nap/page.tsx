@@ -36,7 +36,13 @@ export default function LittleNap() {
         <h2>{littleNap.groupTitle}</h2>
         {littleNap.group.map((g) => (
           <details key={g.name}>
-            <summary>{g.name}</summary>
+            <summary>
+              {"logo" in g && g.logo ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="group-logo" src={g.logo} alt="" />
+              ) : null}
+              <span className="group-name">{g.name}</span>
+            </summary>
             <p>{g.text}</p>
             {g.href ? (
               <Link className="btn" href={g.href}>
