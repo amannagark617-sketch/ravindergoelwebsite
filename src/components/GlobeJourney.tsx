@@ -102,6 +102,21 @@ export default function GlobeJourney() {
         g.stroke();
       }
 
+      // Travelling head of the active arc
+      if (!still && fr.i < n - 1 && fr.tr > 0 && fr.tr < 1) {
+        const head = geoInterpolate(pt(fr.i), pt(fr.i + 1))(fr.tr) as [number, number];
+        const hp = proj(head);
+        if (hp && geoDistance(center, head) < Math.PI / 2) {
+          g.beginPath();
+          g.arc(hp[0], hp[1], 8, 0, Math.PI * 2);
+          g.fillStyle = "#ffffff";
+          g.fill();
+          g.lineWidth = 3;
+          g.strokeStyle = "#9b1c2e";
+          g.stroke();
+        }
+      }
+
       // Stops
       g.font = "600 14px 'Bricolage Grotesque Variable', Arial, sans-serif";
       g.textBaseline = "middle";
@@ -122,7 +137,7 @@ export default function GlobeJourney() {
           g.lineWidth = 1.5;
           g.stroke();
         }
-        const label = stops[s].place;
+        const label = stops[s].label;
         g.lineWidth = 4;
         g.strokeStyle = "#ffffff";
         g.strokeText(label, xy[0] + 16, xy[1] - 14);
@@ -187,13 +202,22 @@ export default function GlobeJourney() {
   return (
     <section className="globe" ref={root} aria-label="Map of the La-Z-Boy journey">
       <div className="globe-canvas" ref={wrap}>
+        <div className="globe-year" aria-hidden="true">
+          {stops.map((s, i) =>
+            s.year ? (
+              <span key={s.place} className={i === active ? "is-active" : ""}>
+                {s.year}
+              </span>
+            ) : null
+          )}
+        </div>
         <canvas ref={canvas} role="img" aria-label="A globe showing the route from the USA to Thailand, India, Delhi and Little Nap" />
       </div>
       <div className="globe-side">
         <ol className="globe-steps">
           {stops.map((s, i) => (
             <li key={s.place} className={i === active ? "is-active" : ""}>
-              <div className="globe-place">{s.place}</div>
+              <div className="globe-place">{s.year ? `${s.year}, ${s.place}` : s.place}</div>
               <h3>{s.title}</h3>
               <p>{s.body}</p>
             </li>

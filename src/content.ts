@@ -215,6 +215,8 @@ export const chapters: Chapter[] = [
 
 export type Stop = {
   place: string;
+  label: string;
+  year?: string;
   lon: number;
   lat: number;
   k: number;
@@ -224,37 +226,42 @@ export type Stop = {
 
 export const laZBoy = {
   intro:
-    "La-Z-Boy is an American recliner brand. Little Nap is its exclusive partner in India. This is how the two came together.",
+    "La-Z-Boy begins in the USA. Scroll to follow it to Asia, to the 2020 exclusive partnership in India, and on to Delhi and Little Nap.",
   stops: [
     {
       place: "Michigan, USA",
+      label: "La-Z-Boy",
       lon: -83.4,
       lat: 41.9,
-      k: 1,
-      title: "An American icon.",
+      k: 1.25,
+      title: "La-Z-Boy starts here.",
       body:
-        "La-Z-Boy, Incorporated is based in Michigan. Little Nap's La-Z-Boy recliners are made to its standards under its licence. In October 2022 a La-Z-Boy business meeting was held in the USA.",
+        "La-Z-Boy, Incorporated is an American recliner brand based in Michigan. Little Nap's La-Z-Boy recliners are made to its standards under its licence.",
     },
     {
       place: "Thailand",
+      label: "Thailand",
       lon: 100.5,
       lat: 13.75,
-      k: 1,
-      title: "A conference in Thailand.",
+      k: 0.95,
+      title: "Across to Asia.",
       body:
         "In March 2023 Little Nap's team attended a La-Z-Boy conference in Thailand and received a partner recognition award.",
     },
     {
       place: "India",
+      label: "India",
       lon: 78.9,
       lat: 22.5,
       k: 2.1,
-      title: "Signed during lockdown.",
+      year: "2020",
+      title: "The exclusive partnership for India.",
       body:
-        "In April 2020, during the lockdown, Little Nap signed its first contract with La-Z-Boy. It became the exclusive partner for India.",
+        "In April 2020, during the lockdown, Little Nap signed its first contract with La-Z-Boy and became its exclusive partner in India.",
     },
     {
       place: "Delhi",
+      label: "Delhi",
       lon: 77.2,
       lat: 28.6,
       k: 2.8,
@@ -264,6 +271,7 @@ export const laZBoy = {
     },
     {
       place: "Little Nap",
+      label: "Little Nap",
       lon: 77.15,
       lat: 28.49,
       k: 3.4,
