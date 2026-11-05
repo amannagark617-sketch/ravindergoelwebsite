@@ -6,10 +6,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { geoDistance, geoGraticule10, geoInterpolate, geoOrthographic, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
 import land from "world-atlas/land-110m.json";
-import { laZBoy } from "@/content";
+import type { Stop } from "@/content";
+import { focus } from "@/focus";
 
-const stops = laZBoy.stops;
-const n = stops.length;
 const topo = land as unknown as { objects: { land: never } };
 const landFeature = feature(topo as never, topo.objects.land);
 const graticule = geoGraticule10();
@@ -17,7 +16,6 @@ const HOLD = 0.92;
 const DWELL = 0.3;
 
 const ease = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
-const pt = (i: number): [number, number] => [stops[i].lon, stops[i].lat];
 
 function planePath(g: CanvasRenderingContext2D) {
   const p: [number, number][] = [
@@ -29,19 +27,22 @@ function planePath(g: CanvasRenderingContext2D) {
   g.closePath();
 }
 
-function frame(P: number) {
-  const u = Math.min(P / HOLD, 1) * (n - 1);
-  const i = Math.min(Math.floor(u), n - 1);
-  const f = u - i;
-  const tr = i >= n - 1 ? 0 : ease(Math.max(0, (f - DWELL) / (1 - DWELL)));
-  const j = Math.min(i + 1, n - 1);
-  const center = i === j ? pt(i) : geoInterpolate(pt(i), pt(j))(tr);
-  const k = (stops[i].k + (stops[j].k - stops[i].k) * tr) * (1 - 0.3 * Math.sin(Math.PI * tr));
-  const active = i >= n - 1 ? n - 1 : tr > 0.5 ? j : i;
-  return { i, tr, center, k, active };
-}
+export default function GlobeJourney({ stops, ariaLabel }: { stops: Stop[]; ariaLabel: string }) {
+  const n = stops.length;
+  const pt = (i: number): [number, number] => [stops[i].lon, stops[i].lat];
+  const frame = (P: number) => {
+    const u = Math.min(P / HOLD, 1) * (n - 1);
+    const i = Math.min(Math.floor(u), n - 1);
+    const f = u - i;
+    const tr = i >= n - 1 ? 0 : ease(Math.max(0, (f - DWELL) / (1 - DWELL)));
+    const j = Math.min(i + 1, n - 1);
+    const center = i === j ? pt(i) : geoInterpolate(pt(i), pt(j))(tr);
+    const k = (stops[i].k + (stops[j].k - stops[i].k) * tr) * (1 - 0.3 * Math.sin(Math.PI * tr));
+    const active = i >= n - 1 ? n - 1 : tr > 0.5 ? j : i;
+    return { i, tr, center, k, active };
+  };
 
-export default function GlobeJourney() {
+
   const root = useRef<HTMLElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -187,6 +188,8 @@ export default function GlobeJourney() {
           g.lineWidth = 1.5;
           g.stroke();
         }
+        const act = proj(pt(still ? n - 1 : fr.active));
+        if (!on && act && Math.hypot(xy[0] - act[0], xy[1] - act[1]) < 110) continue;
         const label = stops[s].label;
         g.lineWidth = 4;
         g.strokeStyle = "#ffffff";
@@ -262,7 +265,7 @@ export default function GlobeJourney() {
   };
 
   return (
-    <section className="globe" ref={root} aria-label="Map of the La-Z-Boy journey">
+    <section className="globe" ref={root} aria-label={ariaLabel}>
       <div className="globe-canvas" ref={wrap}>
         <div className="globe-year" aria-hidden="true">
           {stops.map((s, i) =>
@@ -273,12 +276,16 @@ export default function GlobeJourney() {
             ) : null
           )}
         </div>
-        <canvas ref={canvas} role="img" aria-label="A globe showing the route from the USA to Thailand, India, Delhi and Little Nap" />
+        <canvas ref={canvas} role="img" aria-label={ariaLabel} />
       </div>
       <div className="globe-side">
         <ol className="globe-steps">
           {stops.map((s, i) => (
             <li key={s.place} className={i === active ? "is-active" : ""}>
+              {s.img ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="globe-photo" src={s.img} alt="" loading="lazy" style={{ objectPosition: focus(s.img) }} />
+              ) : null}
               <div className="globe-place">{s.year ? `${s.year}, ${s.place}` : s.place}</div>
               <h3>{s.title}</h3>
               <p>{s.body}</p>

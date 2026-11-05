@@ -13,13 +13,13 @@ export default function LaZBoy() {
   return (
     <>
       <PageIntro title="La-Z-Boy" lede={laZBoy.intro} />
-      <GlobeJourney />
+      <GlobeJourney stops={laZBoy.stops} ariaLabel="A globe showing La-Z-Boy from Michigan to Thailand, India, Delhi and Little Nap" />
       <div className="split">
         <section className="prose-block">
           <h2>{laZBoy.whyTitle}</h2>
           <p>{laZBoy.why}</p>
         </section>
-        <Parallax className="split-photo" src="/images/ravinder-lounge.jpg" position="50% 30%" />
+        <Parallax className="split-photo" src="/images/ravinder-lounge.jpg" />
       </div>
       <section className="timeline">
         <h2>Timeline</h2>

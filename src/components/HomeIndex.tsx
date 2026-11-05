@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { homeIndex } from "@/content";
+import { focus } from "@/focus";
 
 export default function HomeIndex() {
   const [active, setActive] = useState(0);
@@ -26,7 +27,7 @@ export default function HomeIndex() {
       <div className="hi-preview" aria-hidden="true">
         {homeIndex.map((h, i) => (
           // eslint-disable-next-line @next/next/no-img-element
-          <img key={h.img} src={h.img} alt="" className={i === active ? "is-active" : ""} />
+          <img key={h.img} src={h.img} alt="" className={i === active ? "is-active" : ""} style={{ objectPosition: focus(h.img) }} />
         ))}
       </div>
     </section>

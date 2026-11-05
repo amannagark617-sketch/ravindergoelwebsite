@@ -12,7 +12,7 @@ export default function Recognition() {
   return (
     <>
       <PageIntro title="Recognition" lede="Awards he has received, what the press has written and where he has spoken." />
-      <Parallax className="band" src="/images/ravinder-sofa-seated.jpg" position="50% 40%" />
+      <Parallax className="band" src="/images/ravinder-sofa-seated.jpg" />
       <RecognitionList />
     </>
   );

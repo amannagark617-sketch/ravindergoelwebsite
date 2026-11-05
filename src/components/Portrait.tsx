@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { portrait } from "@/content";
+import { focus } from "@/focus";
 
 export default function Portrait() {
   const root = useRef<HTMLElement>(null);
@@ -37,7 +38,7 @@ export default function Portrait() {
       <div className="portrait-frame">
         {portrait.src ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img className="photo" src={portrait.src} alt={portrait.alt} />
+          <img className="photo" src={portrait.src} alt={portrait.alt} style={{ objectPosition: focus(portrait.src) }} />
         ) : (
           <div className="empty">Portrait photo</div>
         )}

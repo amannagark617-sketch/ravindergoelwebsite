@@ -24,7 +24,7 @@ export default function Values() {
         title="Values"
         lede="Little Nap's own words on who it is and what it stands for: its DNA and five core values."
       />
-      <Parallax className="band" src="/images/ravinder-cinema-grey.jpg" position="50% 55%" />
+      <Parallax className="band" src="/images/ravinder-cinema-grey.jpg" />
       {dna.map((d) => (
         <Vision key={d.label} label={d.label} text={d.text} size="md" />
       ))}
@@ -33,7 +33,7 @@ export default function Values() {
         <ol>
           {coreValues.map((v, i) => (
             <li key={v.name} className={i % 2 ? "flip" : ""}>
-              <Parallax className="v-photo" src={photos[i]} position="50% 25%" />
+              <Parallax className="v-photo" src={photos[i]} />
               <div className="v-text">
                 <div className="v-num">{i + 1}</div>
                 <h3>{v.name}</h3>

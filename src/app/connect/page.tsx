@@ -12,7 +12,7 @@ export default function Connect() {
   return (
     <>
       <PageIntro title="Connect" lede="His LinkedIn, and every Little Nap and product link in one place." />
-      <Parallax className="band" src="/images/ravinder-cinema-seated.jpg" position="50% 45%" />
+      <Parallax className="band" src="/images/ravinder-cinema-seated.jpg" />
       <ConnectList />
     </>
   );

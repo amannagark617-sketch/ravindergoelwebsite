@@ -214,6 +214,7 @@ export const chapters: Chapter[] = [
 /* ---------- La-Z-Boy ---------- */
 
 export type Stop = {
+  img?: string;
   place: string;
   label: string;
   year?: string;
@@ -538,4 +539,104 @@ export const coreValues = [
   { name: "Ownership", line: "Act like it is your own company.", text: "Take ownership and accountability for the outcome, not just the task." },
   { name: "Learning", line: "The more you learn, the more you implement.", text: "Learning never stops, for any of us. We keep growing, one lesson at a time." },
   { name: "One Team, One Dream", line: "Unity in diversity.", text: "Teamwork, zero politics, transparency from top to bottom, and learning and growing together." },
+];
+
+/* ---------- Journey globe ---------- */
+
+export const journeyStops: Stop[] = [
+  {
+    place: "Khanpur",
+    label: "Khanpur",
+    lon: 77.23,
+    lat: 28.5,
+    k: 3.2,
+    year: "Roots",
+    title: "A middle-class boy from Khanpur.",
+    body: "Ravinder Goel grew up in a middle-class family in Khanpur. Everything that follows started from there.",
+  },
+  {
+    place: "Mumbai",
+    label: "Mumbai",
+    lon: 72.85,
+    lat: 19.03,
+    k: 2.6,
+    year: "2002",
+    title: "A management degree in Mumbai.",
+    body: "From 2002 to 2004 he studied for a Master of Management Studies at Welingkar Institute of Management, and was elected a member of its Managing Council.",
+  },
+  {
+    place: "Bengaluru",
+    label: "Bengaluru",
+    lon: 77.59,
+    lat: 12.97,
+    k: 2.6,
+    year: "2006",
+    title: "Learning to sell.",
+    body: "He learned sales from scratch, knocking on the doors of houses under construction. From 2006 to 2008 he worked in sales and marketing at Mon Chateau, Bengaluru, in luxury interiors.",
+  },
+  {
+    place: "New Delhi",
+    label: "New Delhi",
+    lon: 77.2,
+    lat: 28.6,
+    k: 3,
+    year: "2011",
+    title: "₹5 lakh, one room, three people.",
+    body: "In July 2011 he started Little Nap with a credit card loan of ₹5 lakh, a 600 sq. ft. display area and a team of three. He handled sales, dispatch and invoicing himself, including midnight dispatches.",
+  },
+  {
+    place: "Dubai",
+    label: "Dubai",
+    lon: 55.27,
+    lat: 25.2,
+    k: 2.4,
+    year: "2015",
+    img: "/images/ravinder-showroom-smile.jpg",
+    title: "Recognised in Dubai.",
+    body: "He was named The World's Greatest Leader 2015 for Asia and the GCC, selected among 120 business leaders from more than 1,100 nominations, at the Jumeirah Tower Hotel.",
+  },
+  {
+    place: "India",
+    label: "India",
+    lon: 78.9,
+    lat: 22.5,
+    k: 2.1,
+    year: "2020",
+    img: "/images/ravinder-lounge.jpg",
+    title: "La-Z-Boy chose Little Nap.",
+    body: "In April 2020, during the lockdown, Little Nap signed its first contract with La-Z-Boy and became its exclusive partner in India.",
+  },
+  {
+    place: "Thailand",
+    label: "Thailand",
+    lon: 100.5,
+    lat: 13.75,
+    k: 1.6,
+    year: "2023",
+    img: "/images/ravinder-gesture.jpg",
+    title: "A conference in Thailand.",
+    body: "In March 2023 Little Nap's team attended a La-Z-Boy conference in Thailand and received a partner recognition award.",
+  },
+  {
+    place: "Mumbai, again",
+    label: "Mumbai",
+    lon: 72.85,
+    lat: 19.03,
+    k: 2.6,
+    year: "Dec 2023",
+    img: "/images/ravinder-showroom-arms.jpg",
+    title: "Back to Welingkar.",
+    body: "Welingkar gave him its Pride of Welingkar Award for entrepreneurial success at the Annual Alumni Awards ceremony in Mumbai.",
+  },
+  {
+    place: "Manesar",
+    label: "Manesar",
+    lon: 76.94,
+    lat: 28.36,
+    k: 3.2,
+    year: "2026",
+    img: "/images/ravinder-cinema-wide.jpg",
+    title: "Fifteen years on.",
+    body: "Little Nap now runs 2 factories and 18 showrooms with a team of 470+, and a monthly capacity of 5,000 recliners. Its seats are in 1,300+ cinema screens.",
+  },
 ];

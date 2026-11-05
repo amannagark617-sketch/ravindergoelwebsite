@@ -27,7 +27,7 @@ export default function Beliefs() {
       {beliefs.map((b, i) => (
         <div className={"split" + (i % 2 ? " flip" : "")} key={b.text}>
           <Vision label={b.label} text={b.text} size="md" />
-          <Parallax className="split-photo" src={photos[i % photos.length]} position="50% 25%" />
+          <Parallax className="split-photo" src={photos[i % photos.length]} />
         </div>
       ))}
     </>

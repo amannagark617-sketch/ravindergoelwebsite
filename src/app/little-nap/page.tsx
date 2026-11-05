@@ -14,7 +14,7 @@ export default function LittleNap() {
   return (
     <>
       <PageIntro title="Little Nap" lede={littleNap.intro} />
-      <Parallax className="band" src="/images/ravinder-cinema-wide.jpg" position="50% 50%" />
+      <Parallax className="band" src="/images/ravinder-cinema-wide.jpg" />
       <CountLine tokens={littleNap.today} />
       <CountLine tokens={littleNap.cinema} />
       <div className="split flip">
@@ -23,7 +23,7 @@ export default function LittleNap() {
           <p>{littleNap.places.join(", ")}.</p>
           <p>{littleNap.craft}</p>
         </section>
-        <Parallax className="split-photo" src="/images/ravinder-showroom-lean.jpg" position="50% 30%" />
+        <Parallax className="split-photo" src="/images/ravinder-showroom-lean.jpg" />
       </div>
       <section className="group">
         <h2>{littleNap.groupTitle}</h2>

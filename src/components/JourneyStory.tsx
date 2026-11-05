@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { chapters } from "@/content";
+import { focus } from "@/focus";
 
 export default function JourneyStory({ images }: { images: (string | null)[] }) {
   const root = useRef<HTMLElement>(null);
@@ -91,7 +92,7 @@ export default function JourneyStory({ images }: { images: (string | null)[] }) 
             <figure key={c.title}>
               {images[i] ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={images[i]!} alt="" loading="lazy" />
+                <img src={images[i]!} alt="" loading="lazy" style={{ objectPosition: focus(images[i]!) }} />
               ) : null}
             </figure>
           ))}
@@ -101,7 +102,7 @@ export default function JourneyStory({ images }: { images: (string | null)[] }) 
             <article className="story-panel" key={c.title}>
               {images[chapters.indexOf(c)] ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img className="story-panel-img" src={images[chapters.indexOf(c)]!} alt="" loading="lazy" />
+                <img className="story-panel-img" src={images[chapters.indexOf(c)]!} alt="" loading="lazy" style={{ objectPosition: focus(images[chapters.indexOf(c)]!) }} />
               ) : null}
               <div className="story-panel-year">{c.year}</div>
               <h2>{c.title}</h2>

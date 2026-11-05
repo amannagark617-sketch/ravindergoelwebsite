@@ -13,7 +13,7 @@ export default function Home() {
       <Hero />
       <Portrait />
       <CountLine tokens={origin} />
-      <Parallax className="band" src="/images/ravinder-cinema-seated.jpg" position="50% 50%" />
+      <Parallax className="band" src="/images/ravinder-cinema-seated.jpg" />
       <Vision label={vision.label} text={vision.text} />
       <GalleryStrip />
       <HomeIndex />
