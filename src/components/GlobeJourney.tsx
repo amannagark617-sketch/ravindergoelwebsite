@@ -163,12 +163,15 @@ export default function GlobeJourney({ stops, ariaLabel }: { stops: Stop[]; aria
       // Stops
       g.font = "600 14px 'Bricolage Grotesque Variable', Arial, sans-serif";
       g.textBaseline = "middle";
+      const activeIdx = still ? n - 1 : fr.active;
+      const shown: { s: number; x: number; y: number }[] = [];
       for (let s = 0; s < n; s++) {
         if (!still && s > fr.i + 1) continue;
         if (geoDistance(center, pt(s)) > Math.PI / 2 - 0.02) continue;
         const xy = proj(pt(s));
         if (!xy) continue;
-        const on = s === (still ? n - 1 : fr.active);
+        shown.push({ s, x: xy[0], y: xy[1] });
+        const on = s === activeIdx;
         g.beginPath();
         g.arc(xy[0], xy[1], on ? 7 : 4.5, 0, Math.PI * 2);
         g.fillStyle = "#9b1c2e";
@@ -188,15 +191,23 @@ export default function GlobeJourney({ stops, ariaLabel }: { stops: Stop[]; aria
           g.lineWidth = 1.5;
           g.stroke();
         }
-        const act = proj(pt(still ? n - 1 : fr.active));
-        if (!on && act && Math.hypot(xy[0] - act[0], xy[1] - act[1]) < 110) continue;
-        const label = stops[s].label;
-        g.lineWidth = 4;
-        g.strokeStyle = "#ffffff";
-        g.strokeText(label, xy[0] + 16, xy[1] - 14);
-        g.fillStyle = "#1b2238";
-        g.fillText(label, xy[0] + 16, xy[1] - 14);
       }
+      // Labels: the active stop first, then the rest, skipping any that would overlap
+      const boxes: [number, number, number, number][] = [];
+      shown
+        .sort((a, b) => (a.s === activeIdx ? -1 : b.s === activeIdx ? 1 : b.s - a.s))
+        .forEach(({ s, x, y }) => {
+          const label = stops[s].label;
+          const tw = g.measureText(label).width;
+          const box: [number, number, number, number] = [x + 8, y - 26, x + 24 + tw, y - 2];
+          if (boxes.some((o) => box[0] < o[2] && box[2] > o[0] && box[1] < o[3] && box[3] > o[1])) return;
+          boxes.push(box);
+          g.lineWidth = 4;
+          g.strokeStyle = "#ffffff";
+          g.strokeText(label, x + 16, y - 14);
+          g.fillStyle = "#1b2238";
+          g.fillText(label, x + 16, y - 14);
+        });
     };
 
     const ro = new ResizeObserver(() => {
