@@ -34,7 +34,7 @@ export default function IndiaMap({
   active: string | null;
   onActive: (id: string | null) => void;
 }) {
-  const { d, pt } = useMemo(() => {
+  const { d, pt, spots } = useMemo(() => {
     const proj = geoMercator().fitExtent(
       [
         [12, 12],
@@ -42,7 +42,39 @@ export default function IndiaMap({
       ],
       india as never,
     );
-    return { d: geoPath(proj)(india as never) || "", pt: (c: [number, number]) => proj(c) as [number, number] };
+    const pt = (c: [number, number]) => proj(c) as [number, number];
+    // Nudge markers apart so no two ever sit on top of each other; a hairline keeps each tied to its true spot.
+    const nodes = [
+      ...FACTORIES.map((f) => ({ k: f.id, home: pt(f.lonlat), fixed: true })),
+      ...Object.keys(COORDS).map((k) => ({ k, home: pt(COORDS[k]), fixed: false })),
+    ].map((n) => ({ ...n, p: [n.home[0], n.home[1]] as [number, number] }));
+    const MIN = 26;
+    for (let it = 0; it < 120; it++) {
+      for (let i = 0; i < nodes.length; i++)
+        for (let j = i + 1; j < nodes.length; j++) {
+          const a = nodes[i];
+          const b = nodes[j];
+          let dx = b.p[0] - a.p[0];
+          let dy = b.p[1] - a.p[1];
+          let dd = Math.hypot(dx, dy);
+          if (dd >= MIN) continue;
+          if (dd < 0.01) {
+            dx = 1;
+            dy = 0.3;
+            dd = 1;
+          }
+          const push = (MIN - dd) / 2 + 0.1;
+          const wa = a.fixed ? 0 : b.fixed ? 1 : 0.5;
+          const wb = b.fixed ? 0 : a.fixed ? 1 : 0.5;
+          a.p[0] -= (dx / dd) * push * 2 * wa;
+          a.p[1] -= (dy / dd) * push * 2 * wa;
+          b.p[0] += (dx / dd) * push * 2 * wb;
+          b.p[1] += (dy / dd) * push * 2 * wb;
+        }
+    }
+    const spots: Record<string, { p: [number, number]; home: [number, number] }> = {};
+    nodes.forEach((n) => (spots[n.k] = { p: n.p, home: n.home as [number, number] }));
+    return { d: geoPath(proj)(india as never) || "", pt, spots };
   }, []);
 
   return (
@@ -57,12 +89,13 @@ export default function IndiaMap({
       {items.map((s, i) => {
         const c = COORDS[s.city];
         if (!c) return null;
-        const [x, y] = pt(c);
+        const { p: [x, y], home } = spots[s.city];
         const on = region === "All" || s.region === region;
         const hot = active === s.city;
         return (
+          <g key={s.city}>
+          <line x1={home[0]} y1={home[1]} x2={x} y2={y} className="im-leash" />
           <g
-            key={s.city}
             className={"im-pin" + (on ? "" : " is-dim") + (hot ? " is-hot" : "")}
             transform={`translate(${x} ${y})`}
             onMouseEnter={() => onActive(s.city)}
@@ -73,7 +106,7 @@ export default function IndiaMap({
             aria-label={`${s.city}, ${s.state}`}
           >
             <g className="im-in" style={{ animationDelay: `${0.2 + i * 0.07}s` }}>
-            <circle r="11" className="im-pulse" style={{ animationDelay: `${i * 0.25}s` }} />
+            <circle r="9" className="im-pulse" style={{ animationDelay: `${i * 0.25}s` }} />
             <circle r="5.5" className="im-dot" />
             {hot ? (
               <text y="-12" textAnchor="middle" className="im-tag">
@@ -82,10 +115,11 @@ export default function IndiaMap({
             ) : null}
             </g>
           </g>
+          </g>
         );
       })}
       {FACTORIES.map((f, i) => {
-        const [x, y] = pt(f.lonlat);
+        const [x, y] = spots[f.id].p;
         const left = false;
         return (
           <a key={f.id} href={f.href} target="_blank" rel="noopener noreferrer" aria-label={f.name}>

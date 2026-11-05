@@ -4,9 +4,11 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { coreValues } from "@/content";
-import { focus } from "@/focus";
+import Concept from "@/components/Concept";
 
-export default function ValuesWipe({ photos }: { photos: string[] }) {
+const SLUGS = ["customer-first", "integrity", "ownership", "learning", "one-team"];
+
+export default function ValuesWipe() {
   const root = useRef<HTMLElement>(null);
   const n = coreValues.length;
 
@@ -48,10 +50,9 @@ export default function ValuesWipe({ photos }: { photos: string[] }) {
     <section className="vw" ref={root} aria-label="Five core values">
       <div className="vw-figs">
         {coreValues.map((v, i) => (
-          <figure className="vw-fig" key={v.name}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={photos[i]} alt="" loading="lazy" style={{ objectPosition: focus(photos[i]) }} />
-          </figure>
+          <div className="vw-fig" key={v.name}>
+            <Concept slug={SLUGS[i]} label={v.name} />
+          </div>
         ))}
       </div>
       <div className="vw-body">

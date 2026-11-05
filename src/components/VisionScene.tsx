@@ -15,9 +15,6 @@ const BEATS = [
 
 type Pt = [number, number]; // [lat, lon]
 const MANESAR: Pt = [28.35, 76.94];
-const MICHIGAN: Pt = [41.9, -83.4];
-const THAILAND: Pt = [13.36, 101.0];
-const MALAYSIA: Pt = [3.14, 101.69];
 const SHOWROOMS: Pt[] = [
   [27.18, 78.01], [23.03, 72.58], [12.97, 77.59], [23.26, 77.41], [13.08, 80.27], [11.02, 76.96],
   [28.48, 77.13], [17.38, 78.48], [22.72, 75.86], [26.91, 75.79], [10.96, 78.08], [28.65, 77.15],
@@ -27,9 +24,7 @@ const SHOWROOMS: Pt[] = [
 const LABELS = [
   { text: "Manesar, Haryana", at: MANESAR, from: 0.12, to: 0.34 },
   { text: "18 showrooms", at: [20.5, 79] as Pt, from: 0.36, to: 0.66 },
-  { text: "Seating Spectrum, Malaysia", at: MALAYSIA, from: 0.7, to: 1.1 },
-  { text: "La-Z-Boy Asia, Thailand", at: THAILAND, from: 0.74, to: 1.1 },
-  { text: "La-Z-Boy, Michigan", at: MICHIGAN, from: 0.84, to: 1.1 },
+  { text: "Little Nap, to the world", at: [35, 20] as Pt, from: 0.74, to: 1.1 },
 ];
 
 const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
@@ -194,19 +189,14 @@ export default function VisionScene() {
         m.scale.setScalar(0);
         return { m, arc: tube(arc(MANESAR, p, 0.09), 0.0028) };
       });
-      const far = [
-        { a: tube(arc(MANESAR, THAILAND, 0.16)), p: THAILAND, from: 0.68, to: 0.8 },
-        { a: tube(arc(MANESAR, MALAYSIA, 0.16)), p: MALAYSIA, from: 0.7, to: 0.82 },
-        { a: tube(arc(MICHIGAN, THAILAND, 0.34)), p: MICHIGAN, from: 0.78, to: 0.92 },
-        { a: tube(arc(MANESAR, MICHIGAN, 0.3)), p: MICHIGAN, from: 0.82, to: 0.96 },
-      ];
-      [THAILAND, MALAYSIA, MICHIGAN].forEach((p, i) => {
-        const m = pin(p, 0.02);
+      // The vision, not a claim: arcs from Manesar out to the world's great cities.
+      const HUBS: Pt[] = [[51.5, -0.12], [40.7, -74], [25.2, 55.3], [1.35, 103.8], [-33.9, 151.2], [43.7, -79.4], [-26.2, 28], [35.7, 139.7]];
+      const far = HUBS.map((p, i) => ({ a: tube(arc(MANESAR, p, 0.3), 0.0035), from: 0.68 + i * 0.03, to: 0.8 + i * 0.03 }));
+      HUBS.forEach((p, i) => {
+        const m = pin(p, 0.014);
         m.visible = false;
-        far.push({ a: { set() {} }, p, from: 0.7 + i * 0.05, to: 1 });
-        (m as THREE.Mesh & { reveal?: number }).reveal = 0.7 + i * 0.05;
+        (m as THREE.Mesh & { reveal?: number }).reveal = 0.8 + i * 0.03;
       });
-      void home;
 
       const size = () => {
         const b = wrap.current!.getBoundingClientRect();
@@ -224,11 +214,11 @@ export default function VisionScene() {
         const c = smooth(clamp((P - 0.66) / 0.32));
         let lon = -30 + (77 + 30) * a;
         let lat = 14 + 12 * a;
-        let dist = 9 - (9 - 3.7) * a;
-        dist += smooth(clamp((P - 0.34) / 0.3)) * 0.55;
-        lon += c * (-35 - 77); // swing from India across the Atlantic to Michigan
-        lat += c * (24 - 26);
-        dist += c * 1.9;
+        let dist = 9 - (9 - 3.75) * a;
+        dist += smooth(clamp((P - 0.34) / 0.3)) * 0.15;
+        lon += c * (-5 - 77); // swing from India across the Atlantic to Michigan
+        lat += c * (30 - 26);
+        dist += c * 1.0;
         return { lon, lat, dist };
       };
 
@@ -252,7 +242,7 @@ export default function VisionScene() {
         const fit = cam.aspect < 1 ? 1 + (1 / cam.aspect - 1) * 1.0 : 1;
         const p = dir([st.lat, st.lon], st.dist * fit);
         cam.position.copy(p);
-        cam.lookAt(0, 0, 0);
+        cam.lookAt(0, -0.16, 0);
         light.position.copy(p).add(new THREE.Vector3(2, 3, 1));
 
         const P = st.P;
