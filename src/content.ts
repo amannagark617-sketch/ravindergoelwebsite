@@ -33,6 +33,7 @@ export const nav = [
   { href: "/recognition", label: "Recognition" },
   { href: "/gallery", label: "Gallery" },
   { href: "/little-nap", label: "Little Nap" },
+  { href: "/showrooms", label: "Showrooms" },
   { href: "/connect", label: "Connect" },
 ];
 
@@ -347,7 +348,7 @@ export const beliefs = [
 
 /* ---------- Recognition ---------- */
 
-export type Entry = { year: string; title: string; source: string; note?: string; href?: string };
+export type Entry = { year: string; title: string; source: string; note?: string; href?: string; img?: string };
 
 export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = {
   awards: [
@@ -357,8 +358,10 @@ export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = 
       source: "Indian Achievers Forum",
       note: "For entrepreneurial leadership, manufacturing excellence and contribution to India's premium furniture and recliner industry, under the vision of Viksit Bharat 2047.",
       href: "https://www.iafindia.com/mr-ravinder-goel/",
+      img: "https://www.iafindia.com/wp-content/uploads/2026/02/Mr-Ravinder-Goel.jpg",
     },
-    { year: "2025", title: "10 Best Business Leaders in India 2025", source: "TradeFlock", href: "https://tradeflock.com/ravinder-goel-10-best-business-leaders-in-india-2025" },
+    { year: "2025", title: "10 Best Business Leaders in India 2025", source: "TradeFlock", href: "https://tradeflock.com/ravinder-goel-10-best-business-leaders-in-india-2025",
+      img: "https://tradeflock.com/wp-content/uploads/2025/04/Ravider-goel-1.jpg" },
     {
       year: "2023",
       title: "Pride of Welingkar Award, Entrepreneurial Success",
@@ -370,6 +373,7 @@ export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = 
       title: "100 Inspiring Entrepreneurs of India 2023",
       source: "The Entrepreneurs of India",
       href: "https://www.theentrepreneursofindia.in/post/ravinder-goel-100-inspiring-entrepreneurs-of-india-2023",
+      img: "https://static.wixstatic.com/media/ec32c5_0d863dda8344498cb7a1ad0c4e55ec85~mv2.jpeg/v1/fill/w_1066,h_1600,al_c,q_85/ec32c5_0d863dda8344498cb7a1ad0c4e55ec85~mv2.jpeg",
     },
     {
       year: "2015",
@@ -379,7 +383,8 @@ export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = 
     },
   ],
   press: [
-    { year: "2026", title: "How Ravinder Goel Made Little Nap the Go-To for Ultimate Comfort", source: "Sugermint", href: "https://sugermint.com/ravinder-goel/" },
+    { year: "2026", title: "How Ravinder Goel Made Little Nap the Go-To for Ultimate Comfort", source: "Sugermint", href: "https://sugermint.com/ravinder-goel/",
+      img: "https://sugermint.com/wp-content/uploads/2026/02/Ravinder-Goel.jpg" },
     {
       year: "2025",
       title: "Ravinder Goel: Redefining Comfort with Craft, Conviction, and a Cause",
@@ -392,12 +397,14 @@ export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = 
       title: "Little Nap Recliners: A Brand Committed to Elevating the Future of the Recliner Industry Worldwide",
       source: "Prime Insights",
       href: "https://primeinsights.in/little-nap-recliners/",
+      img: "https://primeinsights.in/wp-content/uploads/2023/03/Banner-little-nap.jpg",
     },
     {
       year: "2022",
       title: "Meet Ravinder Goel, Brain Behind the Little Nap Recliner",
       source: "The Entrepreneurs of India",
       href: "https://www.theentrepreneursofindia.in/post/meet-ravinder-goel-brain-behind-the-little-nap-recliner",
+      img: "https://static.wixstatic.com/media/ec32c5_6a1ea37e16b547439115c0685855e242~mv2.jpeg/v1/fill/w_900,h_1350,al_c,q_85/ec32c5_6a1ea37e16b547439115c0685855e242~mv2.jpeg",
     },
     {
       year: "2021",
@@ -405,6 +412,7 @@ export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = 
       source: "CEO Insights magazine",
       note: "November 2021 cover feature.",
       href: "https://www.ceoinsightsindia.com/leader/ravinder-goel-steering-indian-furniture-industry-to-a-promising-future-cid-3371.html",
+      img: "https://www.ceoinsightsindia.com/uploaded_images/mag_cover/kb8dUntitleMangru34-er270d-1.jpg",
     },
     {
       year: "2019",
@@ -418,7 +426,7 @@ export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = 
     { year: "2025", title: "How He Built a ₹100 Crore Furniture Empire", source: "Personal story episode", note: "On failed entrance exams, a fifth-grade math book and learning sales door to door.", href: "https://youtu.be/lZpzhJfoxog" },
     { year: "2025", title: "How One Simple Observation Built a ₹100 Crore Brand", source: "Podcast", note: "On the 2011 observation that customers on a recliner didn't want to get up.", href: "https://www.youtube.com/watch?v=h8XsLDtAtxQ&t=752s" },
     { year: "2019", title: "Business Ki Aawaz", source: "Janta TV, 7 September 2019", note: "A full interview on his entrepreneurial journey and business challenges.", href: "https://www.youtube.com/watch?v=pYPJTgM-lv8" },
-    { year: "2018", title: "Franchise India Show 2018", source: "Times Now", note: "Little Nap won the purple ticket.", href: "http://www.youtube.com/watch?v=DclbyzaTmvE" },
+    { year: "2018", title: "Franchise India Show 2018", source: "Times Now", note: "Little Nap won the purple ticket.", href: "http://www.youtube.com/watch?v=DcIbyzaTmvE" },
   ],
 };
 
@@ -574,4 +582,29 @@ export const proof = [
   { n: "2", l: "factories" },
   { n: "18", l: "showrooms" },
   { n: "470+", l: "people" },
+];
+
+/* ---------- Showrooms (from the Little Nap store locator) ---------- */
+
+export type Showroom = { city: string; state: string; region: "North" | "West" | "South" | "Central"; phone: string; map: string; img: string };
+const SR = "https://little-nap-website.savaapi.com/ssr/little/little-nap-website/assets/showrooms";
+export const showrooms: Showroom[] = [
+  { city: "Agra", state: "Uttar Pradesh", region: "North", phone: "+91 88828 00600", map: "https://maps.app.goo.gl/pumK7cqwW7gA56Rs7", img: `${SR}/agra/1.webp?v=f0d71bb2` },
+  { city: "Ahmedabad", state: "Gujarat", region: "West", phone: "+91 88828 00600", map: "https://maps.app.goo.gl/s4iqQH5hrSqzPgqx5", img: `${SR}/ahmedabad/1.webp?v=0ea4333d` },
+  { city: "Bangalore", state: "Karnataka", region: "South", phone: "+91 88828 00600", map: "https://g.page/little-nap-recliners-bangalore?share", img: `${SR}/bangalore/1.webp?v=c2570991` },
+  { city: "Bhopal", state: "Madhya Pradesh", region: "Central", phone: "+91 88828 00600", map: "https://maps.app.goo.gl/gH2zc4DZ6sKjZYZeA", img: `${SR}/bhopal/1.webp?v=51e7b769` },
+  { city: "Chennai", state: "Tamil Nadu", region: "South", phone: "+91 94432 12345", map: "https://maps.app.goo.gl/KFgaJf1P5yg6HVSr9", img: `${SR}/chennai/1.webp?v=625a4bd6` },
+  { city: "Coimbatore", state: "Tamil Nadu", region: "South", phone: "+91 94432 12345", map: "https://maps.app.goo.gl/Dj1ecku5Li2t9tX77", img: `${SR}/coimbatore/1.webp?v=bd0f6a2c` },
+  { city: "Ghitorni", state: "New Delhi", region: "North", phone: "+91 88828 00600", map: "https://goo.gl/maps/aFTKbJWLDt1aatuPA", img: `${SR}/ghitorni/1.webp?v=0a362002` },
+  { city: "Hyderabad", state: "Telangana", region: "South", phone: "+91 88828 00600", map: "https://maps.app.goo.gl/VvVUtCF6xf4raRVp6", img: `${SR}/hyderabad/1.webp?v=951fb81b` },
+  { city: "Indore", state: "Madhya Pradesh", region: "Central", phone: "+91 88828 00600", map: "https://maps.app.goo.gl/3TxbHhsLBJs1RNJs5", img: `${SR}/indore/1.webp?v=b1805c65` },
+  { city: "Jaipur", state: "Rajasthan", region: "North", phone: "+91 88828 00600", map: "https://maps.app.goo.gl/pqa1AnWjLS3BVb6T6", img: `${SR}/jaipur/1.webp?v=51d29844` },
+  { city: "Karur", state: "Tamil Nadu", region: "South", phone: "+91 94432 12345", map: "https://maps.app.goo.gl/HUJSnGz4jPcFFbvFA", img: `${SR}/karur/1.webp?v=5b966bdc` },
+  { city: "Kirti Nagar", state: "New Delhi", region: "North", phone: "+91 88828 00600", map: "https://goo.gl/maps/211idX4Ut2H7Qyec7", img: `${SR}/kirti-nagar/1.webp?v=567321d6` },
+  { city: "Ludhiana", state: "Punjab", region: "North", phone: "+91 88828 00600", map: "https://maps.app.goo.gl/Rw249RKGwr2H7j8XA", img: `${SR}/ludhiana/1.webp?v=72265cf9` },
+  { city: "Mumbai", state: "Maharashtra", region: "West", phone: "+91 88828 00600", map: "https://maps.app.goo.gl/p1u7RXnF3gqWhVpMA", img: `${SR}/mumbai/1.webp?v=c9901f5f` },
+  { city: "Panipat", state: "Haryana", region: "North", phone: "+91 88828 00600", map: "https://maps.app.goo.gl/a4pagQjnBDDs1tTE6", img: `${SR}/panipat/1.webp?v=9f7200df` },
+  { city: "Pune", state: "Maharashtra", region: "West", phone: "+91 88828 00600", map: "https://maps.app.goo.gl/54Pv9kdT2dzuxdMj6", img: `${SR}/pune/1.webp?v=198f3763` },
+  { city: "Raipur", state: "Chhattisgarh", region: "Central", phone: "+91 88828 00600", map: "https://maps.app.goo.gl/dpXJU888sNZqVaD16", img: `${SR}/raipur/1.webp?v=5c6ec95c` },
+  { city: "Vapi", state: "Gujarat", region: "West", phone: "+91 88828 00600", map: "https://maps.app.goo.gl/iTaWQZw1omvatDJD6", img: `${SR}/vapi/1.webp?v=412bc705` },
 ];
