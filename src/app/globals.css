@@ -927,6 +927,12 @@ img {
   color: var(--slate);
 }
 
+.sources {
+  margin-top: 2rem;
+  color: var(--slate);
+  font-size: 1rem;
+}
+
 .link-row {
   display: flex;
   flex-wrap: wrap;

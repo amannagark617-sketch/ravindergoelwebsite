@@ -19,6 +19,16 @@ const DWELL = 0.3;
 const ease = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
 const pt = (i: number): [number, number] => [stops[i].lon, stops[i].lat];
 
+function planePath(g: CanvasRenderingContext2D) {
+  const p: [number, number][] = [
+    [0, -12], [2, -5], [11, 1], [11, 3.5], [2, 1.5], [1.6, 8], [5, 10], [5, 11.5], [0, 10.5],
+    [-5, 11.5], [-5, 10], [-1.6, 8], [-2, 1.5], [-11, 3.5], [-11, 1], [-2, -5],
+  ];
+  g.beginPath();
+  p.forEach(([x, y], i) => (i ? g.lineTo(x, y) : g.moveTo(x, y)));
+  g.closePath();
+}
+
 function frame(P: number) {
   const u = Math.min(P / HOLD, 1) * (n - 1);
   const i = Math.min(Math.floor(u), n - 1);
@@ -36,7 +46,7 @@ export default function GlobeJourney() {
   const wrap = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
   const trigger = useRef<ScrollTrigger | null>(null);
-  const last = useRef({ P: 0, still: true, w: 0, h: 0 });
+  const last = useRef({ P: 0, still: true, w: 0, h: 0, ripple: 1, active: 0 });
   const [active, setActive] = useState(0);
 
   useLayoutEffect(() => {
@@ -86,6 +96,20 @@ export default function GlobeJourney() {
       g.lineWidth = 1.2;
       g.stroke();
 
+      // Planned route, dashed
+      g.setLineDash([2, 7]);
+      for (let s = 0; s < n - 1; s++) {
+        const full: [number, number][] = [];
+        const ip = geoInterpolate(pt(s), pt(s + 1));
+        for (let q = 0; q <= 60; q++) full.push(ip(q / 60) as [number, number]);
+        g.beginPath();
+        path({ type: "LineString", coordinates: full });
+        g.strokeStyle = "#8a93a8";
+        g.lineWidth = 1.5;
+        g.stroke();
+      }
+      g.setLineDash([]);
+
       // Route arcs
       for (let s = 0; s < n - 1; s++) {
         const frac = still ? 1 : s < fr.i ? 1 : s === fr.i ? fr.tr : 0;
@@ -102,18 +126,36 @@ export default function GlobeJourney() {
         g.stroke();
       }
 
-      // Travelling head of the active arc
+      // Aeroplane flying the active arc
       if (!still && fr.i < n - 1 && fr.tr > 0 && fr.tr < 1) {
-        const head = geoInterpolate(pt(fr.i), pt(fr.i + 1))(fr.tr) as [number, number];
+        const ip = geoInterpolate(pt(fr.i), pt(fr.i + 1));
+        const head = ip(fr.tr) as [number, number];
+        const ahead = ip(Math.min(fr.tr + 0.012, 1)) as [number, number];
         const hp = proj(head);
-        if (hp && geoDistance(center, head) < Math.PI / 2) {
-          g.beginPath();
-          g.arc(hp[0], hp[1], 8, 0, Math.PI * 2);
-          g.fillStyle = "#ffffff";
+        const ap = proj(ahead);
+        if (hp && ap && geoDistance(center, head) < Math.PI / 2) {
+          const ang = Math.atan2(ap[1] - hp[1], ap[0] - hp[0]) + Math.PI / 2;
+          const sc = 1.25 + 0.9 * Math.sin(Math.PI * fr.tr);
+          // shadow on the ground
+          g.save();
+          g.translate(hp[0] + 6, hp[1] + 14 * sc);
+          g.rotate(ang);
+          g.scale(sc * 0.8, sc * 0.8);
+          g.fillStyle = "rgba(27,34,56,0.18)";
+          planePath(g);
           g.fill();
-          g.lineWidth = 3;
-          g.strokeStyle = "#9b1c2e";
+          g.restore();
+          g.save();
+          g.translate(hp[0], hp[1]);
+          g.rotate(ang);
+          g.scale(sc, sc);
+          planePath(g);
+          g.fillStyle = "#9b1c2e";
+          g.fill();
+          g.lineWidth = 1.6 / sc;
+          g.strokeStyle = "#ffffff";
           g.stroke();
+          g.restore();
         }
       }
 
@@ -130,6 +172,14 @@ export default function GlobeJourney() {
         g.arc(xy[0], xy[1], on ? 7 : 4.5, 0, Math.PI * 2);
         g.fillStyle = "#9b1c2e";
         g.fill();
+        if (on && !still && last.current.ripple < 1) {
+          const rp = last.current.ripple;
+          g.beginPath();
+          g.arc(xy[0], xy[1], 13 + 46 * rp, 0, Math.PI * 2);
+          g.strokeStyle = `rgba(155,28,46,${0.6 * (1 - rp)})`;
+          g.lineWidth = 2;
+          g.stroke();
+        }
         if (on) {
           g.beginPath();
           g.arc(xy[0], xy[1], 13, 0, Math.PI * 2);
@@ -168,7 +218,19 @@ export default function GlobeJourney() {
           anticipatePin: 1,
           onUpdate: (self) => {
             last.current.P = self.progress;
-            setActive(frame(self.progress).active);
+            const act = frame(self.progress).active;
+            if (act !== last.current.active) {
+              last.current.active = act;
+              last.current.ripple = 0;
+              const t0 = performance.now();
+              const loop = (now: number) => {
+                last.current.ripple = Math.min((now - t0) / 1400, 1);
+                draw();
+                if (last.current.ripple < 1) requestAnimationFrame(loop);
+              };
+              requestAnimationFrame(loop);
+            }
+            setActive(act);
             draw();
           },
         });

@@ -31,6 +31,17 @@ export default function LaZBoy() {
             </li>
           ))}
         </ol>
+        <p className="sources">
+          Sources:{" "}
+          {laZBoy.sources.map((x, i) => (
+            <span key={x.href}>
+              {i ? ", " : ""}
+              <a href={x.href} target="_blank" rel="noopener noreferrer">
+                {x.label}
+              </a>
+            </span>
+          ))}
+        </p>
         <div className="link-row">
           {laZBoy.links.map((l) => (
             <a className="btn" key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">

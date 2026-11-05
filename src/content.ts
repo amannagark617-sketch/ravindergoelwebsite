@@ -226,27 +226,40 @@ export type Stop = {
 
 export const laZBoy = {
   intro:
-    "La-Z-Boy begins in the USA. Scroll to follow it to Asia, to the 2020 exclusive partnership in India, and on to Delhi and Little Nap.",
+    "From Monroe, Michigan in 1927 to Thailand and across Asia, then to the exclusive partnership in India in 2020. Scroll to fly the route.",
   stops: [
     {
-      place: "Michigan, USA",
+      place: "Monroe, Michigan",
       label: "La-Z-Boy",
       lon: -83.4,
       lat: 41.9,
       k: 1.25,
-      title: "La-Z-Boy starts here.",
+      year: "1927",
+      title: "It starts in Monroe, Michigan.",
       body:
-        "La-Z-Boy, Incorporated is an American recliner brand based in Michigan. Little Nap's La-Z-Boy recliners are made to its standards under its licence.",
+        "Cousins Edward Knabusch and Edwin Shoemaker start a furniture business in Monroe and design a reclining wood-slat porch chair. A naming contest gives the chair its name: La-Z-Boy.",
     },
     {
       place: "Thailand",
       label: "Thailand",
       lon: 100.5,
       lat: 13.75,
-      k: 0.95,
-      title: "Across to Asia.",
+      k: 1.2,
+      year: "1998",
+      title: "Asia begins in Thailand.",
       body:
-        "In March 2023 Little Nap's team attended a La-Z-Boy conference in Thailand and received a partner recognition award.",
+        "La-Z-Boy Thailand is set up as a joint venture between Thai and New Zealand partners and La-Z-Boy USA, to make recliners for La-Z-Boy. Its capacity at the start is 1,200 seats a year.",
+    },
+    {
+      place: "Chon Buri, Thailand",
+      label: "Chon Buri",
+      lon: 101.0,
+      lat: 13.36,
+      k: 3.0,
+      year: "2004",
+      title: "A factory that serves the world.",
+      body:
+        "A new factory is built in Chon Buri province to meet rising demand. Annual capacity now reaches 156,000 seats, and about 90% is exported. La-Z-Boy Asia now covers over 18 countries.",
     },
     {
       place: "India",
@@ -265,6 +278,7 @@ export const laZBoy = {
       lon: 77.2,
       lat: 28.6,
       k: 2.8,
+      year: "2022",
       title: "La-Z-Boy meets the team.",
       body:
         "Little Nap is headquartered in New Delhi. On 12 December 2022 La-Z-Boy visited for the first time to meet the team.",
@@ -275,6 +289,7 @@ export const laZBoy = {
       lon: 77.15,
       lat: 28.49,
       k: 3.4,
+      year: "2023",
       title: "Signed in person.",
       body:
         "On 20 April 2023 a contract ceremony was held at Little Nap's office, attended by La-Z-Boy's Asia team.",
@@ -284,11 +299,19 @@ export const laZBoy = {
   why:
     "According to CEO Insights, La-Z-Boy selected Little Nap as its authorised partner in India because of its business ethics and core values, its team, and its growth over ten years.",
   timeline: [
+    { date: "1927", text: "Edward Knabusch and Edwin Shoemaker start La-Z-Boy in Monroe, Michigan." },
+    { date: "1998", text: "La-Z-Boy Thailand begins as a joint venture with Thai and New Zealand partners." },
+    { date: "2004", text: "The Chon Buri factory in Thailand is built to meet rising demand." },
     { date: "April 2020", text: "First contract signed during the lockdown. Little Nap becomes La-Z-Boy's exclusive partner in India." },
     { date: "October 2022", text: "A La-Z-Boy business meeting is held in the USA." },
     { date: "12 December 2022", text: "La-Z-Boy visits for the first time to meet the team." },
     { date: "March 2023", text: "Little Nap's team attends a La-Z-Boy conference and receives a partner recognition award." },
     { date: "20 April 2023", text: "A contract ceremony is held at Little Nap's office, attended by La-Z-Boy's Asia team." },
+  ],
+  sources: [
+    { label: "La-Z-Boy on Wikipedia", href: "https://en.wikipedia.org/wiki/La-Z-Boy" },
+    { label: "La-Z-Boy Thailand, AmCham Thailand", href: "https://connect.amchamthailand.com/list/member/la-z-boy-thailand-ltd-2271" },
+    { label: "La-Z-Boy India", href: "https://la-z-boyindia.com/" },
   ],
   links: [
     { label: "Watch the founder tell the story", href: "https://x.com/LittleNap1/status/1898580754768306588" },
