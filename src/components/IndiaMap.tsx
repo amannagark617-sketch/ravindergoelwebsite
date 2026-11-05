@@ -80,12 +80,54 @@ export default function IndiaMap({
   return (
     <svg className="im" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Map of India with Little Nap showrooms and the two factories" onMouseLeave={() => onActive(null)}>
       <defs>
-        <linearGradient id="im-fill" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#f4f6fb" />
-          <stop offset="1" stopColor="#dfe5f1" />
+        <linearGradient id="im-fill" x1="0" y1="0" x2="0.6" y2="1">
+          <stop offset="0" stopColor="#ffffff" />
+          <stop offset="0.55" stopColor="#eef1f8" />
+          <stop offset="1" stopColor="#d5dcec" />
         </linearGradient>
+        <pattern id="im-dots" width="9" height="9" patternUnits="userSpaceOnUse">
+          <circle cx="4.5" cy="4.5" r="1.1" fill="#1b2238" fillOpacity="0.16" />
+        </pattern>
+        <radialGradient id="im-glow" cx="0.5" cy="0.45" r="0.48">
+          <stop offset="0" stopColor="#a81d36" stopOpacity="0.1" />
+          <stop offset="1" stopColor="#a81d36" stopOpacity="0" />
+        </radialGradient>
+        <filter id="im-blur" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="10" />
+        </filter>
+        <clipPath id="im-clip">
+          <path d={d} />
+        </clipPath>
       </defs>
+      <rect x="0" y="0" width={W} height={H} fill="url(#im-glow)" />
+      {[0.25, 0.4, 0.55].map((k, i) => (
+        <circle key={i} cx={spots.manesar.p[0]} cy={spots.manesar.p[1]} r={k * W} className="im-radar" style={{ animationDelay: `${i * 1.2}s` }} />
+      ))}
+      <path d={d} transform="translate(0 16)" className="im-shadow" filter="url(#im-blur)" />
+      <path d={d} transform="translate(0 7)" className="im-edge" />
       <path d={d} className="im-land" />
+      <g clipPath="url(#im-clip)">
+        <rect x="0" y="0" width={W} height={H} fill="url(#im-dots)" />
+        <rect x="-60" y="0" width="60" height={H} className="im-scan" />
+      </g>
+      {items.map((s, i) => {
+        const c = COORDS[s.city];
+        if (!c) return null;
+        const [x, y] = spots[s.city].p;
+        const f = FACTORIES.reduce((m, q) => (Math.hypot(spots[q.id].p[0] - x, spots[q.id].p[1] - y) < Math.hypot(spots[m.id].p[0] - x, spots[m.id].p[1] - y) ? q : m));
+        const [fx, fy] = spots[f.id].p;
+        const mx = (x + fx) / 2 + (fy - y) * 0.18;
+        const my = (y + fy) / 2 - (fx - x) * 0.18;
+        const on = region === "All" || s.region === region;
+        return (
+          <path
+            key={"l" + s.city}
+            d={`M ${fx} ${fy} Q ${mx} ${my} ${x} ${y}`}
+            className={"im-flow" + (on ? "" : " is-dim") + (active === s.city ? " is-hot" : "")}
+            style={{ animationDelay: `${i * 0.12}s` }}
+          />
+        );
+      })}
       {items.map((s, i) => {
         const c = COORDS[s.city];
         if (!c) return null;
@@ -125,7 +167,9 @@ export default function IndiaMap({
           <a key={f.id} href={f.href} target="_blank" rel="noopener noreferrer" aria-label={f.name}>
             <g transform={`translate(${x} ${y})`} className="im-fac">
               <g className="im-in" style={{ animationDelay: `${1.6 + i * 0.2}s` }}>
-              <rect x="-8" y="-8" width="16" height="16" className="im-sq" />
+              <circle r="17" className="im-ring" />
+              <rect x="-9" y="-9" width="18" height="18" className="im-sq" />
+              <rect x="-3" y="-3" width="6" height="6" className="im-sq-core" />
               <text x={left ? -14 : 14} y={f.id === "indore" ? 26 : -14} textAnchor={left ? "end" : "start"} className="im-fac-label">
                 {f.name}
               </text>
