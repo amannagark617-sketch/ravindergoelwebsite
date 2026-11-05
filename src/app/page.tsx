@@ -1,11 +1,11 @@
 import Hero from "@/components/Hero";
 import Portrait from "@/components/Portrait";
 import CountLine from "@/components/CountLine";
-import Parallax from "@/components/Parallax";
+import VideoPlayer from "@/components/VideoPlayer";
+import Link from "next/link";
 import Vision from "@/components/Vision";
 import GalleryStrip from "@/components/GalleryStrip";
-import HomeIndex from "@/components/HomeIndex";
-import { origin, vision } from "@/content";
+import { origin, vision, VISION_PLAYLIST } from "@/content";
 
 export default function Home() {
   return (
@@ -13,10 +13,16 @@ export default function Home() {
       <Hero />
       <Portrait />
       <CountLine tokens={origin} />
-      <Parallax className="band" src="/images/ravinder-cinema-seated.jpg" />
       <Vision label={vision.label} text={vision.text} />
       <GalleryStrip />
-      <HomeIndex />
+      <section className="vp-section">
+        <VideoPlayer list={VISION_PLAYLIST.id} title={VISION_PLAYLIST.title} note="Press play. 9 videos." />
+        <p className="vp-links">
+          <Link className="btn" href="/vision">
+            More on the vision page
+          </Link>
+        </p>
+      </section>
     </>
   );
 }

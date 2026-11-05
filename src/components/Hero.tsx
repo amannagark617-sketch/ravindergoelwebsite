@@ -4,7 +4,7 @@ import { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { LINKEDIN, person } from "@/content";
+import { LINKEDIN, person, proof } from "@/content";
 import dynamic from "next/dynamic";
 
 const ChairHero = dynamic(() => import("@/components/ChairHero"), { ssr: false });
@@ -24,7 +24,7 @@ export default function Hero() {
           stagger: 0.14,
           ease: "power4.out",
         });
-        gsap.from(".hero-sub, .hero-links, .hero-cue", {
+        gsap.from(".hero-sub, .hero-proof, .hero-links, .hero-cue", {
           opacity: 0,
           y: 14,
           duration: 1,
@@ -48,7 +48,7 @@ export default function Hero() {
             anticipatePin: 1,
           },
         });
-        gsap.to(".hero-sub, .hero-links, .hero-cue", {
+        gsap.to(".hero-sub, .hero-proof, .hero-links, .hero-cue", {
           opacity: 0,
           ease: "none",
           scrollTrigger: {
@@ -75,6 +75,13 @@ export default function Hero() {
         </span>
       </h1>
       <p className="hero-sub">{person.intro}</p>
+      <ul className="hero-proof">
+        {proof.map((p) => (
+          <li key={p.l}>
+            <strong>{p.n}</strong> {p.l}
+          </li>
+        ))}
+      </ul>
       <div className="hero-links">
         <Link className="btn btn-solid" href="/journey">
           Read the journey

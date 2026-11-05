@@ -1,18 +1,12 @@
 import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
+import { mergeGeometries, toCreasedNormals } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 
 /*
- Little Nap recliner. Faces +z. setRecline(0) upright, footrest folded; setRecline(1) fully reclined.
-
- A real model can replace the procedural chair: put a glTF at /public/models/recliner.glb that contains
- nodes named `back`, `footrest` (each with its pivot at the hinge), plus anything else as static parts
- (`seat`, `base`, ...). It is picked up automatically; no code change.
+ The real Little Nap chair loads from /public/models/recliner.glb (full detail) and recliner-lite.glb (light, for many chairs).
+ If they fail to load, a procedural chair is used instead.
 */
-
-/** Set to true once /public/models/recliner.glb exists. */
-const HAS_GLB = false;
 
 export type Chair = { group: THREE.Group; setRecline: (r: number) => void };
 
@@ -32,7 +26,8 @@ type Shared = {
   mech: THREE.BufferGeometry;
 };
 let shared: Shared | null = null;
-let glb: THREE.Object3D | null = null;
+type Model = { hi: THREE.BufferGeometry; lite: THREE.BufferGeometry; leather: THREE.MeshPhysicalMaterial };
+let model: Model | null = null;
 let primed: Promise<void> | null = null;
 
 /** Extrude a side profile drawn in (z, y) across the chair's width, centred on x = 0. */
@@ -213,37 +208,66 @@ function proceduralChair(): Chair {
   return { group, setRecline };
 }
 
-function glbChair(): Chair {
+/* The real Little Nap chair, scanned as one solid piece: it cannot recline, so it turns and lifts instead. */
+const STEEL = 0x6f87ad;
+
+function realChair(detail: "hi" | "lite"): Chair {
+  const m = model!;
   const group = new THREE.Group();
-  const model = glb!.clone(true);
-  group.add(model);
-  const back = model.getObjectByName("back");
-  const foot = model.getObjectByName("footrest");
+  const shadow = new THREE.Mesh(getShared().shadowGeo, getShared().shadow);
+  shadow.rotation.x = -Math.PI / 2;
+  shadow.position.y = 0.002;
+  group.add(shadow);
+  const mesh = new THREE.Mesh(detail === "hi" ? m.hi : m.lite, m.leather);
+  group.add(mesh);
+  // r (0..1) lifts the chair a touch; the scenes use it as a gentle wave.
   const setRecline = (r: number) => {
-    const t = Math.min(Math.max(r, 0), 1);
-    if (back) back.rotation.x = -t * 0.62;
-    if (foot) foot.rotation.x = (1 - t) * 1.1 - t * 0.1;
+    mesh.position.y = Math.min(Math.max(r, 0), 1) * 0.1;
   };
-  setRecline(0);
   return { group, setRecline };
 }
 
-export function createChair(): Chair {
-  return glb ? glbChair() : proceduralChair();
+export function createChair(detail: "hi" | "lite" = "lite"): Chair {
+  return model ? realChair(detail) : proceduralChair();
 }
 
-/** Looks once for /models/recliner.glb. Resolves either way; createChair() then uses the best available. */
+function prep(g: THREE.BufferGeometry, crease: number): THREE.BufferGeometry {
+  g.deleteAttribute("normal");
+  const c = toCreasedNormals(g, crease);
+  c.computeBoundingBox();
+  const bb = c.boundingBox!;
+  c.translate(0, -bb.min.y, 0); // floor at y = 0
+  c.scale(0.72, 0.72, 0.72);
+  return c;
+}
+
+/** Loads the real chair (full detail and light). Falls back to the procedural chair if it fails. */
 export function primeChairModel(): Promise<void> {
   if (primed) return primed;
   primed = (async () => {
-    if (!HAS_GLB) return;
     try {
-      const head = await fetch("/models/recliner.glb", { method: "HEAD" });
-      if (!head.ok) return;
-      const gltf = await new GLTFLoader().loadAsync("/models/recliner.glb");
-      glb = gltf.scene;
+      const loader = new GLTFLoader();
+      const [hi, lite] = await Promise.all([
+        loader.loadAsync("/models/recliner.glb"),
+        loader.loadAsync("/models/recliner-lite.glb"),
+      ]);
+      const geo = (g: { scene: THREE.Object3D }) => (g.scene.children[0] as THREE.Mesh).geometry;
+      model = {
+        hi: prep(geo(hi), Math.PI / 4),
+        lite: prep(geo(lite), Math.PI / 5),
+        leather: new THREE.MeshPhysicalMaterial({
+          color: STEEL,
+          roughness: 0.5,
+          metalness: 0,
+          sheen: 0.25,
+          sheenRoughness: 0.5,
+          sheenColor: new THREE.Color(0xa9bbd6),
+          clearcoat: 0.15,
+          clearcoatRoughness: 0.5,
+        }),
+      };
     } catch {
-      /* no model supplied: use the procedural chair */
+      /* use the procedural chair */
     }
   })();
   return primed;

@@ -1,5 +1,11 @@
 // All words on the site live here. Edit this file to change the story.
 
+export const VISION_PLAYLIST = {
+  id: "PLJxo6eE9vELul9i0bNoR9ju8fT6YJ7bFn",
+  title: "Founder's vision: the playlist",
+  url: "https://www.youtube.com/playlist?list=PLJxo6eE9vELul9i0bNoR9ju8fT6YJ7bFn",
+};
+
 export const LINKEDIN = "https://www.linkedin.com/in/ravindergoel/";
 
 export const person = {
@@ -14,8 +20,8 @@ export const person = {
 export const nav = [
   { href: "/journey", label: "Journey" },
   { href: "/la-z-boy", label: "La-Z-Boy" },
+  { href: "/vision", label: "Vision" },
   { href: "/values", label: "Values" },
-  { href: "/beliefs", label: "Beliefs" },
   { href: "/recognition", label: "Recognition" },
   { href: "/gallery", label: "Gallery" },
   { href: "/little-nap", label: "Little Nap" },
@@ -30,15 +36,9 @@ export const gallery = [
   { src: "/images/ravinder-gesture.jpg", w: 1333, h: 2000, alt: "Ravinder Goel gesturing in a home theatre" },
   { src: "/images/ravinder-cinema-wide.jpg", w: 1500, h: 1000, alt: "Ravinder Goel seated in a cinema lounge with leather recliners" },
   { src: "/images/ravinder-lounge.jpg", w: 1333, h: 2000, alt: "Ravinder Goel leaning on a cream recliner" },
-  { src: "/images/ravinder-showroom-arms.jpg", w: 1333, h: 2000, alt: "Ravinder Goel with arms crossed in a showroom" },
   { src: "/images/ravinder-studio-point.jpg", w: 1800, h: 1200, alt: "Ravinder Goel pointing upward against a dark backdrop" },
-  { src: "/images/ravinder-showroom-standing.jpg", w: 1333, h: 2000, alt: "Ravinder Goel standing with hands in pockets in a showroom" },
   { src: "/images/ravinder-sofa-seated.jpg", w: 1800, h: 1200, alt: "Ravinder Goel seated on a grey recliner sofa" },
-  { src: "/images/ravinder-theatre-hands.jpg", w: 1333, h: 2000, alt: "Ravinder Goel standing in a home theatre with open hands" },
   { src: "/images/ravinder-cinema-seated.jpg", w: 1500, h: 1000, alt: "Ravinder Goel seated in a brown leather cinema recliner" },
-  { src: "/images/ravinder-showroom-lean.jpg", w: 1333, h: 2000, alt: "Ravinder Goel standing beside a leather recliner" },
-  { src: "/images/ravinder-cinema-grey.jpg", w: 1500, h: 1000, alt: "Ravinder Goel seated among grey cinema recliners" },
-  { src: "/images/ravinder-showroom-smile.jpg", w: 1333, h: 2000, alt: "Ravinder Goel smiling with arms crossed in a showroom" },
   { src: "/images/ravinder-red-wall.jpg", w: 1333, h: 2000, alt: "Ravinder Goel standing in front of a red feature wall" },
 ];
 
@@ -560,3 +560,10 @@ export const recliner = [
 
 export type Quote = { text: string; source: string; href?: string };
 export const quotes: Record<string, Quote | undefined> = {};
+
+export const proof = [
+  { n: "2011", l: "started with a ₹5 lakh credit card loan" },
+  { n: "2", l: "factories" },
+  { n: "18", l: "showrooms" },
+  { n: "470+", l: "people" },
+];

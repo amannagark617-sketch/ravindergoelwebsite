@@ -9,6 +9,8 @@ export default function SmoothScroll() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Native scrolling on touch devices: smoother and lighter on phones.
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
     const lenis = new Lenis({ anchors: true });
     window.__lenis = lenis;

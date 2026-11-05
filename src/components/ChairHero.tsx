@@ -39,7 +39,7 @@ export default function ChairHero() {
       cam.position.set(3.4, 2.2, 4.6);
       cam.lookAt(0, 0.65, 0);
       scene.add(new THREE.Group());
-      const chair = createChair();
+      const chair = createChair("hi");
       scene.add(chair.group);
 
       const st = { recline: still ? 0.7 : 0, mx: 0, my: 0, yaw: -0.5 };
@@ -80,7 +80,7 @@ export default function ChairHero() {
         if (!visible || document.hidden) return;
         const t = (now - t0) / 1000;
         const targetYaw =
-          -0.5 + st.mx * 0.5 + (still ? 0 : Math.sin(t * 0.5) * 0.18);
+          -0.5 + st.mx * 0.5 + st.recline * 1.6 + (still ? 0 : Math.sin(t * 0.5) * 0.12);
         st.yaw += (targetYaw - st.yaw) * 0.06;
         chair.group.rotation.y = st.yaw;
         chair.group.position.y = Math.sin(t * 1.2) * 0.02;
