@@ -2438,3 +2438,26 @@ body::before {
 
 .cinema-strip { position: relative; height: min(62svh, 36rem); margin: 0 0 2rem; }
 .cinema-strip canvas { display: block; width: 100%; height: 100%; }
+
+/* ---------- Vision scene ---------- */
+.vs { position: relative; padding: 2rem var(--gutter) 3rem; }
+.vs-stage { position: relative; height: 52svh; max-width: 44rem; margin: 0 auto; }
+.vs-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.vs-rings { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.vs-ring { fill: none; stroke: var(--garnet); stroke-width: 0.45; }
+.vs-ring-label { font-family: var(--display); font-size: 3.2px; font-weight: 700; fill: var(--slate); }
+.vs-ring-label.is-on { fill: var(--garnet); }
+.vs-lines { list-style: none; display: grid; gap: 0.4rem; max-width: 60rem; margin: 1.5rem auto 0; text-align: center; }
+.vs-lines li { font-family: var(--display); font-weight: 800; font-size: clamp(2rem, 5.5vw, 4.6rem); line-height: 1.05; letter-spacing: -0.04em; color: var(--ink); }
+.vs-nav { display: none; }
+
+.vs.is-scrubbed { height: 100svh; min-height: 34rem; padding: var(--header) var(--gutter) 1.5rem; overflow: hidden; display: grid; grid-template-rows: minmax(0, 1fr) auto; }
+.vs.is-scrubbed .vs-stage { height: 100%; width: 100%; max-width: 60rem; }
+.vs.is-scrubbed .vs-lines { display: grid; margin: 0 auto; min-height: 7.5rem; align-content: center; padding: 0.5rem 1.25rem; background: var(--glass); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); }
+.vs.is-scrubbed .vs-lines li { grid-area: 1 / 1; opacity: 0; transform: translateY(1.2rem); transition: opacity 0.6s ease, transform 0.6s ease; }
+.vs.is-scrubbed .vs-lines li.is-active { opacity: 1; transform: none; }
+.vs.is-scrubbed .vs-nav { display: flex; gap: 0.2rem; position: absolute; right: var(--gutter); bottom: 1.5rem; }
+.vs-nav button { width: 1.5rem; height: 1.5rem; border: 0; background: transparent; cursor: pointer; padding: 0; position: relative; }
+.vs-nav button::after { content: ""; position: absolute; inset: 0.35rem; background: var(--soft); box-shadow: var(--raise-sm); }
+.vs-nav button.is-on::after { background: var(--garnet); box-shadow: var(--press); }
+@media (max-width: 52rem) { .vs.is-scrubbed .vs-nav { left: var(--gutter); right: auto; bottom: 0.4rem; } .vs.is-scrubbed { padding-bottom: 2.4rem; } }

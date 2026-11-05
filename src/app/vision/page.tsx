@@ -1,25 +1,23 @@
 import type { Metadata } from "next";
 import PageIntro from "@/components/PageIntro";
-import VideoGallery from "@/components/VideoGallery";
-import { videos, PLAYLIST_URL } from "@/content";
+import Vision from "@/components/Vision";
+import VisionScene from "@/components/VisionScene";
+import { dna } from "@/content";
 
 export const metadata: Metadata = {
   title: "Vision",
-  description: "Ravinder Goel on the story and vision of Little Nap Recliners, in video.",
+  description: "Little Nap's vision: to redefine the future of comfort and create an Indian legacy that reaches the world.",
 };
 
-export default function Vision() {
+export default function VisionPage() {
+  const [, ...rest] = dna;
   return (
     <>
-      <PageIntro title="Vision" lede="Ravinder Goel on the story and vision of Little Nap, in video." />
-      <section className="vp-section">
-        <VideoGallery videos={videos} />
-        <p className="vp-links">
-          <a className="btn" href={PLAYLIST_URL} target="_blank" rel="noopener noreferrer">
-            More on YouTube
-          </a>
-        </p>
-      </section>
+      <PageIntro title="Vision" lede="Where Little Nap Recliners is going, in its own words." />
+      <VisionScene />
+      {rest.map((d) => (
+        <Vision key={d.label} label={d.label} text={d.text} size="md" />
+      ))}
     </>
   );
 }

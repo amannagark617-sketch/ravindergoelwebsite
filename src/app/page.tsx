@@ -1,11 +1,10 @@
 import Hero from "@/components/Hero";
 import Portrait from "@/components/Portrait";
 import CountLine from "@/components/CountLine";
-import VideoPlayer from "@/components/VideoPlayer";
-import Link from "next/link";
+import VideoGallery from "@/components/VideoGallery";
 import Vision from "@/components/Vision";
 import GalleryStrip from "@/components/GalleryStrip";
-import { origin, vision, videos } from "@/content";
+import { origin, vision, videos, PLAYLIST_URL } from "@/content";
 
 export default function Home() {
   return (
@@ -16,13 +15,11 @@ export default function Home() {
       <Vision label={vision.label} text={vision.text} />
       <GalleryStrip />
       <section className="vp-section">
-        <div className="vp">
-          <VideoPlayer id={videos[0].id} title={videos[0].title} />
-        </div>
+        <VideoGallery videos={videos} />
         <p className="vp-links">
-          <Link className="btn" href="/vision">
-            More videos
-          </Link>
+          <a className="btn" href={PLAYLIST_URL} target="_blank" rel="noopener noreferrer">
+            More on YouTube
+          </a>
         </p>
       </section>
     </>
