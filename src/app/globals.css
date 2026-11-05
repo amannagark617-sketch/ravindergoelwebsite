@@ -1564,3 +1564,584 @@ img {
     animation: none !important;
   }
 }
+
+/* ---------- Film journey (horizontal) ---------- */
+
+.film {
+  position: relative;
+  background: var(--paper);
+}
+
+.film-track {
+  display: block;
+}
+
+.film-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: clamp(2.5rem, 6vw, 4rem) var(--gutter);
+  border-top: 1px solid var(--rule);
+}
+
+.film-year {
+  display: none;
+}
+
+.film-photo {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--mist);
+  max-width: 40rem;
+}
+
+.film-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.film-label {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--garnet);
+}
+
+.film-text h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 3.4vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 0.8rem 0 1rem;
+  max-width: 20ch;
+}
+
+.film-text p {
+  max-width: 34rem;
+  color: var(--slate);
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+}
+
+.film-text .btn {
+  margin-top: 1.25rem;
+}
+
+.film-ruler {
+  display: none;
+}
+
+.film.is-scrubbed {
+  height: 100svh;
+  min-height: 34rem;
+  overflow: hidden;
+}
+
+.film.is-scrubbed .film-track {
+  display: flex;
+  height: 100%;
+  width: max-content;
+  will-change: transform;
+}
+
+.film.is-scrubbed .film-panel {
+  flex: none;
+  width: min(100vw, 78rem);
+  height: 100%;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding: calc(var(--header) + 1rem) clamp(2rem, 5vw, 5rem) 6.5rem;
+  border-top: 0;
+  overflow: visible;
+}
+
+.film.is-scrubbed .film-panel.has-photo {
+  width: min(120vw, 92rem);
+}
+
+.film.is-scrubbed .film-year {
+  display: block;
+  position: absolute;
+  left: 2vw;
+  bottom: 5.5rem;
+  z-index: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(7rem, 24vw, 22rem);
+  letter-spacing: -0.06em;
+  line-height: 0.8;
+  color: var(--mist);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.film.is-scrubbed .film-photo {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  width: clamp(18rem, 36vw, 36rem);
+  height: min(58svh, 32rem);
+  aspect-ratio: auto;
+}
+
+.film.is-scrubbed .film-text {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  width: min(34rem, 36vw);
+}
+
+.film.is-scrubbed .film-panel:not(.has-photo) {
+  width: min(100vw, 64rem);
+}
+
+.film.is-scrubbed .film-panel:not(.has-photo) .film-text {
+  width: min(44rem, 58vw);
+}
+
+.film.is-scrubbed .film-panel:not(.has-photo) .film-text h2 {
+  font-size: clamp(2.2rem, 4.4vw, 4rem);
+}
+
+.film.is-scrubbed .film-label {
+  display: none;
+}
+
+.film.is-scrubbed .film-ruler {
+  display: block;
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 1.5rem;
+  z-index: 2;
+}
+
+.film-line {
+  height: 2px;
+  background: var(--rule);
+  margin-bottom: 0.6rem;
+}
+
+.film-fill {
+  display: block;
+  height: 100%;
+  background: var(--garnet);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+
+.film-marks {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.25rem;
+}
+
+.film-mark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-family: var(--display);
+  font-size: 0.78rem;
+  color: var(--slate);
+  white-space: nowrap;
+}
+
+.film-mark i {
+  display: block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border: 1px solid var(--slate);
+  background: var(--paper);
+}
+
+.film-mark.is-on {
+  color: var(--garnet);
+  font-weight: 700;
+}
+
+.film-mark.is-on i {
+  background: var(--garnet);
+  border-color: var(--garnet);
+}
+
+@media (max-width: 52rem) {
+  .film.is-scrubbed .film-panel,
+  .film.is-scrubbed .film-panel.has-photo {
+    width: 100vw;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+    padding: calc(var(--header) + 0.5rem) var(--gutter) 5rem;
+  }
+
+  .film.is-scrubbed .film-photo {
+    width: 100%;
+    height: 30svh;
+  }
+
+  .film.is-scrubbed .film-text {
+    width: 100%;
+  }
+
+  .film.is-scrubbed .film-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .film.is-scrubbed .film-text p {
+    font-size: 1.02rem;
+    line-height: 1.45;
+  }
+
+  .film-mark span {
+    display: none;
+  }
+}
+
+/* ---------- Growth scene ---------- */
+
+.growth {
+  padding: clamp(3rem, 8vw, 6rem) var(--gutter);
+  background: var(--mist);
+}
+
+.gs-stages {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.gs-year {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(4rem, 12vw, 10rem);
+  letter-spacing: -0.06em;
+  line-height: 0.85;
+  color: var(--garnet);
+}
+
+.gs-stage p {
+  max-width: 28rem;
+  margin-top: 0.75rem;
+  color: var(--slate);
+  font-size: 1.2rem;
+}
+
+.gs-board {
+  display: grid;
+  gap: 2rem;
+}
+
+.gs-count {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  letter-spacing: -0.045em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 0.75rem;
+}
+
+.gs-count small {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--slate);
+}
+
+.gs-rooms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.gs-room {
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1.5px solid var(--quiet);
+  background: transparent;
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+.gs-room.on {
+  border-color: var(--garnet);
+  background: var(--garnet);
+}
+
+.gs-people {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.gs-person {
+  width: 0.6rem;
+  height: 0.6rem;
+  background: var(--rule);
+  transition: background 0.25s ease;
+}
+
+.gs-person.on {
+  background: var(--ink);
+}
+
+.gs-bar {
+  display: none;
+}
+
+.growth.is-scrubbed {
+  height: 100svh;
+  min-height: 36rem;
+  padding: calc(var(--header) + 1.5rem) var(--gutter) 2.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  column-gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  overflow: hidden;
+}
+
+.growth.is-scrubbed .gs-stages {
+  display: grid;
+  margin: 0;
+}
+
+.growth.is-scrubbed .gs-stage {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.growth.is-scrubbed .gs-stage.is-active {
+  opacity: 1;
+  transform: none;
+}
+
+.growth.is-scrubbed .gs-person:not(.on) {
+  background: var(--rule);
+}
+
+.growth.is-scrubbed .gs-board {
+  max-height: 100%;
+}
+
+.growth.is-scrubbed .gs-room:not(.on) {
+  background: transparent;
+  border-color: var(--quiet);
+}
+
+.growth.is-scrubbed .gs-bar {
+  display: block;
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 1.5rem;
+  height: 2px;
+  background: var(--rule);
+}
+
+.growth.is-scrubbed .gs-bar span {
+  display: block;
+  height: 100%;
+  background: var(--garnet);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+
+@media (max-width: 52rem) {
+  .growth.is-scrubbed {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    row-gap: 1rem;
+    align-content: start;
+  }
+
+  .gs-year {
+    font-size: 4rem;
+  }
+
+  .gs-stage p {
+    font-size: 1.02rem;
+  }
+
+  .gs-room {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .gs-person {
+    width: 0.42rem;
+    height: 0.42rem;
+  }
+}
+
+/* ---------- Values wipe ---------- */
+
+.vw {
+  background: var(--paper);
+}
+
+.vw-figs {
+  display: grid;
+  gap: 1rem;
+  padding: 0 var(--gutter);
+}
+
+.vw-fig {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--mist);
+}
+
+.vw-fig img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vw-body {
+  padding: 1rem var(--gutter) 3rem;
+}
+
+.vw-nums,
+.vw-bar {
+  display: none;
+}
+
+.vw-text {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.vw-static-num {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--garnet);
+}
+
+.vw-text h3 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.4vw, 3rem);
+  letter-spacing: -0.035em;
+  margin-top: 0.4rem;
+}
+
+.vw-text p {
+  color: var(--slate);
+  max-width: 32rem;
+}
+
+.vw.is-scrubbed {
+  position: relative;
+  height: 100svh;
+  min-height: 34rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.vw.is-scrubbed .vw-figs {
+  display: grid;
+  padding: 0;
+  gap: 0;
+}
+
+.vw.is-scrubbed .vw-fig {
+  grid-area: 1 / 1;
+  aspect-ratio: auto;
+  height: 100%;
+}
+
+.vw.is-scrubbed .vw-body {
+  position: relative;
+  display: grid;
+  align-content: center;
+  padding: var(--header) clamp(2rem, 5vw, 5rem) 3rem;
+}
+
+.vw.is-scrubbed .vw-nums {
+  display: block;
+  height: 1.1em;
+  overflow: hidden;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(7rem, 20vw, 18rem);
+  letter-spacing: -0.06em;
+  line-height: 1.1;
+  color: var(--garnet);
+  margin-bottom: 0;
+}
+
+.vw.is-scrubbed .vw-nums-stack > div {
+  height: 1.1em;
+  line-height: 1.1;
+}
+
+.vw.is-scrubbed .vw-texts {
+  display: grid;
+}
+
+.vw.is-scrubbed .vw-text {
+  grid-area: 1 / 1;
+  padding: 0;
+  border: 0;
+}
+
+.vw.is-scrubbed .vw-static-num {
+  display: none;
+}
+
+.vw.is-scrubbed .vw-bar {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--rule);
+}
+
+.vw.is-scrubbed .vw-bar span {
+  display: block;
+  height: 100%;
+  background: var(--garnet);
+  transform-origin: 0 50%;
+}
+
+@media (max-width: 52rem) {
+  .vw.is-scrubbed {
+    grid-template-columns: 1fr;
+    grid-template-rows: 40svh 1fr;
+  }
+
+  .vw.is-scrubbed .vw-body {
+    padding-top: 1rem;
+    align-content: start;
+  }
+
+  .vw.is-scrubbed .vw-nums {
+    font-size: 5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .vw.is-scrubbed .vw-text p {
+    font-size: 1.02rem;
+    line-height: 1.45;
+  }
+}

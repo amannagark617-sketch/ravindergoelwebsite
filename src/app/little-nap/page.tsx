@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageIntro from "@/components/PageIntro";
 import Parallax from "@/components/Parallax";
+import GrowthScene from "@/components/GrowthScene";
 import CountLine from "@/components/CountLine";
 import { littleNap } from "@/content";
 
@@ -15,6 +16,7 @@ export default function LittleNap() {
     <>
       <PageIntro title="Little Nap" lede={littleNap.intro} />
       <Parallax className="band" src="/images/ravinder-cinema-wide.jpg" />
+      <GrowthScene />
       <CountLine tokens={littleNap.today} />
       <CountLine tokens={littleNap.cinema} />
       <div className="split flip">

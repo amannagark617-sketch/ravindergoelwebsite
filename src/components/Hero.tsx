@@ -5,7 +5,6 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { LINKEDIN, person } from "@/content";
-import GlobeAmbient from "@/components/GlobeAmbient";
 
 export default function Hero() {
   const root = useRef<HTMLElement>(null);
@@ -32,7 +31,7 @@ export default function Hero() {
         });
 
         // On scroll the name leans back, the way a recliner does.
-        gsap.to(".hero-name, .hero-globe", {
+        gsap.to(".hero-name", {
           rotateX: 48,
           yPercent: -6,
           opacity: 0.08,
@@ -63,7 +62,6 @@ export default function Hero() {
 
   return (
     <section className="hero" id="top" ref={root}>
-      <GlobeAmbient />
       <h1 className="hero-name" aria-label={person.name}>
         <span className="line" aria-hidden="true">
           <span className="line-inner">{person.first}</span>
