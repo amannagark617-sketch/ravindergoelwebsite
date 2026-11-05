@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { chapters } from "@/content";
 
-export default function JourneyStory() {
+export default function JourneyStory({ images }: { images: (string | null)[] }) {
   const root = useRef<HTMLElement>(null);
   const trigger = useRef<ScrollTrigger | null>(null);
   const n = chapters.length;
@@ -21,10 +21,12 @@ export default function JourneyStory() {
         el.classList.add("is-scrubbed");
         const panels = gsap.utils.toArray<HTMLElement>(".story-panel", el);
         const stack = el.querySelector(".story-stack")!;
+        const media = gsap.utils.toArray<HTMLElement>(".story-media figure", el);
         const bar = el.querySelector(".story-progress span")!;
         const dots = gsap.utils.toArray<HTMLElement>(".story-nav button", el);
 
         gsap.set(panels.slice(1), { autoAlpha: 0, y: 28 });
+        gsap.set(media.slice(1), { autoAlpha: 0, scale: 1.08 });
 
         const tl = gsap.timeline({
           defaults: { ease: "power2.inOut" },
@@ -48,7 +50,9 @@ export default function JourneyStory() {
           const t = 2 * i - 1;
           tl.to(panels[i - 1], { autoAlpha: 0, y: -28, duration: 0.6 }, t)
             .to(stack, { yPercent: -(100 / n) * i, duration: 1 }, t)
-            .to(panels[i], { autoAlpha: 1, y: 0, duration: 0.6 }, t + 0.4);
+            .to(panels[i], { autoAlpha: 1, y: 0, duration: 0.6 }, t + 0.4)
+            .to(media[i - 1], { autoAlpha: 0, scale: 0.96, duration: 0.7 }, t)
+            .to(media[i], { autoAlpha: 1, scale: 1, duration: 0.9 }, t + 0.3);
         }
         tl.to({}, { duration: 1 }, 2 * (n - 1));
         dots[0]?.classList.add("is-on");
@@ -82,9 +86,23 @@ export default function JourneyStory() {
             ))}
           </div>
         </div>
+        <div className="story-media" aria-hidden="true">
+          {chapters.map((c, i) => (
+            <figure key={c.title}>
+              {images[i] ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={images[i]!} alt="" loading="lazy" />
+              ) : null}
+            </figure>
+          ))}
+        </div>
         <div className="story-panels">
           {chapters.map((c) => (
             <article className="story-panel" key={c.title}>
+              {images[chapters.indexOf(c)] ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="story-panel-img" src={images[chapters.indexOf(c)]!} alt="" loading="lazy" />
+              ) : null}
               <div className="story-panel-year">{c.year}</div>
               <h2>{c.title}</h2>
               <p>{c.body}</p>

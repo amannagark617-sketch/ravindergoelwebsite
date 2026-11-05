@@ -87,6 +87,8 @@ export const homeIndex = [
 /* ---------- Journey ---------- */
 
 export type Chapter = {
+  img?: string;
+  art?: string;
   year: string;
   title: string;
   body: string;
@@ -99,18 +101,21 @@ export const chapters: Chapter[] = [
   {
     year: "Khanpur",
     title: "A middle-class boy from Khanpur.",
+    art: "khanpur",
     body:
       "Ravinder Goel grew up in a middle-class family in Khanpur. Everything that follows started from there.",
   },
   {
     year: "Setback",
     title: "He failed, then started over.",
+    art: "setback",
     body:
       "After long hours of study, he failed several MBA entrance exams and felt lost. He swallowed his pride, bought a fifth-grade math book to rebuild the basics, and began again.",
   },
   {
     year: "2002",
     title: "A management degree in Mumbai.",
+    art: "mba",
     body:
       "From 2002 to 2004 he studied for a Master of Management Studies at Welingkar Institute of Management, and was elected a member of its Managing Council.",
     facts: [
@@ -121,6 +126,7 @@ export const chapters: Chapter[] = [
   {
     year: "2004",
     title: "Learning to sell.",
+    art: "door-to-door",
     body:
       "He learned sales from scratch, knocking on the doors of houses under construction. Over the next seven years he worked across jewellery retail, luxury interiors and furniture distribution.",
     facts: [
@@ -132,30 +138,35 @@ export const chapters: Chapter[] = [
   {
     year: "2011",
     title: "He noticed people didn't want to get up.",
+    img: "/images/ravinder-sofa-seated.jpg",
     body:
       "Recliners were far from mainstream in India. He noticed that the moment customers sat on one, they didn't want to get up. He saw an experience, not just furniture.",
   },
   {
     year: "Day one",
     title: "₹5 lakh, one room, three people.",
+    art: "day-one",
     body:
       "In July 2011 he started Little Nap with a credit card loan of ₹5 lakh, a 600 sq. ft. display area and a team of three. He handled sales, dispatch and invoicing himself, including midnight dispatches.",
   },
   {
     year: "2015",
     title: "Recognised in Dubai.",
+    img: "/images/ravinder-showroom-smile.jpg",
     body:
       "He was named The World's Greatest Leader 2015 for Asia and the GCC, selected among 120 business leaders from more than 1,100 nominations. The award was presented at the Jumeirah Tower Hotel in Dubai.",
   },
   {
     year: "2018",
     title: "A purple ticket on national television.",
+    img: "/images/ravinder-gesture.jpg",
     body:
       "At the Franchise India Show on Times Now, he presented Little Nap Recliners to the jury on India's biggest business reality show. Little Nap won the purple ticket.",
   },
   {
     year: "2020",
     title: "La-Z-Boy chose Little Nap.",
+    img: "/images/ravinder-lounge.jpg",
     body:
       "In April 2020, during the lockdown, Little Nap signed its first contract with La-Z-Boy and became the brand's exclusive partner in India.",
     facts: [
@@ -173,24 +184,28 @@ export const chapters: Chapter[] = [
   {
     year: "2022",
     title: "From one room to twelve showrooms.",
+    img: "/images/ravinder-showroom-standing.jpg",
     body:
       "By 2022 Little Nap had grown from a 600 sq. ft. showroom to 12 showrooms and 75,000 sq. ft. of production units.",
   },
   {
     year: "2023",
     title: "Leading beyond his own company.",
+    img: "/images/ravinder-showroom-arms.jpg",
     body:
       "In March 2023 he became Vice President, North India Chapter, of AFMT, India's only furniture association with a nationwide presence and 350+ members. In December 2023 Welingkar gave him its Pride of Welingkar Award for entrepreneurial success.",
   },
   {
     year: "2026",
     title: "Fifteen years on.",
+    img: "/images/ravinder-cinema-wide.jpg",
     body:
       "Little Nap now runs 2 factories and 18 showrooms with a team of 470+, and a monthly capacity of 5,000 recliners. Its seats are in 1,300+ cinema screens. In February 2026 the Indian Achievers Forum named him Entrepreneur of the Year.",
   },
   {
     year: "Next",
     title: "Creation, not imitation.",
+    img: "/images/ravinder-studio-point.jpg",
     body:
       "His guiding belief is that India can lead in comfort innovation, not by imitation, but by creation. His vision is to redefine comfort as an experience.",
   },

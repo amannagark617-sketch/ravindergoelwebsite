@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageIntro from "@/components/PageIntro";
+import Parallax from "@/components/Parallax";
 import CountLine from "@/components/CountLine";
 import { littleNap } from "@/content";
 
@@ -13,13 +14,17 @@ export default function LittleNap() {
   return (
     <>
       <PageIntro title="Little Nap" lede={littleNap.intro} />
+      <Parallax className="band" src="/images/ravinder-cinema-wide.jpg" position="50% 50%" />
       <CountLine tokens={littleNap.today} />
       <CountLine tokens={littleNap.cinema} />
-      <section className="prose-block">
-        <h2>{littleNap.placesTitle}</h2>
-        <p>{littleNap.places.join(", ")}.</p>
-        <p>{littleNap.craft}</p>
-      </section>
+      <div className="split flip">
+        <section className="prose-block">
+          <h2>{littleNap.placesTitle}</h2>
+          <p>{littleNap.places.join(", ")}.</p>
+          <p>{littleNap.craft}</p>
+        </section>
+        <Parallax className="split-photo" src="/images/ravinder-showroom-lean.jpg" position="50% 30%" />
+      </div>
       <section className="group">
         <h2>{littleNap.groupTitle}</h2>
         {littleNap.group.map((g) => (

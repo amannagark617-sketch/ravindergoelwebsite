@@ -918,43 +918,64 @@ img {
 
 .values ol {
   list-style: none;
-  max-width: 52rem;
 }
 
 .values li {
   display: grid;
-  grid-template-columns: 4.5rem 1fr;
-  gap: 1rem;
-  padding: 1.75rem 0;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 5vw, 5rem);
+  align-items: center;
+  padding: clamp(1.5rem, 4vw, 3rem) 0;
   border-top: 1px solid var(--rule);
+}
+
+.values li.flip .v-photo {
+  order: 2;
+}
+
+.v-photo {
+  aspect-ratio: 4 / 5;
+  max-height: 34rem;
 }
 
 .v-num {
   font-family: var(--display);
   font-weight: 800;
-  font-size: 3rem;
+  font-size: clamp(4rem, 9vw, 8rem);
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
   color: var(--garnet);
 }
 
 .values h3 {
   font-family: var(--display);
   font-weight: 700;
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
-  letter-spacing: -0.03em;
+  font-size: clamp(1.8rem, 3.4vw, 3rem);
+  letter-spacing: -0.035em;
+  margin-top: 0.5rem;
 }
 
 .v-line {
   font-family: var(--display);
   font-weight: 600;
+  font-size: 1.15rem;
   color: var(--garnet);
-  margin: 0.25rem 0 0.6rem;
+  margin: 0.4rem 0 0.8rem;
 }
 
 .values p {
   color: var(--slate);
-  max-width: 34rem;
+  max-width: 32rem;
+}
+
+@media (max-width: 52rem) {
+  .values li {
+    grid-template-columns: 1fr;
+  }
+
+  .values li.flip .v-photo {
+    order: 0;
+  }
 }
 
 /* ---------- Little Nap group ---------- */
@@ -1311,6 +1332,138 @@ img {
 .site-footer a:hover {
   color: var(--quiet);
   text-decoration: underline;
+}
+
+/* ---------- Photographs ---------- */
+
+.plx {
+  position: relative;
+  overflow: hidden;
+  background: var(--mist);
+}
+
+.plx img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.plx figcaption {
+  position: absolute;
+  left: var(--gutter);
+  bottom: 1rem;
+  font-family: var(--display);
+  color: #fff;
+}
+
+.band {
+  height: clamp(16rem, 58svh, 38rem);
+  margin: 0;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  border-top: 1px solid var(--rule);
+}
+
+.split.flip .split-photo {
+  order: -1;
+}
+
+.split .vision,
+.split .prose-block {
+  border: 0;
+  align-self: center;
+  padding: clamp(2.5rem, 6vw, 5rem) var(--gutter);
+}
+
+.split-photo {
+  min-height: clamp(22rem, 70svh, 40rem);
+}
+
+@media (max-width: 52rem) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .split.flip .split-photo {
+    order: 0;
+  }
+
+  .split-photo {
+    min-height: 22rem;
+    order: 2;
+  }
+}
+
+/* Journey media */
+
+.story-media,
+.story-panel-img {
+  display: none;
+}
+
+.story:not(.is-scrubbed) .story-panel-img {
+  display: block;
+  width: 100%;
+  max-width: 34rem;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  margin-bottom: 1.25rem;
+}
+
+.story.is-scrubbed .story-media {
+  display: grid;
+  height: min(40svh, 24rem);
+  overflow: hidden;
+}
+
+.story.is-scrubbed .story-media figure {
+  grid-area: 1 / 1;
+}
+
+.story.is-scrubbed .story-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story.is-scrubbed .story-pin {
+  grid-template-areas: "years panels" "media panels";
+  grid-template-rows: auto auto;
+  align-content: center;
+}
+
+.story.is-scrubbed .story-years {
+  grid-area: years;
+}
+
+.story.is-scrubbed .story-media {
+  grid-area: media;
+}
+
+.story.is-scrubbed .story-panels {
+  grid-area: panels;
+  align-self: center;
+}
+
+@media (max-width: 52rem) {
+  .story.is-scrubbed .story-pin {
+    grid-template-areas: "years" "media" "panels";
+    row-gap: 1rem;
+  }
+
+  .story.is-scrubbed .story-years {
+    font-size: clamp(3rem, 16vw, 6rem);
+  }
+
+  .story.is-scrubbed .story-media {
+    height: 24svh;
+  }
 }
 
 /* ---------- Reduced motion ---------- */
