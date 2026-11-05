@@ -1,0 +1,480 @@
+:root {
+  --paper: #ffffff;
+  --ink: #1b2238;
+  --slate: #5b6478;
+  --garnet: #9b1c2e;
+  --mist: #f3f4f7;
+  --rule: #d9dde6;
+  --quiet: #c5cbd8;
+
+  --display: "Bricolage Grotesque Variable", "Helvetica Neue", Arial, sans-serif;
+  --text: "Newsreader Variable", Georgia, "Times New Roman", serif;
+
+  --gutter: clamp(1.25rem, 5vw, 4.5rem);
+  --header: 4.25rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--garnet);
+  outline-offset: 4px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  height: var(--header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--gutter);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--display);
+}
+
+.site-header .mark {
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2.25rem);
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+
+.site-header nav a {
+  text-decoration: none;
+  color: var(--slate);
+  transition: color 0.2s ease;
+}
+
+.site-header nav a:hover {
+  color: var(--garnet);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 34rem;
+  padding: var(--header) var(--gutter) 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1400px;
+}
+
+.hero-name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-variation-settings: "wdth" 85;
+  font-size: clamp(4.25rem, 18vw, 19rem);
+  line-height: 0.86;
+  letter-spacing: -0.045em;
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+
+.hero-name .line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+}
+
+.hero-name .line-inner {
+  display: block;
+}
+
+.hero-name .line:last-child {
+  color: var(--garnet);
+}
+
+.hero-sub {
+  max-width: 34rem;
+  margin-top: clamp(1.5rem, 4vh, 2.75rem);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  line-height: 1.45;
+  color: var(--slate);
+}
+
+.hero-cue {
+  position: absolute;
+  left: var(--gutter);
+  bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--display);
+  font-size: 0.95rem;
+  color: var(--slate);
+}
+
+.hero-cue::before {
+  content: "";
+  width: 3.5rem;
+  height: 1px;
+  background: var(--slate);
+}
+
+/* ---------- Story (pinned chapters) ---------- */
+
+.story {
+  position: relative;
+  padding: clamp(4rem, 10vw, 8rem) var(--gutter);
+  background: var(--paper);
+}
+
+.story-panel {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.story-panel-year {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(3rem, 9vw, 6rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--garnet);
+}
+
+.story-years {
+  display: none;
+}
+
+.story-progress {
+  display: none;
+}
+
+.story-panel h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 3.6vw, 3.1rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 1rem 0 1.1rem;
+  max-width: 18ch;
+}
+
+.story-panel p {
+  max-width: 34rem;
+  font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+  color: var(--slate);
+}
+
+/* Scrubbed (JS, motion allowed) */
+.story.is-scrubbed {
+  height: 100svh;
+  min-height: 34rem;
+  padding: var(--header) var(--gutter) 0;
+  overflow: hidden;
+}
+
+.story.is-scrubbed .story-pin {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  column-gap: clamp(2rem, 6vw, 6rem);
+}
+
+.story.is-scrubbed .story-years {
+  display: block;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(4.5rem, 14vw, 13rem);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  height: 1em;
+  overflow: hidden;
+  color: var(--garnet);
+}
+
+.story.is-scrubbed .story-year {
+  height: 1em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.story.is-scrubbed .story-panel-year {
+  display: none;
+}
+
+.story.is-scrubbed .story-panels {
+  display: grid;
+}
+
+.story.is-scrubbed .story-panel {
+  grid-area: 1 / 1;
+  border-top: 0;
+  padding: 0;
+}
+
+.story.is-scrubbed .story-progress {
+  display: block;
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 2rem;
+  height: 2px;
+  background: var(--rule);
+}
+
+.story.is-scrubbed .story-progress span {
+  display: block;
+  height: 100%;
+  background: var(--garnet);
+  transform-origin: 0 50%;
+}
+
+@media (max-width: 52rem) {
+  .story.is-scrubbed .story-pin {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-content: center;
+    row-gap: 2rem;
+  }
+
+  .story.is-scrubbed .story-years {
+    font-size: clamp(4rem, 22vw, 8rem);
+  }
+}
+
+/* ---------- Portrait ---------- */
+
+.portrait {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+  padding: clamp(4rem, 10vw, 9rem) var(--gutter);
+}
+
+.portrait-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--mist);
+}
+
+.portrait-frame .photo {
+  position: absolute;
+  inset: -8% 0;
+  width: 100%;
+  height: 116%;
+  object-fit: cover;
+}
+
+.portrait-frame .empty {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--display);
+  font-size: 1rem;
+  color: var(--slate);
+}
+
+.portrait h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 4.4vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  max-width: 16ch;
+}
+
+.portrait p {
+  margin-top: 1.5rem;
+  max-width: 32rem;
+  color: var(--slate);
+}
+
+@media (max-width: 52rem) {
+  .portrait {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Beginning (counting sentence) ---------- */
+
+.beginning {
+  background: var(--mist);
+  padding: clamp(5rem, 12vw, 11rem) var(--gutter);
+}
+
+.beginning p {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(2rem, 5.6vw, 5.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  max-width: 22ch;
+}
+
+.beginning .num {
+  color: var(--garnet);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Vision ---------- */
+
+.vision {
+  padding: clamp(6rem, 16vw, 14rem) var(--gutter);
+}
+
+.vision .label {
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--garnet);
+  margin-bottom: 1.75rem;
+}
+
+.vision p {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 6vw, 5.8rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  max-width: 20ch;
+}
+
+.vision .word {
+  display: inline-block;
+  margin-right: 0.22em;
+  color: var(--ink);
+}
+
+/* ---------- Writing ---------- */
+
+.writing {
+  background: var(--mist);
+  padding: clamp(4rem, 10vw, 8rem) var(--gutter);
+}
+
+.writing h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.writing .empty {
+  margin-top: 1.25rem;
+  color: var(--slate);
+}
+
+.post-list {
+  list-style: none;
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.post-list li {
+  border-bottom: 1px solid var(--rule);
+  padding: 1.5rem 0;
+}
+
+.post-list a {
+  display: block;
+  text-decoration: none;
+}
+
+.post-list h3 {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.post-list time,
+.post-list p {
+  color: var(--slate);
+  font-size: 1.05rem;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--ink);
+  color: #ffffff;
+  padding: clamp(3rem, 7vw, 5.5rem) var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.site-footer .big {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 7vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+.site-footer a {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  color: #ffffff;
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
