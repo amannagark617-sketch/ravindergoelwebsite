@@ -3,6 +3,7 @@ import Link from "next/link";
 import PageIntro from "@/components/PageIntro";
 import Parallax from "@/components/Parallax";
 import dynamic from "next/dynamic";
+import CinemaStrip from "@/components/CinemaStrip";
 import GrowthScene from "@/components/GrowthScene";
 import CountLine from "@/components/CountLine";
 import { littleNap } from "@/content";
@@ -22,6 +23,7 @@ export default function LittleNap() {
       <GrowthScene />
       <CountLine tokens={littleNap.today} />
       <CountLine tokens={littleNap.cinema} />
+      <CinemaStrip />
       <div className="split flip">
         <section className="prose-block">
           <h2>{littleNap.placesTitle}</h2>

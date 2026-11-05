@@ -33,7 +33,9 @@ export default function Hero() {
           ease: "power2.out",
         });
 
-        // On scroll the name leans back, the way a recliner does.
+      });
+      // Desktop only: on scroll the name leans back, the way a recliner does.
+      mm.add("(prefers-reduced-motion: no-preference) and (min-width: 53rem)", () => {
         gsap.to(".hero-name", {
           rotateX: 48,
           yPercent: -6,

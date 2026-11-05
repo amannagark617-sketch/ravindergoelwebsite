@@ -31,10 +31,6 @@ export default function Footer() {
           </a>
         </nav>
       </div>
-      <p className="footer-note">
-        This site is written in the third person and was built by the Little Nap team. Every fact comes from public
-        sources or Little Nap&apos;s own pages. Anything in Ravinder&apos;s own voice appears as a quotation with its source.
-      </p>
     </footer>
   );
 }

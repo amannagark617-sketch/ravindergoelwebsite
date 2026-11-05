@@ -1,10 +1,18 @@
 // All words on the site live here. Edit this file to change the story.
 
-export const VISION_PLAYLIST = {
-  id: "PLJxo6eE9vELul9i0bNoR9ju8fT6YJ7bFn",
-  title: "Founder's vision: the playlist",
-  url: "https://www.youtube.com/playlist?list=PLJxo6eE9vELul9i0bNoR9ju8fT6YJ7bFn",
-};
+export const PLAYLIST_URL = "https://www.youtube.com/playlist?list=PLJxo6eE9vELul9i0bNoR9ju8fT6YJ7bFn";
+
+// Chosen from the founder's vision playlist on the Little Nap Recliners channel, titles as published.
+export const videos = [
+  { id: "7z89vQAWgk4", title: "Credit Card Debt to a ₹100 Crore Empire: The Little Nap Story" },
+  { id: "XmLw0zq4ISY", title: "The Journey of Little Nap: Building a ₹100 Crore Recliner Empire" },
+  { id: "59Su9Sp2uDw", title: "From 5 Lacs to 100Cr+: The Inspiring Journey of Ravinder Goel" },
+  { id: "k8768oHRd-U", title: "Ravinder Goel - Little Nap Recliners" },
+  { id: "DrIpbhL7Qi0", title: "Little Nap's 5th Anniversary: Celebrating 5 Years of Comfort, Growth & Happy Customers" },
+  { id: "DcIbyzaTmvE", title: "Little Nap Recliners at Franchise India Show 2018" },
+  { id: "2lzO8HqXKu8", title: "Ravinder Goel at Big Cine Expo: \"It's our 4th year with the mega event!\"" },
+  { id: "h8XsLDtAtxQ", title: "How He Built a ₹100 Crore Empire by Selling Recliners" },
+];
 
 export const LINKEDIN = "https://www.linkedin.com/in/ravindergoel/";
 

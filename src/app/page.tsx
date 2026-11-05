@@ -5,7 +5,7 @@ import VideoPlayer from "@/components/VideoPlayer";
 import Link from "next/link";
 import Vision from "@/components/Vision";
 import GalleryStrip from "@/components/GalleryStrip";
-import { origin, vision, VISION_PLAYLIST } from "@/content";
+import { origin, vision, videos } from "@/content";
 
 export default function Home() {
   return (
@@ -16,10 +16,12 @@ export default function Home() {
       <Vision label={vision.label} text={vision.text} />
       <GalleryStrip />
       <section className="vp-section">
-        <VideoPlayer list={VISION_PLAYLIST.id} title={VISION_PLAYLIST.title} note="Press play. 9 videos." />
+        <div className="vp">
+          <VideoPlayer id={videos[0].id} title={videos[0].title} />
+        </div>
         <p className="vp-links">
           <Link className="btn" href="/vision">
-            More on the vision page
+            More videos
           </Link>
         </p>
       </section>

@@ -104,6 +104,7 @@ export default function ReclinerJourney() {
           end: `+=${S * 85}%`,
           pin: true,
           anticipatePin: 1,
+          refreshPriority: 10,
           onUpdate: (self) => {
             state.P = self.progress;
             const a = Math.round(Math.min(self.progress, 1) * (S - 1));
@@ -113,6 +114,9 @@ export default function ReclinerJourney() {
             }
           },
         });
+        // The chairs load after the page, so the pin is created late: re-measure everything below it.
+        ScrollTrigger.sort();
+        ScrollTrigger.refresh();
       }, el);
 
       const move = (e: PointerEvent) => {
@@ -161,13 +165,16 @@ export default function ReclinerJourney() {
         }
         state.mxs += (state.mx - state.mxs) * 0.05;
         state.mys += (state.my - state.mys) * 0.05;
+        // Single chairs sit in the right half on wide screens so the text never covers them.
+        const side = cam.aspect > 1.1 ? 1.3 : 0;
+        const off = lerp(i <= 3 ? side : 0, j <= 3 ? side : 0, e);
         cam.position.set(
-          lerp(CAM[i].p[0], CAM[j].p[0], e) + state.mxs * 0.5,
+          lerp(CAM[i].p[0], CAM[j].p[0], e) + state.mxs * 0.5 - off,
           lerp(CAM[i].p[1], CAM[j].p[1], e) - state.mys * 0.25,
           lerp(CAM[i].p[2], CAM[j].p[2], e),
         );
         look.set(
-          lerp(CAM[i].t[0], CAM[j].t[0], e),
+          lerp(CAM[i].t[0], CAM[j].t[0], e) - off,
           lerp(CAM[i].t[1], CAM[j].t[1], e),
           lerp(CAM[i].t[2], CAM[j].t[2], e),
         );

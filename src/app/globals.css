@@ -2282,3 +2282,159 @@ img {
 
 .beliefs-head { padding: 4rem var(--gutter) 0; font-size: clamp(2rem, 5vw, 4rem); }
 @media (max-width: 52rem) { .hero-proof { font-size: 0.92rem; gap: 0.2rem 1.1rem; } }
+
+/* ================= Glass layer ================= */
+:root {
+  --glass: rgba(255, 255, 255, 0.55);
+  --glass-strong: rgba(255, 255, 255, 0.72);
+  --glass-edge: rgba(255, 255, 255, 0.85);
+  --glass-shadow: 0 10px 40px rgba(27, 34, 56, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --blur: blur(18px) saturate(165%);
+}
+
+/* A soft colour field behind everything gives the glass something to refract. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -10vmax;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(38vmax 38vmax at 12% 18%, rgba(111, 135, 173, 0.34), transparent 70%),
+    radial-gradient(34vmax 34vmax at 88% 12%, rgba(155, 28, 46, 0.16), transparent 70%),
+    radial-gradient(42vmax 42vmax at 78% 86%, rgba(111, 135, 173, 0.26), transparent 70%),
+    radial-gradient(30vmax 30vmax at 8% 90%, rgba(155, 28, 46, 0.1), transparent 70%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  body::before { animation: drift 26s ease-in-out infinite alternate; }
+  @keyframes drift {
+    from { transform: translate3d(0, 0, 0) scale(1); }
+    to { transform: translate3d(3vmax, -2vmax, 0) scale(1.08); }
+  }
+}
+
+/* Full-bleed sections let the field show through */
+.story, .count, .count + .count, .gallery, .film, .growth, .vw, .rj, .rj.is-scrubbed { background: transparent; }
+.plx, .portrait-frame { background: rgba(243, 244, 247, 0.6); }
+
+/* Glass surfaces */
+.site-header {
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: var(--blur);
+  backdrop-filter: var(--blur);
+  border-bottom: 1px solid var(--glass-edge);
+  box-shadow: 0 4px 30px rgba(27, 34, 56, 0.06);
+}
+.btn:not(.btn-solid),
+.rj.is-scrubbed .rj-steps,
+.globe.is-scrubbed .globe-steps li.is-active,
+.group details,
+.sixty,
+.pull-quote,
+.hero-proof,
+.connect-group li,
+.copy,
+.hi-preview {
+  background: var(--glass);
+  -webkit-backdrop-filter: var(--blur);
+  backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-edge);
+  box-shadow: var(--glass-shadow);
+}
+.btn:not(.btn-solid) { border-color: rgba(27, 34, 56, 0.55); }
+.btn:not(.btn-solid):hover { background: var(--ink); }
+.btn-solid { box-shadow: 0 10px 30px rgba(27, 34, 56, 0.25); }
+.rj.is-scrubbed .rj-steps { background: var(--glass-strong); }
+.group details { margin-bottom: 0.9rem; padding: 0.2rem 1.25rem; }
+.group details summary { padding: 0.9rem 0; }
+.sixty { margin: 1.5rem auto 3rem; padding: 1.75rem clamp(1.25rem, 3vw, 2.25rem); }
+.pull-quote { padding: 1.25rem 1.5rem; border-left: 3px solid var(--garnet); }
+.hero-proof { padding: 0.7rem 1rem; width: fit-content; max-width: 100%; }
+.connect-group li { padding: 0 1rem; margin-bottom: 0.5rem; border-bottom: 1px solid var(--glass-edge); }
+.vp-frame { box-shadow: 0 30px 80px rgba(27, 34, 56, 0.25); outline: 1px solid var(--glass-edge); outline-offset: 6px; }
+.vp-play { background: rgba(255, 255, 255, 0.82); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); }
+.lightbox-bar { background: var(--glass-strong); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); }
+.tabs button { background: var(--glass); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); }
+.tabs button[aria-selected="true"], .tabs button.is-on { background: var(--ink); color: #fff; }
+.film-photo { box-shadow: 0 24px 60px rgba(27, 34, 56, 0.22); outline: 1px solid var(--glass-edge); outline-offset: 5px; }
+.split-photo, .globe-photo { box-shadow: 0 24px 60px rgba(27, 34, 56, 0.18); }
+.site-footer { background: rgba(27, 34, 56, 0.94); }
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-header, .btn:not(.btn-solid), .rj.is-scrubbed .rj-steps, .globe.is-scrubbed .globe-steps li.is-active,
+  .group details, .sixty, .pull-quote, .hero-proof, .connect-group li, .copy, .hi-preview { background: rgba(255, 255, 255, 0.92); }
+}
+
+/* ================= Phone fixes ================= */
+.vp-play { top: 40%; width: clamp(3.4rem, 9vw, 6rem); height: clamp(3.4rem, 9vw, 6rem); }
+
+@media (max-width: 52rem) {
+  /* Hero: chair sits in the flow under the text instead of behind the buttons */
+  .hero { height: auto; min-height: 100svh; justify-content: flex-start; padding-top: calc(var(--header) + 1.5rem); padding-bottom: 5rem; }
+  .hero-chair { position: relative; inset: auto; order: 9; width: 100%; height: 40svh; min-height: 15rem; opacity: 1; margin-top: 1.25rem; }
+  .hero-cue { display: none; }
+  .hero-links { margin-top: 1rem; }
+
+  /* Journey film: text aligned to the page gutter */
+  .film.is-scrubbed .film-panel:not(.has-photo) { width: 100vw; }
+  .film.is-scrubbed .film-panel:not(.has-photo) .film-text { width: 100%; }
+  .film.is-scrubbed .film-panel:not(.has-photo) .film-text h2 { font-size: 1.9rem; }
+
+  .sixty { margin-left: var(--gutter); margin-right: var(--gutter); }
+  .group details { padding-left: 1rem; padding-right: 1rem; }
+  .vp-section { padding-left: var(--gutter); padding-right: var(--gutter); }
+  .rj.is-scrubbed .rj-steps { left: var(--gutter); right: var(--gutter); max-width: none; }
+}
+
+/* ---------- Videos ---------- */
+.vp-poster { background: var(--ink); }
+.vp-poster img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.vp-poster::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(27,34,56,0.85), rgba(27,34,56,0.05) 60%); }
+.vp-title, .vp-play { z-index: 1; }
+.vp-title { position: relative; max-width: 40ch; text-shadow: 0 2px 12px rgba(0,0,0,0.5); }
+.vg { max-width: 70rem; margin: 0 auto; }
+.vg-shelf { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+.vg-card { all: unset; box-sizing: border-box; cursor: pointer; display: grid; gap: 0.6rem; width: 100%; padding: 0.6rem 0.6rem 0.9rem; background: var(--glass); border: 1px solid var(--glass-edge); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); box-shadow: 8px 8px 18px rgba(27,34,56,0.12), -8px -8px 18px rgba(255,255,255,0.9); font-family: var(--display); font-size: 0.9rem; line-height: 1.3; color: var(--ink); }
+.vg-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.vg-card:hover, .vg-card:focus-visible { transform: translateY(-3px); }
+.vg-card.is-on { box-shadow: inset 5px 5px 12px rgba(27,34,56,0.14), inset -5px -5px 12px rgba(255,255,255,0.9); border-color: var(--garnet); }
+@media (prefers-reduced-motion: no-preference) { .vg-card { transition: transform 0.25s ease, box-shadow 0.25s ease; } }
+@media (max-width: 64rem) { .vg-shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 36rem) { .vg-shelf { grid-template-columns: 1fr; } }
+
+/* ================= Soft (neumorphic) controls ================= */
+:root {
+  --soft: #eef0f5;
+  --raise: 6px 6px 14px rgba(27, 34, 56, 0.16), -6px -6px 14px rgba(255, 255, 255, 0.95);
+  --raise-sm: 3px 3px 7px rgba(27, 34, 56, 0.18), -3px -3px 7px rgba(255, 255, 255, 0.95);
+  --press: inset 4px 4px 9px rgba(27, 34, 56, 0.2), inset -4px -4px 9px rgba(255, 255, 255, 0.9);
+}
+
+.btn:not(.btn-solid), .menu-button, .tabs button, .copy {
+  background: var(--soft);
+  border: 0;
+  box-shadow: var(--raise);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.btn:not(.btn-solid):hover, .menu-button:hover, .tabs button:hover { background: var(--soft); color: var(--garnet); transform: translateY(-2px); }
+.btn:not(.btn-solid):active, .menu-button:active, .tabs button:active, .copy:active { box-shadow: var(--press); transform: none; }
+.tabs button[aria-selected="true"], .tabs button.is-on { background: var(--soft); color: var(--garnet); box-shadow: var(--press); }
+.btn-solid { border: 0; box-shadow: 6px 6px 14px rgba(27, 34, 56, 0.35), -4px -4px 12px rgba(255, 255, 255, 0.9); }
+.btn-solid:active { box-shadow: inset 4px 4px 9px rgba(0, 0, 0, 0.45); }
+
+/* Navigation dots and marks: raised when idle, pressed in when active */
+.globe-nav button, .story-nav button { background: var(--soft); border: 0; box-shadow: var(--raise-sm); }
+.globe-nav button.is-on { background: var(--soft); box-shadow: var(--press); }
+.globe-nav button.is-on::after { content: ""; display: block; width: 50%; height: 50%; margin: 25%; background: var(--garnet); }
+.rj-nav button::after { border: 0; background: var(--soft); box-shadow: var(--raise-sm); }
+.rj-nav button.is-on::after { background: var(--garnet); box-shadow: var(--press); }
+.film-mark i { border: 0; background: var(--soft); box-shadow: var(--raise-sm); }
+.film-mark.is-on i { background: var(--garnet); box-shadow: var(--press); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn, .menu-button, .tabs button { transition: transform 0.25s ease, box-shadow 0.25s ease, color 0.2s ease; }
+}
+
+.cinema-strip { position: relative; height: min(62svh, 36rem); margin: 0 0 2rem; }
+.cinema-strip canvas { display: block; width: 100%; height: 100%; }
