@@ -10,13 +10,21 @@ export const person = {
 };
 
 export const portrait = {
-  // Put the photo at public/images/ravinder-portrait.jpg and set this to that path.
-  src: "" as string,
+  src: "/images/ravinder-portrait.jpg",
   alt: "Ravinder Goel, founder of Little Nap Recliners",
-  heading: "A founder who started small and stayed close to the work.",
+  heading: "Founder and CEO of Little Nap Recliners.",
   body:
     "Ravinder Goel founded Little Nap Designs Pvt. Ltd., which makes Little Nap Recliners, on 15 July 2011. He is its Founder and CEO.",
 };
+
+export const gallery = [
+  { src: "/images/ravinder-relaxed.jpg", w: 1800, h: 1200, alt: "Ravinder Goel relaxing in a recliner" },
+  { src: "/images/ravinder-gesture.jpg", w: 1333, h: 2000, alt: "Ravinder Goel speaking in a home theatre" },
+  { src: "/images/ravinder-cinema-wide.jpg", w: 1500, h: 1000, alt: "Ravinder Goel seated in a cinema lounge" },
+  { src: "/images/ravinder-lounge.jpg", w: 1333, h: 2000, alt: "Ravinder Goel leaning on a recliner" },
+  { src: "/images/ravinder-showroom-arms.jpg", w: 1333, h: 2000, alt: "Ravinder Goel in a showroom with arms crossed" },
+  { src: "/images/ravinder-showroom-standing.jpg", w: 1333, h: 2000, alt: "Ravinder Goel standing in a showroom" },
+];
 
 export const chapters = [
   {

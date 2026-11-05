@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Story from "@/components/Story";
 import Portrait from "@/components/Portrait";
+import Gallery from "@/components/Gallery";
 import Beginning from "@/components/Beginning";
 import Vision from "@/components/Vision";
 import Writing from "@/components/Writing";
@@ -15,6 +16,7 @@ export default function Home() {
         <Hero />
         <Story />
         <Portrait />
+        <Gallery />
         <Beginning />
         <Vision />
         <Writing />

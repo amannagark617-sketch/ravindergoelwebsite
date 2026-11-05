@@ -124,6 +124,12 @@ img {
   will-change: transform;
 }
 
+@media (max-width: 40rem) {
+  .hero-name {
+    font-size: 22vw;
+  }
+}
+
 .hero-name .line {
   display: block;
   overflow: hidden;
@@ -233,15 +239,15 @@ img {
   font-weight: 800;
   font-size: clamp(4.5rem, 14vw, 13rem);
   letter-spacing: -0.05em;
-  line-height: 1;
-  height: 1em;
+  line-height: 1.16;
+  height: 1.16em;
   overflow: hidden;
   color: var(--garnet);
 }
 
 .story.is-scrubbed .story-year {
-  height: 1em;
-  line-height: 1;
+  height: 1.16em;
+  line-height: 1.16;
   white-space: nowrap;
 }
 
@@ -343,6 +349,49 @@ img {
   .portrait {
     grid-template-columns: 1fr;
   }
+}
+
+/* ---------- Gallery (horizontal scroll) ---------- */
+
+.gallery {
+  background: var(--ink);
+  padding: clamp(2rem, 6vw, 4rem) 0;
+  overflow-x: auto;
+}
+
+.gallery-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  padding: 0 var(--gutter);
+  width: max-content;
+}
+
+.gallery-item {
+  flex: none;
+  height: min(72svh, 46rem);
+  overflow: hidden;
+  background: #2a3350;
+}
+
+.gallery-item img {
+  width: 110%;
+  max-width: none;
+  height: 100%;
+  margin-left: -5%;
+  object-fit: cover;
+}
+
+.gallery.is-scrubbed {
+  height: 100svh;
+  padding: var(--header) 0 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.gallery.is-scrubbed .gallery-track {
+  will-change: transform;
 }
 
 /* ---------- Beginning (counting sentence) ---------- */
