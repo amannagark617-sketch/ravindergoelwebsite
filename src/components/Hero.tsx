@@ -5,6 +5,9 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { LINKEDIN, person } from "@/content";
+import dynamic from "next/dynamic";
+
+const ChairHero = dynamic(() => import("@/components/ChairHero"), { ssr: false });
 
 export default function Hero() {
   const root = useRef<HTMLElement>(null);
@@ -62,6 +65,7 @@ export default function Hero() {
 
   return (
     <section className="hero" id="top" ref={root}>
+      <ChairHero />
       <h1 className="hero-name" aria-label={person.name}>
         <span className="line" aria-hidden="true">
           <span className="line-inner">{person.first}</span>

@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageIntro from "@/components/PageIntro";
 import Parallax from "@/components/Parallax";
+import dynamic from "next/dynamic";
 import GrowthScene from "@/components/GrowthScene";
 import CountLine from "@/components/CountLine";
 import { littleNap } from "@/content";
+
+const ReclinerJourney = dynamic(() => import("@/components/ReclinerJourney"));
 
 export const metadata: Metadata = {
   title: "Little Nap",
@@ -15,7 +18,7 @@ export default function LittleNap() {
   return (
     <>
       <PageIntro title="Little Nap" lede={littleNap.intro} />
-      <Parallax className="band" src="/images/ravinder-cinema-wide.jpg" />
+      <ReclinerJourney />
       <GrowthScene />
       <CountLine tokens={littleNap.today} />
       <CountLine tokens={littleNap.cinema} />

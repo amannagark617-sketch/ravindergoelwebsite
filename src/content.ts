@@ -540,3 +540,14 @@ export const coreValues = [
   { name: "Learning", line: "The more you learn, the more you implement.", text: "Learning never stops, for any of us. We keep growing, one lesson at a time." },
   { name: "One Team, One Dream", line: "Unity in diversity.", text: "Teamwork, zero politics, transparency from top to bottom, and learning and growing together." },
 ];
+
+/* ---------- Little Nap in 3D ---------- */
+
+export const recliner = [
+  { year: "2011", title: "He noticed people didn't want to get up.", text: "Recliners were far from mainstream in India. He saw that the moment customers sat on one, they didn't want to get up. He saw an experience, not just furniture." },
+  { year: "July 2011", title: "One chair, one room, three people.", text: "Little Nap began with a ₹5 lakh credit card loan, a 600 sq. ft. display area and a team of three." },
+  { year: "2018", title: "A purple ticket on national television.", text: "At the Franchise India Show on Times Now, Little Nap won the purple ticket." },
+  { year: "2020", title: "A second name on the chair.", text: "During the lockdown, Little Nap signed its first contract with La-Z-Boy and became its exclusive partner in India." },
+  { year: "2022", title: "Twelve showrooms.", text: "From a 600 sq. ft. showroom to 12 showrooms and 75,000 sq. ft. of production units." },
+  { year: "2026", title: "In 1,300+ cinema screens.", text: "2 factories, 18 showrooms, a team of 470+ and a monthly capacity of 5,000 recliners." },
+];
