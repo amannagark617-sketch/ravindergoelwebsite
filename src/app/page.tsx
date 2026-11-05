@@ -1,27 +1,20 @@
-import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Story from "@/components/Story";
 import Portrait from "@/components/Portrait";
-import Gallery from "@/components/Gallery";
-import Beginning from "@/components/Beginning";
+import CountLine from "@/components/CountLine";
 import Vision from "@/components/Vision";
-import Writing from "@/components/Writing";
-import Footer from "@/components/Footer";
+import GalleryStrip from "@/components/GalleryStrip";
+import HomeIndex from "@/components/HomeIndex";
+import { origin, vision } from "@/content";
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <main>
-        <Hero />
-        <Story />
-        <Portrait />
-        <Gallery />
-        <Beginning />
-        <Vision />
-        <Writing />
-      </main>
-      <Footer />
+      <Hero />
+      <Portrait />
+      <CountLine tokens={origin} />
+      <Vision label={vision.label} text={vision.text} />
+      <GalleryStrip />
+      <HomeIndex />
     </>
   );
 }

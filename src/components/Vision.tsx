@@ -3,11 +3,12 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { vision } from "@/content";
 
-export default function Vision() {
+type Props = { label: string; text: string; size?: "xl" | "md" };
+
+export default function Vision({ label, text, size = "xl" }: Props) {
   const root = useRef<HTMLElement>(null);
-  const words = vision.text.split(" ");
+  const words = text.split(" ");
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -15,7 +16,7 @@ export default function Vision() {
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         gsap.fromTo(
-          ".vision .word",
+          ".word",
           { color: "#c5cbd8" },
           {
             color: "#1b2238",
@@ -23,8 +24,8 @@ export default function Vision() {
             ease: "none",
             scrollTrigger: {
               trigger: root.current,
-              start: "top 70%",
-              end: "bottom 65%",
+              start: "top 75%",
+              end: "bottom 60%",
               scrub: true,
             },
           }
@@ -35,9 +36,9 @@ export default function Vision() {
   }, []);
 
   return (
-    <section className="vision" id="vision" ref={root}>
-      <div className="label">{vision.label}</div>
-      <p aria-label={vision.text}>
+    <section className={"vision vision-" + size} ref={root}>
+      <div className="label">{label}</div>
+      <p aria-label={text}>
         {words.map((w, i) => (
           <span className="word" aria-hidden="true" key={i}>
             {w}

@@ -1,9 +1,10 @@
 "use client";
 
 import { useLayoutEffect, useRef } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { person } from "@/content";
+import { LINKEDIN, person } from "@/content";
 
 export default function Hero() {
   const root = useRef<HTMLElement>(null);
@@ -20,7 +21,7 @@ export default function Hero() {
           stagger: 0.14,
           ease: "power4.out",
         });
-        gsap.from(".hero-sub, .hero-cue", {
+        gsap.from(".hero-sub, .hero-links, .hero-cue", {
           opacity: 0,
           y: 14,
           duration: 1,
@@ -44,7 +45,7 @@ export default function Hero() {
             anticipatePin: 1,
           },
         });
-        gsap.to(".hero-sub, .hero-cue", {
+        gsap.to(".hero-sub, .hero-links, .hero-cue", {
           opacity: 0,
           ease: "none",
           scrollTrigger: {
@@ -70,6 +71,14 @@ export default function Hero() {
         </span>
       </h1>
       <p className="hero-sub">{person.intro}</p>
+      <div className="hero-links">
+        <Link className="btn btn-solid" href="/journey">
+          Read the journey
+        </Link>
+        <a className="btn" href={LINKEDIN} target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+      </div>
       <div className="hero-cue">Scroll</div>
     </section>
   );
