@@ -334,7 +334,7 @@ export const laZBoy = {
     },
   ] as Stop[],
   partnerNote:
-    "Exclusive partner means Little Nap makes and sells La-Z-Boy recliners in India, to La-Z-Boy standards, under the licence of La-Z-Boy, Incorporated, Michigan, USA.",
+    "Exclusive partner means Little Nap is La-Z-Boy's authorised partner in India, bringing La-Z-Boy, Incorporated, Michigan, USA to Indian homes.",
   whyTitle: "Why they chose Little Nap",
   why:
     "According to CEO Insights, La-Z-Boy selected Little Nap as its authorised partner in India because of its business ethics and core values, its team, and its growth over ten years.",
@@ -493,7 +493,7 @@ export const littleNap = {
     {
       name: "La-Z-Boy India",
       logo: "/logos/la-z-boy.png",
-      text: "Little Nap is La-Z-Boy's exclusive partner in India. The recliners are made to its standards under the licence of La-Z-Boy, Incorporated, Michigan, USA.",
+      text: "Little Nap is La-Z-Boy's exclusive partner in India, bringing La-Z-Boy, Incorporated, Michigan, USA to Indian homes.",
       href: "/la-z-boy",
       hrefLabel: "Read how it happened",
     },
