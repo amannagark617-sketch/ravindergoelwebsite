@@ -37,6 +37,34 @@ export const nav = [
   { href: "/connect", label: "Connect" },
 ];
 
+export type NavGroup = { label: string; items: { href: string; label: string; note: string }[] } | { label: string; href: string };
+export const navGroups: NavGroup[] = [
+  {
+    label: "Ravinder",
+    items: [
+      { href: "/journey", label: "Journey", note: "His story, 2011 to today" },
+      { href: "/vision", label: "Vision", note: "Little Nap's vision, animated" },
+      { href: "/values", label: "Values", note: "The DNA and five core values" },
+    ],
+  },
+  {
+    label: "Little Nap",
+    items: [
+      { href: "/little-nap", label: "Little Nap in 3D", note: "From one chair to 1,300+ screens" },
+      { href: "/showrooms", label: "Showrooms", note: "18 showrooms and 2 factories" },
+      { href: "/la-z-boy", label: "La-Z-Boy", note: "The exclusive partnership in India" },
+    ],
+  },
+  {
+    label: "Recognition",
+    items: [
+      { href: "/recognition", label: "Awards and press", note: "Awards, articles, conversations" },
+      { href: "/gallery", label: "Gallery", note: "Photographs" },
+    ],
+  },
+  { label: "Connect", href: "/connect" },
+];
+
 /* ---------- Photographs ---------- */
 
 export const gallery = [

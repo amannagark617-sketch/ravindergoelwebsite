@@ -449,8 +449,11 @@ img {
   }
 
   .mobile-nav.is-open {
-    position: fixed;
-    inset: var(--header) 0 0 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: calc(100svh - var(--header));
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
@@ -2605,3 +2608,27 @@ body::before {
 @keyframes imSpin { to { transform: rotate(360deg); } }
 @keyframes imRadar { 0% { stroke-opacity: 0.35; transform: scale(0.15); } 100% { stroke-opacity: 0; transform: scale(1); } }
 @keyframes imScan { 0% { transform: translateX(0); } 100% { transform: translateX(760px); } }
+
+/* ---------- Grouped navigation ---------- */
+.site-header .desktop-nav { align-items: center; }
+.nav-group { position: relative; padding: 1.2rem 0; }
+.nav-group > button { font: inherit; font-weight: 500; font-size: inherit; color: var(--slate); background: none; border: 0; padding: 0; cursor: pointer; display: inline-flex; align-items: center; gap: 0.45rem; transition: color 0.2s ease; }
+.nav-group > button i { width: 0.45rem; height: 0.45rem; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform 0.25s ease; }
+.nav-group:hover > button, .nav-group.is-open > button, .nav-group.is-current > button { color: var(--garnet); }
+.nav-group.is-open > button i { transform: translateY(1px) rotate(225deg); }
+.nav-panel { position: absolute; top: 100%; left: 50%; min-width: 17rem; transform: translate(-50%, 8px); opacity: 0; visibility: hidden; display: grid; padding: 0.5rem; background: var(--glass-strong); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); border: 1px solid var(--glass-edge); box-shadow: 0 24px 60px rgba(27, 34, 56, 0.2); transition: opacity 0.2s ease, transform 0.25s ease, visibility 0.2s; }
+.nav-group.is-open .nav-panel { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.site-header .nav-panel a { display: grid; gap: 0.15rem; padding: 0.75rem 1rem; color: var(--ink); }
+.site-header .nav-panel a b { font-family: var(--display); font-weight: 700; font-size: 1rem; }
+.site-header .nav-panel a span { font-size: 0.85rem; color: var(--slate); }
+.site-header .nav-panel a:hover, .site-header .nav-panel a[aria-current="page"] { background: rgba(168, 29, 54, 0.07); }
+.site-header .nav-panel a:hover b, .site-header .nav-panel a[aria-current="page"] b { color: var(--garnet); }
+.mobile-group { display: grid; }
+.mobile-group > span { font-family: var(--display); font-weight: 700; font-size: 0.85rem; color: var(--garnet); margin: 1rem 0 0.2rem; }
+.mobile-group a { padding-left: 0; }
+
+@media (max-width: 64rem) {
+  .mobile-nav.is-open { background: #fff; padding-bottom: 4rem; }
+  .mobile-nav a { font-size: 1.6rem; }
+  .mobile-group a { font-size: 1.5rem; }
+}
