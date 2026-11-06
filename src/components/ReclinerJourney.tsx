@@ -207,7 +207,7 @@ export default function ReclinerJourney() {
     <section
       className="rj"
       ref={root}
-      aria-label="The Little Nap journey in 3D"
+      aria-label="The Little Nap journey"
     >
       <div className="rj-stage" ref={wrap}>
         <canvas ref={canvas} aria-hidden="true" />
