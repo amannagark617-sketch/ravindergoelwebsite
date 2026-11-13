@@ -4,11 +4,9 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { coreValues } from "@/content";
-import Concept from "@/components/Concept";
 
-const SLUGS = ["customer-first", "integrity", "ownership", "learning", "one-team"];
 
-export default function ValuesWipe() {
+export default function ValuesWipe({ photos }: { photos: (string | null)[] }) {
   const root = useRef<HTMLElement>(null);
   const n = coreValues.length;
 
@@ -51,7 +49,14 @@ export default function ValuesWipe() {
       <div className="vw-figs">
         {coreValues.map((v, i) => (
           <div className="vw-fig" key={v.name}>
-            <Concept slug={SLUGS[i]} label={v.name} />
+            {photos[i] ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img className="concept" src={photos[i]} alt="" />
+            ) : (
+              <div className="concept concept-fallback" aria-hidden="true">
+                <span>{v.name}</span>
+              </div>
+            )}
           </div>
         ))}
       </div>

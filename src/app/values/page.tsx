@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageIntro from "@/components/PageIntro";
 import Vision from "@/components/Vision";
 import Concept from "@/components/Concept";
+import { conceptPath } from "@/lib/concepts";
 import ValuesWipe from "@/components/ValuesWipe";
 import { dna, beliefs } from "@/content";
 
@@ -22,12 +23,12 @@ export default function Values() {
       {dna.map((d) => (
         <Vision key={d.label} label={d.label} text={d.text} size="md" />
       ))}
-      <ValuesWipe />
+      <ValuesWipe photos={["customer-first", "integrity", "ownership", "learning", "one-team"].map(conceptPath)} />
       <h2 className="beliefs-head">In his own words</h2>
       {beliefs.map((b, i) => (
         <div className={"split" + (i % 2 ? " flip" : "")} key={b.text}>
           <Vision label={b.label} text={b.text} size="md" />
-          <Concept className="split-photo" slug={beliefSlugs[i]} label={b.label} />
+          <Concept className="split-photo" src={conceptPath(beliefSlugs[i])} label={b.label} />
         </div>
       ))}
     </>

@@ -59,6 +59,7 @@ export const navGroups: NavGroup[] = [
     label: "Recognition",
     items: [
       { href: "/recognition", label: "Awards and press", note: "Awards, articles, conversations" },
+      { href: "/press", label: "Press kit", note: "Bio, facts and photos, ready to use" },
       { href: "/gallery", label: "Gallery", note: "Photographs" },
     ],
   },
