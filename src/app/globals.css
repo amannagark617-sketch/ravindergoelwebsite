@@ -2653,3 +2653,8 @@ body::before {
 .afmt { max-width: 70rem; margin: 0 auto; padding: clamp(3rem, 8vw, 6rem) var(--gutter); border-top: 1px solid var(--rule); }
 .afmt h2 { font-family: var(--display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.2rem); letter-spacing: -0.03em; margin-bottom: 1rem; }
 .afmt p { max-width: 62ch; font-size: 1.1rem; line-height: 1.65; color: var(--slate); margin-bottom: 1rem; }
+
+.afmt-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin: 1.5rem 0 2rem; max-width: 62rem; }
+.afmt-stats dt { font-family: var(--display); font-weight: 800; font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: -0.03em; color: var(--garnet); line-height: 1; }
+.afmt-stats dd { margin-top: 0.5rem; color: var(--slate); font-size: 0.98rem; line-height: 1.5; }
+@media (max-width: 52rem) { .afmt-stats { grid-template-columns: 1fr; } }

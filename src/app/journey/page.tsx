@@ -32,13 +32,18 @@ export default function Journey() {
         <h2>About AFMT</h2>
         <p>
           The Association of Furniture Manufacturers &amp; Traders (INDIA), AFMT, was founded in 2008.
-          It has grown into India&apos;s largest furniture association, bringing manufacturers and
-          traders together to build a stronger, Made in India furniture industry.
+          It is India&apos;s largest furniture association, recognised by the Government of India,
+          and it represents manufacturers, traders, importers and allied sectors across the country.
         </p>
+        <dl className="afmt-stats">
+          <div><dt>715</dt><dd>AFMT members across India (July 2026)</dd></div>
+          <div><dt>162</dt><dd>members in the North India Chapter, up from 43 at its launch on 11 March 2023</dd></div>
+          <div><dt>23%</dt><dd>of AFMT&apos;s national membership sits in the North India Chapter</dd></div>
+        </dl>
         <p>
-          Ravinder Goel was first elected Vice President of its North India Chapter in March 2023.
-          Members re-elected him, and in 2026 he was elected for a third consecutive term, which
-          runs 2026 to 2028. He also chaired and presented the chapter&apos;s 3rd Annual General Meeting.
+          Ravinder Goel has been Vice President of the North India Chapter since it began. Members
+          re-elected him, and in 2026 he was elected for a third consecutive term, which runs 2026
+          to 2028. He also chaired and presented one of the chapter&apos;s Annual General Meetings.
           His view: the industry&apos;s greatest strength lies in collaboration.
         </p>
       </section>
