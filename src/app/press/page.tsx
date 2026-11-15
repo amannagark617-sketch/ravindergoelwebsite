@@ -17,7 +17,7 @@ const facts: [string, string][] = [
   ["Team", "470+ people"],
   ["Cinema", "Recliners in 1,300+ cinema screens"],
   ["La-Z-Boy", "Exclusive partner in India since April 2020"],
-  ["Industry role", "Twice-elected Vice President, North India Chapter, AFMT (first elected March 2023)"],
+  ["Industry role", "Vice President, North India Chapter, AFMT. Elected for a third consecutive term, 2026–2028"],
   ["Group", "Little Nap Designs, La-Z-Boy India, Seating Spectrum (Malaysia), AC Seating"],
 ];
 
