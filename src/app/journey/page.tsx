@@ -28,6 +28,19 @@ export default function Journey() {
         </ol>
       </section>
       <FilmJourney images={images} />
+      <section className="afmt">
+        <h2>About AFMT</h2>
+        <p>
+          AFMT is India&apos;s only furniture association with a nationwide presence, with more
+          than 350 members across the country. It brings manufacturers and traders of the
+          furniture industry together.
+        </p>
+        <p>
+          Ravinder Goel was first elected Vice President of its North India Chapter in March 2023.
+          Members elected him to the same post a second time. It is a role given by fellow
+          furniture makers, and it puts his work beyond Little Nap and into the wider industry.
+        </p>
+      </section>
     </>
   );
 }

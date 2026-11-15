@@ -231,7 +231,7 @@ export const chapters: Chapter[] = [
     title: "Leading beyond his own company.",
     img: "/images/ravinder-showroom-arms.jpg",
     body:
-      "In March 2023 he became Vice President, North India Chapter, of AFMT, India's only furniture association with a nationwide presence and 350+ members. In December 2023 Welingkar gave him its Pride of Welingkar Award for entrepreneurial success.",
+      "In March 2023 he was elected Vice President, North India Chapter, of AFMT, India's only furniture association with a nationwide presence and 350+ members, and he has since been elected to the post a second time. In December 2023 Welingkar gave him its Pride of Welingkar Award for entrepreneurial success.",
   },
   {
     year: "2026",
