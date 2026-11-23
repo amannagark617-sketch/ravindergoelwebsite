@@ -36,7 +36,8 @@ export default function Header() {
   return (
     <header className="site-header">
       <Link className="mark" href="/">
-        {person.name}
+        <span className="mark-name">{person.name}</span>
+        <span className="mark-role">Founder and CEO, Little Nap Recliners</span>
       </Link>
       <nav className="desktop-nav" aria-label="Main">
         {navGroups.map((g) =>

@@ -2765,3 +2765,84 @@ h1, h2, h3 { font-weight: 600; }
 
 /* Vision scene follows the page title, so it needs no header clearance of its own */
 .vs.is-scrubbed { padding-top: 0.5rem; }
+
+/* =====================================================================
+   Rounded corners and a light glass finish.
+   Moderate radii (not pills). Glass is a faint translucent white with a
+   hairline edge and a soft, low shadow, so it stays elegant on white.
+   ===================================================================== */
+:root {
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 22px;
+  --glass-fill: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(246, 247, 249, 0.72));
+  --glass-line: rgba(20, 33, 61, 0.1);
+  --glass-lift: 0 10px 30px rgba(20, 33, 61, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+/* Header: frosted glass */
+.site-header {
+  background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  backdrop-filter: blur(16px) saturate(160%);
+  border-bottom: 1px solid var(--glass-line);
+  box-shadow: 0 6px 24px rgba(20, 33, 61, 0.05);
+}
+.nav-panel {
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, 0.86);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid var(--glass-line);
+  box-shadow: 0 18px 44px rgba(20, 33, 61, 0.14);
+}
+.site-header .nav-panel a { border-radius: var(--r-sm); }
+
+/* Controls */
+.btn, .btn:not(.btn-solid), .btn-solid, .menu-button, .tabs button, .copy { border-radius: var(--r-sm); }
+.btn:not(.btn-solid), .menu-button, .tabs button {
+  background: var(--glass-fill); border: 1px solid var(--glass-line); box-shadow: var(--glass-lift); color: var(--ink);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.btn:not(.btn-solid):hover, .menu-button:hover, .tabs button:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.btn-solid { box-shadow: 0 8px 20px rgba(20, 33, 61, 0.2); }
+.tabs button[aria-selected="true"], .tabs button.is-on { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+/* Cards and panels */
+.rj.is-scrubbed .rj-steps, .globe.is-scrubbed .globe-steps li.is-active, .group details, .sixty, .pull-quote,
+.hi-preview, .vs.is-scrubbed .vs-lines, .vg-card, .lightbox-bar, .sf-card, .rec-card, .afmt-stats > div {
+  background: var(--glass-fill); border: 1px solid var(--glass-line); box-shadow: var(--glass-lift);
+  -webkit-backdrop-filter: blur(14px) saturate(140%); backdrop-filter: blur(14px) saturate(140%);
+  border-radius: var(--r-md);
+}
+.pull-quote { border-left: 3px solid var(--garnet); }
+.vg-card.is-on { border-color: var(--garnet); box-shadow: var(--glass-lift); }
+.hero-facts {
+  border: 1px solid var(--glass-line); border-radius: var(--r-md); background: var(--glass-fill); box-shadow: var(--glass-lift);
+  padding: 0 1.25rem; overflow: hidden;
+}
+
+/* Photos and video */
+img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-photo, .globe-photo, .v-photo, .story-panel-img {
+  border-radius: var(--r-md);
+}
+.hero-photo { border-radius: var(--r-lg); overflow: hidden; box-shadow: 0 24px 50px rgba(20, 33, 61, 0.16); }
+.hero-photo img { border-radius: 0; }
+.vp-frame, .portrait-frame { overflow: hidden; }
+.vp-frame { box-shadow: 0 18px 44px rgba(20, 33, 61, 0.14); }
+.film-photo, .split-photo, .globe-photo { box-shadow: 0 16px 40px rgba(20, 33, 61, 0.12); }
+.site-header img, .site-footer img { border-radius: 0; }
+.vp-play { border-radius: var(--r-md); }
+.site-footer { border-radius: 0; }
+
+/* Header: name with role beneath, and Connect as the single call to action */
+.site-header .mark { display: grid; gap: 0.1rem; line-height: 1.15; }
+.site-header .mark-name { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em; color: var(--ink); }
+.site-header .mark-role { font-weight: 500; font-size: 0.75rem; letter-spacing: 0; color: var(--slate); }
+.site-header .desktop-nav > a:last-child {
+  background: var(--ink); color: #fff; padding: 0.55rem 1.1rem; border-radius: var(--r-sm);
+  box-shadow: 0 6px 16px rgba(20, 33, 61, 0.18);
+}
+.site-header .desktop-nav > a:last-child:hover,
+.site-header .desktop-nav > a:last-child[aria-current="page"] { background: var(--garnet); color: #fff; }
+@media (max-width: 30rem) { .site-header .mark-role { display: none; } }
