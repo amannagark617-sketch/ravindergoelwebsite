@@ -4,6 +4,7 @@ import "@fontsource-variable/newsreader";
 import "./globals.css";
 import ScrollProgress from "@/components/ScrollProgress";
 import SmoothScroll from "@/components/SmoothScroll";
+import ScrollToTop from "@/components/ScrollToTop";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <SmoothScroll />
+        <ScrollToTop />
         <ScrollProgress />
         <Header />
         {children}
