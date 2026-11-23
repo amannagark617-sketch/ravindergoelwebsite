@@ -13,7 +13,6 @@ export type Article = {
 };
 
 const LI: Source = { label: "Ravinder Goel on LinkedIn", href: "https://www.linkedin.com/in/ravindergoel/" };
-const PUBLISHED = "2026-11-24";
 
 export const articles: Article[] = [
   {
@@ -21,7 +20,7 @@ export const articles: Article[] = [
     title: "From ₹5 lakh to ₹100 crore: how Ravinder Goel started Little Nap",
     description:
       "In July 2011 Ravinder Goel started Little Nap Recliners with a ₹5 lakh credit card loan, a 600 sq. ft. display area and a team of three. This is how the first years went.",
-    date: PUBLISHED,
+    date: "2026-11-24",
     minutes: 4,
     topic: "Founder story",
     body: [
@@ -66,7 +65,7 @@ export const articles: Article[] = [
     title: "The observation behind Little Nap: customers who did not want to get up",
     description:
       "In 2011 recliners were far from mainstream in India. Ravinder Goel noticed that people who sat in one did not want to leave, and built Little Nap around that.",
-    date: PUBLISHED,
+    date: "2026-11-25",
     minutes: 3,
     topic: "Founder story",
     body: [
@@ -105,7 +104,7 @@ export const articles: Article[] = [
     title: "Failing the MBA exams and starting over: Ravinder Goel on rock bottom",
     description:
       "Ravinder Goel failed several MBA entrance exams, bought a fifth-grade maths book to rebuild his basics, and learned sales by knocking on doors. He tells the story in a YouTube interview.",
-    date: PUBLISHED,
+    date: "2026-11-26",
     minutes: 3,
     topic: "Founder story",
     body: [
@@ -144,7 +143,7 @@ export const articles: Article[] = [
     title: "How Little Nap recliners reached more than 1,300 cinema screens",
     description:
       "From a first order from PVR to more than 1,300 screens and a joint venture with Seating Spectrum of Malaysia: the cinema side of Little Nap, and Ravinder Goel's role in it.",
-    date: PUBLISHED,
+    date: "2026-11-27",
     minutes: 4,
     topic: "Cinema",
     body: [
@@ -187,7 +186,7 @@ export const articles: Article[] = [
     title: "How La-Z-Boy came to India through Little Nap",
     description:
       "La-Z-Boy, the American brand that invented the recliner, made Little Nap its exclusive partner in India in April 2020. What the partnership is and how it started.",
-    date: PUBLISHED,
+    date: "2026-11-28",
     minutes: 3,
     topic: "Partnerships",
     body: [
@@ -221,7 +220,7 @@ export const articles: Article[] = [
     title: "AFMT North India Chapter: what the association does and Ravinder Goel's role",
     description:
       "AFMT is India's largest furniture association. Ravinder Goel has been Vice President of its North India Chapter since 2023 and began a third consecutive term in 2026.",
-    date: PUBLISHED,
+    date: "2026-11-29",
     minutes: 3,
     topic: "Industry",
     body: [
@@ -254,7 +253,7 @@ export const articles: Article[] = [
     title: "Building a 470-person team: the quarterly strategy meeting at Little Nap",
     description:
       "Every quarter Little Nap holds a full-day strategy meeting where each department head presents. Ravinder Goel explains why he speaks for 25 minutes and then listens.",
-    date: PUBLISHED,
+    date: "2026-11-30",
     minutes: 4,
     topic: "Leadership",
     body: [
@@ -295,7 +294,7 @@ export const articles: Article[] = [
     title: "Leading a factory through uncertain times: a manufacturer's reflection",
     description:
       "Ravinder Goel on rising costs, shifting supply chains and what a manufacturer can control: costs, discipline, systems and people.",
-    date: PUBLISHED,
+    date: "2026-12-01",
     minutes: 3,
     topic: "Leadership",
     body: [
@@ -325,7 +324,7 @@ export const articles: Article[] = [
     title: "Fifteen years of Little Nap: Ravinder Goel's note of thanks",
     description:
       "On 15 July 2026 Little Nap Recliners completed 15 years. Ravinder Goel marked the day with thanks to his team, customers, dealers, suppliers, family and mentors.",
-    date: PUBLISHED,
+    date: "2026-12-02",
     minutes: 2,
     topic: "Milestones",
     body: [
@@ -355,7 +354,7 @@ export const articles: Article[] = [
     title: "The Little Nap franchise: showroom size and investment, as shared in 2026",
     description:
       "In 2026 Ravinder Goel shared the basics of the Little Nap franchise model: a 1,500 to 2,500 sq. ft. showroom and an investment of ₹35 to ₹55 lakh.",
-    date: PUBLISHED,
+    date: "2026-12-03",
     minutes: 2,
     topic: "Franchise",
     body: [
@@ -387,3 +386,23 @@ export const articles: Article[] = [
 ];
 
 export const bySlug = (slug: string) => articles.find((a) => a.slug === slug);
+
+// Articles go live one per day. Dates are compared in Indian time.
+export const todayIST = () => new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" });
+export const isPublished = (a: Article, today: string = todayIST()) => a.date <= today;
+
+type Pic = { src: string; pos?: string };
+const CAP = "Ravinder Goel, Founder and CEO, Little Nap Recliners";
+export const media: Record<string, { hero: Pic; figure: Pic }> = {
+  "from-5-lakh-to-100-crore": { hero: { src: "ravinder-relaxed.jpg", pos: "50% 30%" }, figure: { src: "ravinder-portrait.jpg", pos: "50% 22%" } },
+  "the-observation-behind-little-nap": { hero: { src: "ravinder-sofa-seated.jpg", pos: "70% 40%" }, figure: { src: "ravinder-lounge.jpg", pos: "50% 25%" } },
+  "failing-and-starting-over": { hero: { src: "ravinder-studio-point.jpg", pos: "50% 30%" }, figure: { src: "ravinder-red-wall.jpg", pos: "50% 22%" } },
+  "recliners-in-1300-cinema-screens": { hero: { src: "ravinder-cinema-wide.jpg", pos: "60% 40%" }, figure: { src: "ravinder-cinema-seated.jpg", pos: "50% 40%" } },
+  "la-z-boy-in-india": { hero: { src: "ravinder-showroom-standing.jpg", pos: "50% 24%" }, figure: { src: "ravinder-showroom-lean.jpg", pos: "50% 24%" } },
+  "afmt-north-india-chapter": { hero: { src: "ravinder-gesture.jpg", pos: "50% 18%" }, figure: { src: "ravinder-showroom-arms.jpg", pos: "50% 25%" } },
+  "building-a-470-person-team": { hero: { src: "ravinder-showroom-smile.jpg", pos: "50% 24%" }, figure: { src: "ravinder-theatre-hands.jpg", pos: "50% 22%" } },
+  "leading-through-uncertainty": { hero: { src: "ravinder-cinema-grey.jpg", pos: "60% 40%" }, figure: { src: "ravinder-studio-point.jpg", pos: "50% 30%" } },
+  "fifteen-years-of-little-nap": { hero: { src: "ravinder-office.jpg", pos: "50% 22%" }, figure: { src: "ravinder-showroom-smile.jpg", pos: "50% 24%" } },
+  "little-nap-franchise": { hero: { src: "ravinder-showroom-lean.jpg", pos: "50% 22%" }, figure: { src: "ravinder-cinema-seated.jpg", pos: "50% 40%" } },
+};
+export const caption = CAP;

@@ -42,7 +42,6 @@ export default function Header() {
         <img className="mark-logo" src="/images/rg-mark.png" alt="" width={44} height={44} />
         <span className="mark-text">
           <span className="mark-name">{person.name}</span>
-          {pathname !== "/" && <span className="mark-role">Founder and CEO, Little Nap Recliners</span>}
         </span>
       </Link>
       <nav className="desktop-nav" aria-label="Main">

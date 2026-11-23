@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { articles, bySlug } from "@/journal";
+import JournalList from "@/components/JournalList";
+import { articles, bySlug, media, caption } from "@/journal";
 
 const SITE = "https://www.ravindergoel.com";
 const fmt = (d: string) => new Date(d).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
@@ -28,8 +29,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const a = bySlug(slug);
   if (!a) notFound();
-  const i = articles.findIndex((x) => x.slug === a.slug);
-  const next = articles[(i + 1) % articles.length];
+  const m = media[a.slug];
 
   const ld = {
     "@context": "https://schema.org",
@@ -40,7 +40,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     dateModified: a.date,
     inLanguage: "en-IN",
     mainEntityOfPage: `${SITE}/journal/${a.slug}`,
-    image: `${SITE}/images/ravinder-office.jpg`,
+    image: `${SITE}/images/${m.hero.src}`,
     author: { "@type": "Organization", name: "ravindergoel.com", url: SITE },
     publisher: { "@id": `${SITE}/#person` },
     about: { "@id": `${SITE}/#person` },
@@ -55,10 +55,15 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <Link href="/journal">Journal</Link> / {a.topic}
           </p>
           <h1>{a.title}</h1>
+          <p className="article-lede">{a.description}</p>
           <p className="j-meta">
-            {fmt(a.date)}, {a.minutes} min read
+            {fmt(a.date)} · {a.minutes} min read
           </p>
         </header>
+        <figure className="article-hero">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`/images/${m.hero.src}`} alt={caption} style={{ objectPosition: m.hero.pos }} width={1500} height={844} />
+        </figure>
         <div className="article-body">
           {a.body.map((b, k) => (
             <section key={k}>
@@ -66,6 +71,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               {b.p.map((t, j) => (
                 <p key={j}>{t}</p>
               ))}
+              {k === 1 && (
+                <figure className="article-fig">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`/images/${m.figure.src}`} alt={caption} loading="lazy" style={{ objectPosition: m.figure.pos }} width={1200} height={800} />
+                  <figcaption>{caption}</figcaption>
+                </figure>
+              )}
             </section>
           ))}
         </div>
@@ -89,10 +101,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             ))}
           </ul>
         </aside>
-        <nav className="article-next" aria-label="Next article">
-          <span>Next</span>
-          <Link href={`/journal/${next.slug}`}>{next.title}</Link>
-        </nav>
+        <section className="article-more">
+          <JournalList exclude={a.slug} limit={3} heading="Keep reading" />
+        </section>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       </article>
     </main>
