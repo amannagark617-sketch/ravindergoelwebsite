@@ -40,7 +40,7 @@ export default function Header() {
       <Link className="mark" href="/">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img className="mark-logo" src="/images/rg-mark.png" alt="" width={44} height={44} />
-        <span className={"mark-text" + (pathname === "/" ? " sr-only" : "")}>
+        <span className="mark-text">
           <span className="mark-name">{person.name}</span>
           {pathname !== "/" && <span className="mark-role">Founder and CEO, Little Nap Recliners</span>}
         </span>
