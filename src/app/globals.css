@@ -2870,3 +2870,9 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 .lb-ink:hover { background: rgba(138, 28, 43, 0.92); border-color: transparent; }
 .site-header nav a.lb { color: #fff; }
 .site-header nav a.lb-clear { color: var(--ink); }
+
+/* RG monogram beside the name */
+.site-header .mark { display: flex; align-items: center; gap: 0.75rem; }
+.site-header .mark-logo { width: 2.75rem; height: 2.75rem; border-radius: 0; flex: none; }
+.site-header .mark-text { display: grid; gap: 0.1rem; line-height: 1.15; }
+@media (max-width: 30rem) { .site-header .mark-logo { width: 2.25rem; height: 2.25rem; } }

@@ -38,8 +38,12 @@ export default function Header() {
     <header className="site-header">
       <GlassFilter />
       <Link className="mark" href="/">
-        <span className="mark-name">{person.name}</span>
-        <span className="mark-role">Founder and CEO, Little Nap Recliners</span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="mark-logo" src="/images/rg-mark.png" alt="" width={44} height={44} />
+        <span className="mark-text">
+          <span className="mark-name">{person.name}</span>
+          <span className="mark-role">Founder and CEO, Little Nap Recliners</span>
+        </span>
       </Link>
       <nav className="desktop-nav" aria-label="Main">
         {navGroups.map((g) =>
