@@ -504,7 +504,7 @@ export const littleNap = {
       text: "A global partner and joint venture. The first Seating Spectrum chairs made in India were produced at the Little Nap factory and launched at Big Cine Expo 2026 in Chennai, on 18 and 19 August 2026.",
     },
     {
-      name: "AC Seating",
+      name: "Little Nap Seating Spectrum Private Limited",
       text: "A joint venture that makes standard cinema and auditorium chairs using Malaysian technology.",
     },
     {
