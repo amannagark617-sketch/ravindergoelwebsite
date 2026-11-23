@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: "Founder of Little Nap Recliners. Making the Joy of Comfort since 2011.",
     url: "https://ravindergoel.com",
     type: "website",
-    images: ["/images/ravinder-portrait.jpg"],
+    images: ["/images/ravinder-office.jpg"],
   },
 };
 

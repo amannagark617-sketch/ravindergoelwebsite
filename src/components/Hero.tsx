@@ -29,11 +29,11 @@ export default function Hero() {
       <div className="hero-photo">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/ravinder-portrait.jpg"
+          src="/images/ravinder-office.jpg"
           alt="Ravinder Goel, Founder and CEO of Little Nap Recliners"
-          width={1333}
-          height={2000}
-          style={{ objectPosition: "50% 22%" }}
+          width={1200}
+          height={1500}
+          style={{ objectPosition: "50% 20%" }}
         />
       </div>
       <ul className="hero-facts">

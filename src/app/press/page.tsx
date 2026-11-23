@@ -22,7 +22,8 @@ const facts: [string, string][] = [
 ];
 
 const photos = [
-  { src: "/images/ravinder-portrait.jpg", label: "Portrait" },
+  { src: "/images/ravinder-office.jpg", label: "Portrait, office" },
+  { src: "/images/ravinder-portrait.jpg", label: "Portrait, studio" },
   { src: "/images/ravinder-cinema-seated.jpg", label: "In a Little Nap cinema" },
   { src: "/images/ravinder-showroom-standing.jpg", label: "In a showroom" },
 ];
