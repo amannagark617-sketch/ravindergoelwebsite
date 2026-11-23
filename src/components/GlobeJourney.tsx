@@ -161,7 +161,7 @@ export default function GlobeJourney({ stops, ariaLabel }: { stops: Stop[]; aria
       }
 
       // Stops
-      g.font = "600 14px 'Bricolage Grotesque Variable', Arial, sans-serif";
+      g.font = "600 14px 'Libre Franklin Variable', Arial, sans-serif";
       g.textBaseline = "middle";
       const activeIdx = still ? n - 1 : fr.active;
       const shown: { s: number; x: number; y: number }[] = [];

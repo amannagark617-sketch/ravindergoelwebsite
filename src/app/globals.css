@@ -7,8 +7,8 @@
   --rule: #d9dde6;
   --quiet: #c5cbd8;
 
-  --display: "Bricolage Grotesque Variable", "Helvetica Neue", Arial, sans-serif;
-  --text: "Newsreader Variable", Georgia, "Times New Roman", serif;
+  --display: "Libre Franklin Variable", "Helvetica Neue", Arial, sans-serif;
+  --text: "Source Serif 4 Variable", Georgia, "Times New Roman", serif;
 
   --gutter: clamp(1.25rem, 5vw, 4.5rem);
   --header: 4.25rem;
@@ -151,7 +151,7 @@ img {
 .hero-name {
   font-family: var(--display);
   font-weight: 800;
-  font-variation-settings: "wdth" 85;
+  
   font-size: clamp(3.5rem, min(18vw, calc((100svh - 23rem) / 1.75)), 19rem);
   line-height: 0.86;
   letter-spacing: -0.045em;
@@ -486,7 +486,7 @@ img {
 .page-intro h1 {
   font-family: var(--display);
   font-weight: 800;
-  font-variation-settings: "wdth" 85;
+  
   font-size: clamp(3.4rem, 12vw, 10rem);
   line-height: 0.92;
   letter-spacing: -0.045em;

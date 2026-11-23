@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import "@fontsource-variable/bricolage-grotesque";
-import "@fontsource-variable/newsreader";
+import "@fontsource-variable/libre-franklin";
+import "@fontsource-variable/source-serif-4";
 import "./globals.css";
 import ScrollProgress from "@/components/ScrollProgress";
 import SmoothScroll from "@/components/SmoothScroll";
