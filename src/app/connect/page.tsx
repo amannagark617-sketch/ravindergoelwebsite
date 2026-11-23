@@ -4,13 +4,13 @@ import ConnectList from "@/components/ConnectList";
 
 export const metadata: Metadata = {
   title: "Connect",
-  description: "Ravinder Goel's LinkedIn and every Little Nap and La-Z-Boy India social handle.",
+  description: "Ravinder Goel's LinkedIn and the official Little Nap links.",
 };
 
 export default function Connect() {
   return (
     <>
-      <PageIntro title="Connect" lede="His LinkedIn, and every Little Nap and product link in one place." />
+      <PageIntro title="Connect" lede="Ravinder Goel on LinkedIn, and the official Little Nap links." />
       <ConnectList />
     </>
   );

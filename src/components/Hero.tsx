@@ -1,98 +1,49 @@
-"use client";
-
-import { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { LINKEDIN, person, proof } from "@/content";
-import dynamic from "next/dynamic";
+import { LINKEDIN, person } from "@/content";
 
-const ChairHero = dynamic(() => import("@/components/ChairHero"), { ssr: false });
+const facts = [
+  { n: "2011", l: "Founded" },
+  { n: "2", l: "Factories" },
+  { n: "18", l: "Showrooms" },
+  { n: "1,300+", l: "Cinema screens" },
+  { n: "La-Z-Boy", l: "Exclusive partner in India" },
+  { n: "AFMT", l: "Vice President, North India Chapter" },
+];
 
 export default function Hero() {
-  const root = useRef<HTMLElement>(null);
-
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const ctx = gsap.context(() => {
-      const mm = gsap.matchMedia();
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
-        // One orchestrated moment on load: the name rises into place.
-        gsap.from(".hero-name .line-inner", {
-          yPercent: 110,
-          duration: 1.3,
-          stagger: 0.14,
-          ease: "power4.out",
-        });
-        gsap.from(".hero-sub, .hero-proof, .hero-links, .hero-cue", {
-          opacity: 0,
-          y: 14,
-          duration: 1,
-          delay: 0.8,
-          stagger: 0.12,
-          ease: "power2.out",
-        });
-
-      });
-      // Desktop only: on scroll the name leans back, the way a recliner does.
-      mm.add("(prefers-reduced-motion: no-preference) and (min-width: 53rem)", () => {
-        gsap.to(".hero-name", {
-          rotateX: 48,
-          yPercent: -6,
-          opacity: 0.08,
-          ease: "none",
-          scrollTrigger: {
-            trigger: root.current,
-            start: "top top",
-            end: "+=85%",
-            scrub: true,
-            pin: true,
-            anticipatePin: 1,
-          },
-        });
-        gsap.to(".hero-sub, .hero-proof, .hero-links, .hero-cue", {
-          opacity: 0,
-          ease: "none",
-          scrollTrigger: {
-            trigger: root.current,
-            start: "top top",
-            end: "+=30%",
-            scrub: true,
-          },
-        });
-      });
-    }, root);
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section className="hero" id="top" ref={root}>
-      <ChairHero />
-      <h1 className="hero-name" aria-label={person.name}>
-        <span className="line" aria-hidden="true">
-          <span className="line-inner">{person.first}</span>
-        </span>
-        <span className="line" aria-hidden="true">
-          <span className="line-inner">{person.last}</span>
-        </span>
-      </h1>
-      <p className="hero-sub">{person.intro}</p>
-      <ul className="hero-proof">
-        {proof.map((p) => (
-          <li key={p.l}>
-            <strong>{p.n}</strong> {p.l}
+    <section className="hero" id="top">
+      <div className="hero-copy">
+        <h1 className="hero-name">{person.name}</h1>
+        <p className="hero-role">Founder and CEO, Little Nap Recliners</p>
+        <p className="hero-sub">He believes comfort is not a luxury but a fundamental human experience.</p>
+        <div className="hero-links">
+          <Link className="btn btn-solid" href="/journey">
+            Read the journey
+          </Link>
+          <a className="btn" href={LINKEDIN} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+        </div>
+      </div>
+      <div className="hero-photo">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/ravinder-portrait.jpg"
+          alt="Ravinder Goel, Founder and CEO of Little Nap Recliners"
+          width={1333}
+          height={2000}
+          style={{ objectPosition: "50% 22%" }}
+        />
+      </div>
+      <ul className="hero-facts">
+        {facts.map((f) => (
+          <li key={f.l}>
+            <strong>{f.n}</strong>
+            <span>{f.l}</span>
           </li>
         ))}
       </ul>
-      <div className="hero-links">
-        <Link className="btn btn-solid" href="/journey">
-          Read the journey
-        </Link>
-        <a className="btn" href={LINKEDIN} target="_blank" rel="noopener noreferrer">
-          LinkedIn
-        </a>
-      </div>
-      <div className="hero-cue">Scroll</div>
     </section>
   );
 }

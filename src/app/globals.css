@@ -2658,3 +2658,110 @@ body::before {
 .afmt-stats dt { font-family: var(--display); font-weight: 800; font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: -0.03em; color: var(--garnet); line-height: 1; }
 .afmt-stats dd { margin-top: 0.5rem; color: var(--slate); font-size: 0.98rem; line-height: 1.5; }
 @media (max-width: 52rem) { .afmt-stats { grid-template-columns: 1fr; } }
+
+/* =====================================================================
+   Professional reset. Flat white page, navy ink, one restrained garnet.
+   This block sits last on purpose: it replaces the earlier glass and
+   soft-shadow treatments without touching their selectors.
+   ===================================================================== */
+:root {
+  --paper: #ffffff;
+  --ink: #14213d;
+  --slate: #4f586b;
+  --garnet: #8a1c2b;
+  --mist: #f6f7f9;
+  --rule: #e2e5ea;
+  --soft: #ffffff;
+  --glass: #ffffff;
+  --glass-strong: #ffffff;
+  --glass-edge: #e2e5ea;
+  --glass-shadow: none;
+  --raise: none;
+  --raise-sm: none;
+  --press: none;
+  --section: clamp(3rem, 6vw, 5rem);
+}
+
+body { font-size: 1.125rem; line-height: 1.65; background: #fff; }
+body::before { content: none; animation: none; }
+
+.site-header { background: #fff; -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none; border-bottom: 1px solid var(--rule); }
+.site-footer { background: var(--ink); }
+
+/* Flat controls */
+.btn, .btn:not(.btn-solid), .menu-button, .tabs button, .copy {
+  background: #fff; color: var(--ink); border: 1px solid var(--ink); box-shadow: none;
+  -webkit-backdrop-filter: none; backdrop-filter: none; transform: none;
+}
+.btn:not(.btn-solid):hover, .menu-button:hover, .tabs button:hover { background: var(--ink); color: #fff; transform: none; }
+.btn-solid { background: var(--ink); color: #fff; border: 1px solid var(--ink); box-shadow: none; }
+.btn-solid:hover { background: var(--garnet); border-color: var(--garnet); color: #fff; }
+.tabs button[aria-selected="true"], .tabs button.is-on { background: var(--ink); color: #fff; box-shadow: none; }
+.globe-nav button, .story-nav button, .rj-nav button::after, .film-mark i { background: var(--rule); box-shadow: none; }
+.globe-nav button.is-on, .globe-nav button.is-on::after, .rj-nav button.is-on::after, .film-mark.is-on i { background: var(--garnet); box-shadow: none; }
+
+/* Surfaces: borders, not shadows */
+.rj.is-scrubbed .rj-steps, .globe.is-scrubbed .globe-steps li.is-active, .group details, .sixty, .pull-quote,
+.connect-group li, .hi-preview, .vs.is-scrubbed .vs-lines, .vg-card, .lightbox-bar {
+  background: #fff; border: 1px solid var(--rule); box-shadow: none;
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+}
+.vg-card.is-on { box-shadow: none; border-color: var(--garnet); }
+.vg-card:hover, .vg-card:focus-visible { transform: none; }
+.pull-quote { border-left: 3px solid var(--garnet); }
+.vp-frame, .film-photo, .split-photo, .globe-photo { box-shadow: none; outline: 0; }
+.plx, .portrait-frame, .story, .count, .gallery, .film, .growth, .vw, .rj, .rj.is-scrubbed { background: transparent; }
+.count { background: var(--mist); }
+.count + .count { background: #fff; }
+
+/* Type: one scale, weight 600 */
+h1, h2, h3 { font-weight: 600; }
+.page-intro { padding: calc(var(--header) + clamp(2rem, 4vw, 3rem)) var(--gutter) clamp(1.25rem, 3vw, 2rem); }
+.page-intro h1 { font-size: clamp(2.25rem, 4.5vw, 3.75rem); font-weight: 600; font-variation-settings: normal; line-height: 1.08; letter-spacing: -0.025em; animation: none; }
+.page-intro p { margin-top: 1rem; font-size: clamp(1.1rem, 1.6vw, 1.3rem); animation: none; }
+.count { padding: var(--section) var(--gutter); }
+.count p { font-size: clamp(1.75rem, 3.6vw, 3rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.15; max-width: 28ch; }
+.vision { padding: var(--section) var(--gutter); }
+.vision-md { padding: var(--section) var(--gutter); }
+.vision p { font-size: clamp(1.9rem, 4vw, 3.25rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.12; max-width: 26ch; }
+.vision-md p { font-size: clamp(1.6rem, 3vw, 2.5rem); max-width: 30ch; }
+.vision .label { margin-bottom: 1rem; }
+.afmt h2, .portrait h2, .vp-section h2, .group h2, .connect-group h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); letter-spacing: -0.02em; }
+.vp-section, .afmt { padding-top: var(--section); padding-bottom: var(--section); }
+
+/* ---------- Home hero: portrait beside the name ---------- */
+.hero {
+  height: auto; min-height: 0; perspective: none; overflow: visible;
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  grid-template-areas: "copy photo" "facts facts";
+  column-gap: clamp(2rem, 5vw, 5rem); row-gap: clamp(2rem, 4vw, 3rem);
+  align-items: center;
+  padding: calc(var(--header) + clamp(1.5rem, 3vw, 2.5rem)) var(--gutter) clamp(2rem, 4vw, 3rem);
+}
+.hero-copy { grid-area: copy; }
+.hero-name { font-size: clamp(2.75rem, 6.5vw, 6rem); font-weight: 600; font-variation-settings: normal; line-height: 1; letter-spacing: -0.035em; color: var(--ink); transform: none; will-change: auto; }
+.hero-role { margin-top: 1rem; font-family: var(--display); font-weight: 600; font-size: clamp(1.15rem, 1.8vw, 1.5rem); color: var(--garnet); }
+.hero-sub { max-width: 34rem; margin-top: 1rem; font-size: clamp(1.1rem, 1.5vw, 1.3rem); }
+.hero-links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+.hero-photo { grid-area: photo; justify-self: end; width: 100%; max-width: 26rem; background: var(--ink); }
+.hero-photo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+.hero-facts {
+  grid-area: facts; list-style: none; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+}
+.hero-facts li { display: grid; gap: 0.15rem; padding: 1rem 1rem 1rem 0; font-family: var(--display); }
+.hero-facts strong { font-size: clamp(1.15rem, 1.8vw, 1.6rem); font-weight: 600; color: var(--ink); }
+.hero-facts span { font-size: 0.875rem; line-height: 1.3; color: var(--slate); }
+@media (max-width: 64rem) { .hero-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 52rem) {
+  .hero { grid-template-columns: 1fr; grid-template-areas: "copy" "photo" "facts"; padding-top: calc(var(--header) + 1.25rem); min-height: 0; }
+  .hero-photo { justify-self: start; max-width: 22rem; }
+  .hero-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Connect: plain outbound links */
+.connect-group li { padding: 0; margin: 0; border: 0; border-bottom: 1px solid var(--rule); }
+.connect-main { padding: 0.9rem 0; }
+
+/* Vision scene follows the page title, so it needs no header clearance of its own */
+.vs.is-scrubbed { padding-top: 0.5rem; }

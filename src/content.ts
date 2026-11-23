@@ -83,8 +83,8 @@ export const gallery = [
 /* ---------- Home ---------- */
 
 export const portrait = {
-  src: "/images/ravinder-portrait.jpg",
-  alt: "Ravinder Goel in a navy suit against a dark studio backdrop",
+  src: "/images/ravinder-showroom-standing.jpg",
+  alt: "Ravinder Goel in a navy suit standing in a Little Nap showroom",
   heading: "Comfort is not a luxury. It's a fundamental human experience.",
   body:
     "Ravinder Goel started Little Nap in July 2011 with a ₹5 lakh credit card loan, a 600 sq. ft. display area and a team of three. Fifteen years later it is a self-funded group of 470+ people.",
@@ -525,49 +525,12 @@ export const connect: { group: string; links: QuickLink[] }[] = [
     links: [{ label: "LinkedIn", handle: "in/ravindergoel", href: LINKEDIN }],
   },
   {
-    group: "Little Nap on social media",
+    group: "Little Nap Recliners",
     links: [
-      { label: "Instagram", handle: "@little_nap_recliners", href: "https://www.instagram.com/little_nap_recliners/" },
-      { label: "Facebook", handle: "/littlenap", href: "https://www.facebook.com/littlenap" },
-      { label: "YouTube", handle: "Little Nap channel", href: "https://www.youtube.com/channel/UCKFQ0fpFxWHKlBPHYnQErvQ" },
-      { label: "LinkedIn", handle: "company/little-nap", href: "https://www.linkedin.com/company/little-nap" },
-      { label: "X", handle: "@LittleNap1", href: "https://twitter.com/LittleNap1" },
-      { label: "WhatsApp", handle: "Chat with Little Nap", href: "https://api.whatsapp.com/send?phone=9667725859&text=Start" },
-    ],
-  },
-  {
-    group: "La-Z-Boy India",
-    links: [
-      { label: "Instagram", handle: "@lazboyindia", href: "https://www.instagram.com/lazboyindia" },
-      { label: "Facebook", handle: "/Lazboyindiaonline", href: "https://www.facebook.com/Lazboyindiaonline" },
-      { label: "Website", handle: "la-z-boyindia.com", href: "https://www.la-z-boyindia.com/" },
-      { label: "Shop La-Z-Boy", handle: "littlenap.in/lazboy", href: "https://www.littlenap.in/lazboy" },
-    ],
-  },
-  {
-    group: "The products",
-    links: [
-      { label: "Living room recliners", handle: "littlenap.in", href: "https://www.littlenap.in/living-room-recliners" },
-      { label: "Home theatre recliners", handle: "littlenap.in", href: "https://www.littlenap.in/home-theater-recliners" },
-      { label: "Multiplex recliners", handle: "littlenap.in", href: "https://www.littlenap.in/multiplex-recliners" },
-      { label: "Loungers", handle: "littlenap.in", href: "https://www.littlenap.in/lounger" },
-      { label: "Massage chairs", handle: "littlenap.in", href: "https://www.littlenap.in/massage-chair" },
-      { label: "Hospitals", handle: "littlenap.in", href: "https://www.littlenap.in/hospitals" },
-      { label: "Clubhouses", handle: "littlenap.in", href: "https://www.littlenap.in/club-houses" },
-      { label: "Automobiles", handle: "littlenap.in", href: "https://www.littlenap.in/automobiles" },
-      { label: "E-catalogue", handle: "Download", href: "https://www.littlenap.in/download" },
-    ],
-  },
-  {
-    group: "More from Little Nap",
-    links: [
-      { label: "Website", handle: "littlenap.in", href: "https://www.littlenap.in" },
+      { label: "Company website", handle: "littlenap.in", href: "https://www.littlenap.in" },
+      { label: "Company LinkedIn", handle: "company/little-nap", href: "https://www.linkedin.com/company/little-nap" },
       { label: "Find a showroom", handle: "littlenap.in/showroom", href: "https://www.littlenap.in/showroom" },
-      { label: "Blog", handle: "littlenap.in/blog", href: "https://www.littlenap.in/blog" },
-      { label: "Videos", handle: "littlenap.in/video", href: "https://www.littlenap.in/video" },
-      { label: "Events", handle: "littlenap.in/event", href: "https://www.littlenap.in/event" },
-      { label: "Awards", handle: "littlenap.in/awards", href: "https://www.littlenap.in/awards" },
-      { label: "Franchise", handle: "littlenap.in/franchise", href: "https://www.littlenap.in/franchise" },
+      { label: "Franchise enquiries", handle: "littlenap.in/franchise", href: "https://www.littlenap.in/franchise" },
       { label: "Contact", handle: "littlenap.in/contact", href: "https://www.littlenap.in/contact" },
     ],
   },
