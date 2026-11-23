@@ -8,27 +8,86 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+export const SITE_URL = "https://www.ravindergoel.com";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ravindergoel.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Ravinder Goel | Founder, Little Nap Recliners",
+    default: "Ravinder Goel | Founder and CEO, Little Nap Recliners",
     template: "%s | Ravinder Goel",
   },
   description:
-    "The story of Ravinder Goel, who founded Little Nap Recliners in 2011 and has spent his career making the Joy of Comfort.",
+    "Ravinder Goel is the Founder and CEO of Little Nap Recliners, India's recliner maker, and the exclusive La-Z-Boy partner in India. Read his story, awards and press kit.",
+  applicationName: "Ravinder Goel",
+  authors: [{ name: "Ravinder Goel", url: SITE_URL }],
+  keywords: [
+    "Ravinder Goel",
+    "Ravinder Goel Little Nap",
+    "Little Nap Recliners founder",
+    "La-Z-Boy India",
+    "recliner manufacturer India",
+    "AFMT North India Chapter",
+  ],
+  alternates: { canonical: "./" },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
   openGraph: {
-    title: "Ravinder Goel",
-    description: "Founder of Little Nap Recliners. Making the Joy of Comfort since 2011.",
-    url: "https://ravindergoel.com",
+    title: "Ravinder Goel | Founder and CEO, Little Nap Recliners",
+    description: "Founder and CEO of Little Nap Recliners. Making the Joy of Comfort since 2011.",
+    url: SITE_URL,
+    siteName: "Ravinder Goel",
+    locale: "en_IN",
     type: "website",
+    images: [{ url: "/images/ravinder-office.jpg", width: 1200, height: 1500, alt: "Ravinder Goel, Founder and CEO of Little Nap Recliners" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ravinder Goel | Founder and CEO, Little Nap Recliners",
+    description: "Founder and CEO of Little Nap Recliners. Making the Joy of Comfort since 2011.",
     images: ["/images/ravinder-office.jpg"],
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: "Ravinder Goel",
+      url: SITE_URL,
+      image: `${SITE_URL}/images/ravinder-office.jpg`,
+      jobTitle: "Founder and CEO",
+      description:
+        "Founder and CEO of Little Nap Recliners and Vice President of the North India Chapter of AFMT, the Association of Furniture Manufacturers & Traders (INDIA).",
+      worksFor: { "@id": `${SITE_URL}/#org` },
+      sameAs: ["https://www.linkedin.com/in/ravindergoel/"],
+      knowsAbout: ["Recliners", "Furniture manufacturing", "Cinema seating", "La-Z-Boy India"],
+    },
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#org`,
+      name: "Little Nap Recliners",
+      url: "https://www.littlenap.in",
+      foundingDate: "2011",
+      founder: { "@id": `${SITE_URL}/#person` },
+      sameAs: ["https://www.linkedin.com/company/little-nap"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "Ravinder Goel",
+      inLanguage: "en-IN",
+      publisher: { "@id": `${SITE_URL}/#person` },
+    },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <SmoothScroll />
         <ScrollToTop />
         <ScrollProgress />
