@@ -5,8 +5,9 @@ import { chapters } from "@/content";
 import { art } from "@/lib/art";
 
 export const metadata: Metadata = {
-  title: "Journey",
-  description: "From a middle-class family in Khanpur to the founder of Little Nap Recliners.",
+  title: "Journey: From Khanpur to Founder of Little Nap",
+  description:
+    "How Ravinder Goel, known as RG, went from a middle-class family in Khanpur to founding Little Nap Recliners in 2011 with a ₹5 lakh credit card loan.",
 };
 
 export default function Journey() {

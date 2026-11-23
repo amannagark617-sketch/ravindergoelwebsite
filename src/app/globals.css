@@ -2876,3 +2876,9 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 .site-header .mark-logo { width: 2.75rem; height: 2.75rem; border-radius: 0; flex: none; }
 .site-header .mark-text { display: grid; gap: 0.1rem; line-height: 1.15; }
 @media (max-width: 30rem) { .site-header .mark-logo { width: 2.25rem; height: 2.25rem; } }
+
+/* Press kit: questions and answers */
+.pk-faq { display: grid; gap: 0; }
+.pk-faq > div { padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+.pk-faq h3 { font-family: var(--display); font-weight: 600; font-size: 1.1rem; color: var(--ink); margin-bottom: 0.35rem; }
+.pk-faq p { max-width: 62ch; color: var(--slate); }

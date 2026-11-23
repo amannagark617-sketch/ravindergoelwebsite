@@ -3,8 +3,9 @@ import PageIntro from "@/components/PageIntro";
 import GalleryWall from "@/components/GalleryWall";
 
 export const metadata: Metadata = {
-  title: "Gallery",
-  description: "Photographs of Ravinder Goel.",
+  title: "Photographs of Ravinder Goel",
+  description:
+    "Photographs of Ravinder Goel (RG), Founder and CEO of Little Nap Recliners, at showrooms, cinemas, events and in the studio.",
 };
 
 export default function Gallery() {

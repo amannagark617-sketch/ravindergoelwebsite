@@ -3,8 +3,9 @@ import PageIntro from "@/components/PageIntro";
 import { LINKEDIN } from "@/content";
 
 export const metadata: Metadata = {
-  title: "Press kit — Ravinder Goel",
-  description: "A 90-second biography, fact sheet and photographs of Ravinder Goel, Founder and CEO of Little Nap Recliners.",
+  title: "Press Kit: Biography, Facts and Photos",
+  description:
+    "Press kit for Ravinder Goel (RG), Founder and CEO of Little Nap Recliners: a 90-second biography, fact sheet, frequently asked questions and downloadable photographs.",
 };
 
 const facts: [string, string][] = [
@@ -20,6 +21,21 @@ const facts: [string, string][] = [
   ["Industry role", "Vice President, North India Chapter, AFMT. Elected for a third consecutive term, 2026–2028"],
   ["Group", "Little Nap Designs, La-Z-Boy India, Seating Spectrum (Malaysia), Little Nap Seating Spectrum Private Limited"],
 ];
+
+const faq: [string, string][] = [
+  ["Who is Ravinder Goel?", "Ravinder Goel is the founder and CEO of Little Nap Recliners, an Indian recliner manufacturer. He is also Vice President of the North India Chapter of AFMT, the Association of Furniture Manufacturers & Traders (INDIA)."],
+  ["Why is he called RG?", "Colleagues and partners at Little Nap call him RG, from his initials."],
+  ["When and how did he start Little Nap?", "In July 2011, with a ₹5 lakh credit card loan, a 600 sq. ft. display area and a team of three."],
+  ["How big is Little Nap today?", "Two factories, in IMT Manesar (Haryana) and Dewas (Madhya Pradesh), 18 showrooms across India, a team of more than 470 people, and recliners in more than 1,300 cinema screens."],
+  ["What is Little Nap's link with La-Z-Boy?", "In April 2020, La-Z-Boy, the American recliner brand founded in 1927, made Little Nap its exclusive partner in India."],
+  ["What does Little Nap believe about comfort?", "Ravinder Goel believes comfort is not a luxury but a fundamental human experience, and Little Nap's vision is to redefine comfort as an experience."],
+];
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+};
 
 const photos = [
   { src: "/images/ravinder-office.jpg", label: "Portrait, office" },
@@ -51,6 +67,16 @@ export default function Press() {
             founded in 1927, made Little Nap its exclusive partner in India, citing the
             company's business ethics, core values, team and ten years of growth.
           </p>
+        </div>
+        <div className="pk-faq">
+          <h2>Frequently asked questions</h2>
+          {faq.map(([q, a]) => (
+            <div key={q}>
+              <h3>{q}</h3>
+              <p>{a}</p>
+            </div>
+          ))}
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
         </div>
         <div className="pk-facts">
           <h2>Fact sheet</h2>

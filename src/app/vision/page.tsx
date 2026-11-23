@@ -5,8 +5,9 @@ import VisionScene from "@/components/VisionScene";
 import { dna } from "@/content";
 
 export const metadata: Metadata = {
-  title: "Vision",
-  description: "Little Nap's vision: to redefine the future of comfort and create an Indian legacy that reaches the world.",
+  title: "Vision: Redefining the Future of Comfort",
+  description:
+    "Little Nap's vision under Ravinder Goel: to redefine comfort as an experience and build an Indian legacy that reaches the world.",
 };
 
 export default function VisionPage() {

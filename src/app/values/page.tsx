@@ -7,8 +7,9 @@ import ValuesWipe from "@/components/ValuesWipe";
 import { dna, beliefs } from "@/content";
 
 export const metadata: Metadata = {
-  title: "Values and beliefs",
-  description: "The DNA and five core values Little Nap is built on.",
+  title: "Little Nap Values: DNA and Core Values",
+  description:
+    "The DNA and five core values behind Little Nap Recliners, the comfort company founded by Ravinder Goel.",
 };
 
 const beliefSlugs = ["comfort", "design", "home", "customers", "india", "teams", "learning", "values"];

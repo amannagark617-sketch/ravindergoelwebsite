@@ -4,8 +4,9 @@ import ShowroomFinder from "@/components/ShowroomFinder";
 import { showrooms } from "@/content";
 
 export const metadata: Metadata = {
-  title: "Showrooms",
-  description: "Little Nap Recliners showrooms across India: find the one nearest you.",
+  title: "Little Nap Recliner Showrooms in India",
+  description:
+    "Find a Little Nap Recliners showroom near you. 18 showrooms across North, West, South and Central India, with La-Z-Boy recliners and cinema seating.",
 };
 
 export default function Showrooms() {

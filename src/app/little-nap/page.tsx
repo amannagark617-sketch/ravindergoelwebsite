@@ -11,8 +11,9 @@ import { littleNap } from "@/content";
 const ReclinerJourney = dynamic(() => import("@/components/ReclinerJourney"));
 
 export const metadata: Metadata = {
-  title: "Little Nap",
-  description: "The company Ravinder Goel founded, and the group around it.",
+  title: "Little Nap Recliners and the Little Nap Group",
+  description:
+    "Little Nap Recliners, founded by Ravinder Goel in 2011: two factories, 18 showrooms, 470+ people, recliners in 1,300+ cinema screens, and the companies in the group.",
 };
 
 export default function LittleNap() {
