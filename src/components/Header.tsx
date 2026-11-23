@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navGroups, person } from "@/content";
+import LiquidButton, { GlassFilter } from "@/components/LiquidButton";
 
 export default function Header() {
   const pathname = usePathname();
@@ -35,6 +36,7 @@ export default function Header() {
 
   return (
     <header className="site-header">
+      <GlassFilter />
       <Link className="mark" href="/">
         <span className="mark-name">{person.name}</span>
         <span className="mark-role">Founder and CEO, Little Nap Recliners</span>
@@ -42,9 +44,15 @@ export default function Header() {
       <nav className="desktop-nav" aria-label="Main">
         {navGroups.map((g) =>
           "href" in g ? (
-            <Link key={g.href} href={g.href} aria-current={pathname === g.href ? "page" : undefined}>
-              {g.label}
-            </Link>
+            g.href === "/connect" ? (
+              <LiquidButton key={g.href} href={g.href} variant="ink" size="sm" aria-current={pathname === g.href ? "page" : undefined}>
+                {g.label}
+              </LiquidButton>
+            ) : (
+              <Link key={g.href} href={g.href} aria-current={pathname === g.href ? "page" : undefined}>
+                {g.label}
+              </Link>
+            )
           ) : (
             <div
               key={g.label}

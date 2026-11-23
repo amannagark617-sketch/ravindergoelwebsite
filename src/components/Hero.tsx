@@ -1,4 +1,4 @@
-import Link from "next/link";
+import LiquidButton from "@/components/LiquidButton";
 import { LINKEDIN, person } from "@/content";
 
 const facts = [
@@ -18,12 +18,12 @@ export default function Hero() {
         <p className="hero-role">Founder and CEO, Little Nap Recliners</p>
         <p className="hero-sub">He believes comfort is not a luxury but a fundamental human experience.</p>
         <div className="hero-links">
-          <Link className="btn btn-solid" href="/journey">
+          <LiquidButton href="/journey" variant="ink">
             Read the journey
-          </Link>
-          <a className="btn" href={LINKEDIN} target="_blank" rel="noopener noreferrer">
+          </LiquidButton>
+          <LiquidButton href={LINKEDIN} external>
             LinkedIn
-          </a>
+          </LiquidButton>
         </div>
       </div>
       <div className="hero-photo">
