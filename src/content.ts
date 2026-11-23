@@ -41,7 +41,7 @@ export const nav = [
 export type NavGroup = { label: string; items: { href: string; label: string; note: string }[] } | { label: string; href: string };
 export const navGroups: NavGroup[] = [
   {
-    label: "Ravinder",
+    label: "About",
     items: [
       { href: "/journey", label: "Journey", note: "His story, 2011 to today" },
       { href: "/vision", label: "Vision", note: "Little Nap's vision, animated" },
@@ -58,7 +58,7 @@ export const navGroups: NavGroup[] = [
     ],
   },
   {
-    label: "Recognition",
+    label: "Media",
     items: [
       { href: "/recognition", label: "Awards and press", note: "Awards, articles, conversations" },
       { href: "/press", label: "Press kit", note: "Bio, facts and photos, ready to use" },
