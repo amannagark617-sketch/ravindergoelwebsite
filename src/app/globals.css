@@ -3007,8 +3007,8 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 .people-say { max-width: 72rem; margin: 0 auto; padding: clamp(3rem, 7vw, 6rem) var(--gutter); }
 .people-say h2 { margin: 0 0 0.75rem; }
 .people-say > p { max-width: 40rem; color: var(--slate); margin: 0 0 2rem; }
-.badges { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; margin-bottom: 2rem; }
-.badges a { display: block; }
+.badges { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; margin-bottom: 1.5rem; }
+.badges a { display: block; flex: 1 1 14rem; min-width: 0; max-width: 34rem; }
 .badges img { display: block; max-width: 100%; height: auto; }
 
 .reviews-marquee { overflow: hidden; margin: 0 calc(var(--gutter) * -1) 1rem; padding: 0.5rem 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
@@ -3023,3 +3023,24 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 .reviews-note { font-size: 0.875rem; color: var(--slate); margin: 0 0 1.5rem; }
 @keyframes reviews-slide { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .reviews-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } .reviews-track { animation: none; } .reviews-track ul[aria-hidden] { display: none; } }
+
+/* ---------- AmbitionBox style review cards ---------- */
+.ab-rows { display: grid; gap: 1.25rem; margin: 0 calc(var(--gutter) * -1) 1rem; }
+.ab-marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
+.ab-track { display: flex; width: max-content; animation: reviews-slide linear infinite; }
+.ab-track.rev { animation-direction: reverse; }
+.ab-marquee:hover .ab-track { animation-play-state: paused; }
+.ab-track ul { display: flex; gap: 1rem; list-style: none; margin: 0; padding: 0 0.5rem; }
+.ab-track li { flex: 0 0 min(23rem, 84vw); width: min(23rem, 84vw); min-width: 0; display: flex; }
+.ab-card { width: 100%; min-width: 0; height: 27rem; overflow: hidden; display: flex; flex-direction: column; gap: 0.5rem; padding: 1.1rem 1.25rem; background: var(--paper); border: 1px solid rgba(20, 33, 61, 0.12); border-left: 3px solid #3f9a3a; border-radius: 6px; font-size: 0.9375rem; line-height: 1.45; color: var(--ink); }
+.ab-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; font-size: 0.8125rem; color: var(--slate); }
+.ab-star { background: #3f9a3a; color: #fff; padding: 0.15rem 0.5rem; border-radius: 3px; font-size: 0.9375rem; }
+.ab-dept { font-weight: 600; font-size: 0.8125rem; }
+.ab-chips { display: flex; flex-wrap: nowrap; overflow: hidden; white-space: nowrap; gap: 0.75rem; padding: 0.4rem 0.6rem; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); background: var(--mist); border-radius: 6px; font-size: 0.75rem; color: var(--slate); }
+.ab-card h3 { margin: 0.25rem 0 0; font-size: 0.9375rem; font-weight: 700; }
+.ab-card p { margin: 0; }
+.ab-card > * { flex-shrink: 0; }
+.ab-text { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+.ab-short { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ab-work { margin-top: auto !important; font-size: 0.8125rem; color: var(--slate); }
+@media (prefers-reduced-motion: reduce) { .ab-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } .ab-track { animation: none; } .ab-track ul[aria-hidden] { display: none; } }

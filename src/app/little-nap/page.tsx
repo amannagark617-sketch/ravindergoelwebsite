@@ -6,7 +6,8 @@ import dynamic from "next/dynamic";
 import CinemaStrip from "@/components/CinemaStrip";
 import GrowthScene from "@/components/GrowthScene";
 import CountLine from "@/components/CountLine";
-import { employeeReviews, littleNap } from "@/content";
+import { littleNap } from "@/content";
+import { abReviews } from "@/abReviews";
 
 const ReclinerJourney = dynamic(() => import("@/components/ReclinerJourney"));
 
@@ -17,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 const AB = "https://www.ambitionbox.com/overview/little-nap-recliners-overview?utm_source=employer-dashboard&utm_campaign=little-nap-recliners&utm_medium=badges";
+
+const rows = [0, 1, 2].map((i) => abReviews.filter((_, n) => n % 3 === i));
 
 export default function LittleNap() {
   return (
@@ -68,27 +71,46 @@ export default function LittleNap() {
             <img src="https://employer.ambitionbox.com/api/next/badge/796785?badge-type=ratings-detailed" alt="Little Nap Recliners detailed ratings on AmbitionBox" />
           </a>
         </div>
-        <div className="reviews-marquee" aria-label="Selected 5-star employee reviews from AmbitionBox">
-          <div className="reviews-track">
-            {[0, 1].map((n) => (
-              <ul key={n} aria-hidden={n === 1 ? true : undefined}>
-                {employeeReviews.map((r) => (
-                  <li key={r.quote.slice(0, 20)}>
-                    <blockquote>
-                      <p>{r.quote}</p>
-                      <footer>
-                        <strong>{r.by}</strong> on AmbitionBox, {r.date}. Rated 5 out of 5.
-                      </footer>
-                    </blockquote>
-                  </li>
+        <div className="ab-rows" aria-label="5-star employee reviews from AmbitionBox">
+          {rows.map((row, ri) => (
+            <div className="ab-marquee" key={ri}>
+              <div className={"ab-track" + (ri % 2 ? " rev" : "")} style={{ animationDuration: `${row.length * 9}s` }}>
+                {[0, 1].map((n) => (
+                  <ul key={n} aria-hidden={n === 1 ? true : undefined}>
+                    {row.map((r) => (
+                      <li key={r.likes.slice(0, 30)}>
+                        <article className="ab-card">
+                          <div className="ab-head">
+                            <b className="ab-star">&#9733; 5.0</b>
+                            <span>rated by {r.role} on {r.date}</span>
+                          </div>
+                          <div className="ab-dept">{r.dept} Department{r.type ? ` · ${r.type}` : ""}</div>
+                          <div className="ab-chips">
+                            {r.ratings.map(([k, v]) => (
+                              <span key={k}>&#9733; {v} {k}</span>
+                            ))}
+                          </div>
+                          <h3>Likes</h3>
+                          <p className="ab-text">{r.likes}</p>
+                          {r.dislikes ? (
+                            <>
+                              <h3>Dislikes</h3>
+                              <p className="ab-short">{r.dislikes}</p>
+                            </>
+                          ) : null}
+                          {r.work ? <p className="ab-work">{r.work}</p> : null}
+                        </article>
+                      </li>
+                    ))}
+                  </ul>
                 ))}
-              </ul>
-            ))}
-          </div>
+              </div>
+            </div>
+          ))}
         </div>
-        <p className="reviews-note">Selected 5-star reviews, quoted as written. The full set is on AmbitionBox.</p>
-        <a className="btn" href="https://www.ambitionbox.com/reviews/little-nap-recliners-reviews" target="_blank" rel="noopener noreferrer">
-          Read every review on AmbitionBox
+        <p className="reviews-note">Reviews from AmbitionBox, quoted as written. More are on AmbitionBox.</p>
+        <a className="btn" href="https://www.ambitionbox.com/reviews/little-nap-recliners-reviews?sort_by=latest" target="_blank" rel="noopener noreferrer">
+          Read more reviews on AmbitionBox
         </a>
       </section>
       <section className="vision vision-xl closing">
