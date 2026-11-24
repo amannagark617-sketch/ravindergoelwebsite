@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Connect() {
   return (
     <>
-      <PageIntro title="Connect" lede="Ravinder Goel on LinkedIn, and the official Little Nap links." />
+      <PageIntro title="Connect" lede="Ravinder Goel on LinkedIn, Crunchbase and IMDb, and the official Little Nap links." />
       <ConnectList />
     </>
   );

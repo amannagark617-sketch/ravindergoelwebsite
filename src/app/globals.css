@@ -3000,3 +3000,5 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 .rec-pic { aspect-ratio: auto; }
 .rec-pic img, .rec-pic img[src^="/images/awards/"] { display: block; width: 100%; height: auto; margin: 0 auto; object-fit: contain; object-position: center; }
 .rec-pic-none { aspect-ratio: 16 / 7; }
+
+.rec-embed { display: block; margin: 0 auto; max-width: 100%; border: 0; background: var(--mist); }

@@ -135,6 +135,8 @@ export type Chapter = {
   facts?: string[];
   href?: string;
   hrefLabel?: string;
+  /** Facebook video embed address, shown in the viewer. */
+  embed?: string;
 };
 
 export const chapters: Chapter[] = [
@@ -396,6 +398,8 @@ export type Entry = {
   who?: "him" | "company";
   /** Label for the link in the viewer. Defaults to "Read at the source". */
   hrefLabel?: string;
+  /** Facebook video embed address, shown in the viewer. */
+  embed?: string;
 };
 
 const aw = "/images/awards/";
@@ -547,8 +551,10 @@ export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = 
   ],
   press: [
     { year: "2026", title: "Forty Over 40: 40 leaders driving growth and innovation after 40", source: "Hindustan Times Brand Studio, compiled by StartupNxt", note: "Ravinder Goel is featured among 40 founders and leaders in the Consumer Brands category. Published 12 October 2026 as a brand story created by HT Brand Studio.", href: "https://www.hindustantimes.com/brand-stories/startupnxt-features-40-leaders-driving-growth-and-innovation-after-40-101791808753700.html", img: aw + "forty-over-40-2026.jpg" },
-    { year: "2026", title: "How Ravinder Goel Made Little Nap the Go-To for Ultimate Comfort", source: "Sugermint", href: "https://sugermint.com/ravinder-goel/",
-      img: "https://sugermint.com/wp-content/uploads/2026/02/Ravinder-Goel.jpg" },
+    { year: "2026", title: "How Ravinder Goel Made Little Nap the Go-To for Ultimate Relaxation", source: "Sugermint", note: "Published 5 February 2026.", href: "https://sugermint.com/ravinder-goel/", img: aw + "sugermint-logo.png" },
+    { year: "2025", title: "Ravinder Goel: Redefining Comfort with Craft, Conviction, and a Cause", source: "The Business Fame", note: "A long profile of how he started Little Nap with a ₹5 lakh loan and a 600 sq. ft. workshop, and of his role as Vice President (North) of the Association of Furniture Manufacturers of India. Published 7 July 2025.", href: "https://thebusinessfame.com/ravinder-goel-redefining-comfort-with-craft-conviction-and-a-cause/" },
+    { year: "2025", title: "10 Best Business Leaders in India 2025: Ravinder Goel", source: "TradeFlock, April 2025 (Vol 09, Issue 06)", note: "A two-page feature in the magazine's April 2025 cover issue. See the certificate in the Awards tab.", href: "https://tradeflock.com/magazine-10-best-business-leaders-in-india-2025/", hrefLabel: "Read the magazine", img: aw + "tradeflock-cover-2025.jpg", full: aw + "tradeflock-page-2025.jpg" },
+    { year: "2026", title: "Little Nap Recliners achieves BIS certification under IS 302 (Part 1):2024 for motorized recliners", source: "ArticleBiz, written by Little Nap's team", note: "An article by the company, published on 3 September 2026, on its BIS product certification. Not independent press.", href: "https://articlebiz.com/article/1052835058-little-nap-recliners-achieves-bis-certification-under-is-302-part-12024-for-motorized-recliners" },
     {
       year: "2023",
       title: "Little Nap Recliners: A Brand Committed to Elevating the Future of the Recliner Industry Worldwide",
@@ -591,6 +597,7 @@ export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = 
   talks: [
     { year: "2026", title: "From 5 Lacs to 100Cr+: The Inspiring Journey of Ravinder Goel", source: "High Life podcast", note: "Recorded at the Little Nap experience centre in Panipat.", href: "https://youtu.be/59Su9Sp2uDw" },
     { year: "2025", title: "How He Built a ₹100 Crore Furniture Empire", source: "Personal story episode", note: "On failed entrance exams, a fifth-grade math book and learning sales door to door.", href: "https://youtu.be/lZpzhJfoxog" },
+    { year: "2025", title: "Facebook reel from Rahul Jain, Business Coaching India", source: "Facebook", href: "https://www.facebook.com/reel/1809809120240841/", hrefLabel: "Open on Facebook", embed: "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1809809120240841%2F&show_text=false&width=267&t=0" },
     { year: "2025", title: "How One Simple Observation Built a ₹100 Crore Brand", source: "Podcast", note: "On the 2011 observation that customers on a recliner didn't want to get up.", href: "https://www.youtube.com/watch?v=h8XsLDtAtxQ&t=752s" },
     { year: "2019", title: "Business Ki Aawaz", source: "Janta TV, 7 September 2019", note: "A full interview on his entrepreneurial journey and business challenges.", href: "https://www.youtube.com/watch?v=pYPJTgM-lv8" },
     { year: "2018", title: "Franchise India Show 2018", source: "Times Now", note: "He presented Little Nap Recliners on the show and won the purple ticket. See the award in the Awards tab.", href: "http://www.youtube.com/watch?v=DcIbyzaTmvE" },
@@ -660,13 +667,20 @@ export type QuickLink = { label: string; handle: string; href: string };
 export const connect: { group: string; links: QuickLink[] }[] = [
   {
     group: "Ravinder Goel",
-    links: [{ label: "LinkedIn", handle: "in/ravindergoel", href: LINKEDIN }],
+    links: [
+      { label: "LinkedIn", handle: "in/ravindergoel", href: LINKEDIN },
+      { label: "Crunchbase", handle: "person/ravinder-goel-b078", href: "https://www.crunchbase.com/person/ravinder-goel-b078" },
+      { label: "IMDb", handle: "name/nm17756087", href: "https://www.imdb.com/name/nm17756087/" },
+    ],
   },
   {
     group: "Little Nap Recliners",
     links: [
       { label: "Company website", handle: "littlenap.in", href: "https://www.littlenap.in" },
       { label: "Company LinkedIn", handle: "company/little-nap", href: "https://www.linkedin.com/company/little-nap" },
+      { label: "Crunchbase", handle: "organization/little-nap-recliners", href: "https://www.crunchbase.com/organization/little-nap-recliners" },
+      { label: "Seating Spectrum on Crunchbase", handle: "organization/a-c-seating-spectrum", href: "https://www.crunchbase.com/organization/a-c-seating-spectrum" },
+      { label: "Little Nap Subhav on Crunchbase", handle: "organization/little-nap-subhav", href: "https://www.crunchbase.com/organization/little-nap-subhav" },
       { label: "Find a showroom", handle: "littlenap.in/showroom", href: "https://www.littlenap.in/showroom" },
       { label: "Franchise enquiries", handle: "littlenap.in/franchise", href: "https://www.littlenap.in/franchise" },
       { label: "Contact", handle: "littlenap.in/contact", href: "https://www.littlenap.in/contact" },

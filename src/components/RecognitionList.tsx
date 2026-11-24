@@ -99,7 +99,7 @@ export default function RecognitionList() {
           )}
           {video ? <i className="rec-play" aria-hidden="true" /> : null}
           <b className="rec-year">{e.year}</b>
-          {e.full ? <em className="rec-zoom">View full size</em> : null}
+          {e.full || e.embed ? <em className="rec-zoom">{e.embed ? "Play video" : "View full size"}</em> : null}
         </div>
         <div className="rec-main">
           <h3>{e.title}</h3>
@@ -110,7 +110,7 @@ export default function RecognitionList() {
     );
     return (
       <li key={e.title} className="rec-card" style={{ animationDelay: `${Math.min(i, 8) * 50}ms` }}>
-        {e.full ? (
+        {e.full || e.embed ? (
           <button type="button" className="rec-open" onClick={() => setOpen(e)} aria-haspopup="dialog">
             {body}
           </button>
@@ -157,7 +157,11 @@ export default function RecognitionList() {
               Close
             </button>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={open.full} alt={`${open.title}, ${open.source}`} />
+            {open.embed ? (
+              <iframe className="rec-embed" src={open.embed} title={open.title} width="267" height="476" loading="lazy" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" />
+            ) : (
+              <img src={open.full} alt={`${open.title}, ${open.source}`} />
+            )}
             <figcaption>
               <strong>
                 {open.title} <span>{open.year}</span>

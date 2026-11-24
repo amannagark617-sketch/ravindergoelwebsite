@@ -65,7 +65,7 @@ const jsonLd = {
       description:
         "Founder and CEO of Little Nap Recliners and Vice President of the North India Chapter of AFMT, the Association of Furniture Manufacturers & Traders (INDIA).",
       worksFor: { "@id": `${SITE_URL}/#org` },
-      sameAs: ["https://www.linkedin.com/in/ravindergoel/"],
+      sameAs: ["https://www.linkedin.com/in/ravindergoel/", "https://www.crunchbase.com/person/ravinder-goel-b078", "https://www.imdb.com/name/nm17756087/"],
       knowsAbout: ["Recliners", "Comfort", "Furniture manufacturing", "Cinema seating", "La-Z-Boy India"],
       memberOf: { "@type": "Organization", name: "AFMT, Association of Furniture Manufacturers & Traders (INDIA)" },
       award: [
@@ -87,7 +87,7 @@ const jsonLd = {
       url: "https://www.littlenap.in",
       foundingDate: "2011",
       founder: { "@id": `${SITE_URL}/#person` },
-      sameAs: ["https://www.linkedin.com/company/little-nap"],
+      sameAs: ["https://www.linkedin.com/company/little-nap", "https://www.crunchbase.com/organization/little-nap-recliners"],
     },
     {
       "@type": "WebSite",
