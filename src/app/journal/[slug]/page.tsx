@@ -19,11 +19,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const a = bySlug(slug);
   if (!a) return {};
+  const img = existsSync(path.join(process.cwd(), "public/images/journal", `${a.slug}.jpg`)) ? `${SITE}/images/journal/${a.slug}.jpg` : `${SITE}/images/${media[a.slug].hero.src}`;
   return {
     title: a.title,
     description: a.description,
     alternates: { canonical: `/journal/${a.slug}` },
-    openGraph: { type: "article", title: a.title, description: a.description, publishedTime: a.date, url: `${SITE}/journal/${a.slug}` },
+    openGraph: { type: "article", title: a.title, description: a.description, publishedTime: a.date, url: `${SITE}/journal/${a.slug}`, images: [{ url: img, width: 1600, height: 900 }] }, twitter: { card: "summary_large_image", images: [img] },
   };
 }
 
@@ -44,7 +45,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     dateModified: a.date,
     inLanguage: "en-IN",
     mainEntityOfPage: `${SITE}/journal/${a.slug}`,
-    image: `${SITE}/images/${m.hero.src}`,
+    image: `${SITE}${scene ?? `/images/${m.hero.src}`}`,
     author: { "@type": "Organization", name: "ravindergoel.com", url: SITE },
     publisher: { "@id": `${SITE}/#person` },
     about: { "@id": `${SITE}/#person` },
@@ -66,7 +67,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         </header>
         <figure className="article-hero">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`/images/${m.hero.src}`} alt={caption} style={{ objectPosition: m.hero.pos }} width={1500} height={844} />
+          <img src={scene ?? `/images/${m.hero.src}`} alt="" width={1600} height={900} />
         </figure>
         <div className="article-body">
           {a.body.map((b, k) => (
@@ -75,13 +76,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               {b.p.map((t, j) => (
                 <p key={j}>{t}</p>
               ))}
-              {k === 1 && scene && (
-                <figure className="article-fig">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={scene} alt="" loading="lazy" width={1536} height={864} />
-                </figure>
-              )}
-            </section>
+                          </section>
           ))}
         </div>
         <aside className="article-sources">
