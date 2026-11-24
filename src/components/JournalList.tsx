@@ -1,8 +1,5 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Link from "next/link";
-import { articles, isPublished, media, type Article } from "@/journal";
+import { articles, media, type Article } from "@/journal";
 
 const fmt = (d: string) => new Date(d).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
 
@@ -27,13 +24,11 @@ function Card({ a, big }: { a: Article; big?: boolean }) {
 }
 
 export default function JournalList({ exclude, limit, featured, heading }: { exclude?: string; limit?: number; featured?: boolean; heading?: string }) {
-  const pick = (today?: string) =>
-    articles
-      .filter((a) => a.slug !== exclude && isPublished(a, today))
-      .sort((x, y) => (x.date < y.date ? 1 : -1))
-      .slice(0, limit ?? 99);
-  const [list, setList] = useState<Article[]>(() => pick("2026-11-24"));
-  useEffect(() => setList(pick()), []); // eslint-disable-line react-hooks/exhaustive-deps
+  const sorted = [...articles].sort((x, y) => (x.date < y.date ? -1 : 1));
+  const at = exclude ? sorted.findIndex((a) => a.slug === exclude) : -1;
+  // On an article page, list the articles that follow it, wrapping round to the start.
+  const ordered = at >= 0 ? [...sorted.slice(at + 1), ...sorted.slice(0, at)] : sorted;
+  const list = ordered.slice(0, limit ?? 99);
 
   if (!list.length) return null;
   const [first, ...rest] = list;

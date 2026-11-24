@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { articles, isPublished } from "@/journal";
+import { articles } from "@/journal";
 
 export const dynamic = "force-static";
 
@@ -21,6 +21,6 @@ const routes: [string, number][] = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
   const pages = routes.map(([r, priority]) => ({ url: `https://www.ravindergoel.com${r}`, lastModified, priority }));
-  const posts = articles.filter((a) => isPublished(a)).map((a) => ({ url: `https://www.ravindergoel.com/journal/${a.slug}`, lastModified: new Date(a.date), priority: 0.7 }));
+  const posts = articles.map((a) => ({ url: `https://www.ravindergoel.com/journal/${a.slug}`, lastModified: new Date(a.date), priority: 0.7 }));
   return [...pages, ...posts];
 }

@@ -394,15 +394,15 @@ export const isPublished = (a: Article, today: string = todayIST()) => a.date <=
 type Pic = { src: string; pos?: string };
 const CAP = "Ravinder Goel, Founder and CEO, Little Nap Recliners";
 export const media: Record<string, { hero: Pic; figure: Pic }> = {
-  "from-5-lakh-to-100-crore": { hero: { src: "ravinder-relaxed.jpg", pos: "50% 30%" }, figure: { src: "ravinder-portrait.jpg", pos: "50% 22%" } },
-  "the-observation-behind-little-nap": { hero: { src: "ravinder-sofa-seated.jpg", pos: "70% 40%" }, figure: { src: "ravinder-lounge.jpg", pos: "50% 25%" } },
-  "failing-and-starting-over": { hero: { src: "ravinder-studio-point.jpg", pos: "50% 30%" }, figure: { src: "ravinder-red-wall.jpg", pos: "50% 22%" } },
-  "recliners-in-1300-cinema-screens": { hero: { src: "ravinder-cinema-wide.jpg", pos: "60% 40%" }, figure: { src: "ravinder-cinema-seated.jpg", pos: "50% 40%" } },
-  "la-z-boy-in-india": { hero: { src: "ravinder-showroom-standing.jpg", pos: "50% 24%" }, figure: { src: "ravinder-showroom-lean.jpg", pos: "50% 24%" } },
-  "afmt-north-india-chapter": { hero: { src: "ravinder-gesture.jpg", pos: "50% 18%" }, figure: { src: "ravinder-showroom-arms.jpg", pos: "50% 25%" } },
-  "building-a-470-person-team": { hero: { src: "ravinder-showroom-smile.jpg", pos: "50% 24%" }, figure: { src: "ravinder-theatre-hands.jpg", pos: "50% 22%" } },
-  "leading-through-uncertainty": { hero: { src: "ravinder-cinema-grey.jpg", pos: "60% 40%" }, figure: { src: "ravinder-studio-point.jpg", pos: "50% 30%" } },
-  "fifteen-years-of-little-nap": { hero: { src: "ravinder-office.jpg", pos: "50% 22%" }, figure: { src: "ravinder-showroom-smile.jpg", pos: "50% 24%" } },
-  "little-nap-franchise": { hero: { src: "ravinder-showroom-lean.jpg", pos: "50% 22%" }, figure: { src: "ravinder-cinema-seated.jpg", pos: "50% 40%" } },
+  "from-5-lakh-to-100-crore": { hero: { src: "ravinder-portrait.jpg", pos: "50% 20%" }, figure: { src: "ravinder-office.jpg", pos: "50% 22%" } },
+  "the-observation-behind-little-nap": { hero: { src: "ravinder-showroom-standing.jpg", pos: "50% 20%" }, figure: { src: "ravinder-lounge.jpg", pos: "50% 22%" } },
+  "failing-and-starting-over": { hero: { src: "ravinder-red-wall.jpg", pos: "50% 22%" }, figure: { src: "ravinder-studio-point.jpg", pos: "50% 30%" } },
+  "recliners-in-1300-cinema-screens": { hero: { src: "ravinder-theatre-hands.jpg", pos: "50% 20%" }, figure: { src: "ravinder-gesture.jpg", pos: "50% 20%" } },
+  "la-z-boy-in-india": { hero: { src: "ravinder-showroom-arms.jpg", pos: "50% 22%" }, figure: { src: "ravinder-showroom-standing.jpg", pos: "50% 20%" } },
+  "afmt-north-india-chapter": { hero: { src: "ravinder-gesture.jpg", pos: "50% 20%" }, figure: { src: "ravinder-portrait.jpg", pos: "50% 22%" } },
+  "building-a-470-person-team": { hero: { src: "ravinder-showroom-smile.jpg", pos: "50% 22%" }, figure: { src: "ravinder-showroom-arms.jpg", pos: "50% 22%" } },
+  "leading-through-uncertainty": { hero: { src: "ravinder-studio-point.jpg", pos: "50% 30%" }, figure: { src: "ravinder-red-wall.jpg", pos: "50% 22%" } },
+  "fifteen-years-of-little-nap": { hero: { src: "ravinder-office.jpg", pos: "50% 22%" }, figure: { src: "ravinder-showroom-smile.jpg", pos: "50% 22%" } },
+  "little-nap-franchise": { hero: { src: "ravinder-lounge.jpg", pos: "50% 22%" }, figure: { src: "ravinder-showroom-lean.jpg", pos: "50% 22%" } },
 };
 export const caption = CAP;

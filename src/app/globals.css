@@ -2955,3 +2955,7 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 .article-more:has(.jlist) { border-top: 1px solid var(--rule); padding-top: 2rem; }
 .article-more h2:not(.jlist-h) { display: none; }
 @media (max-width: 760px) { .article-hero { margin-inline: 0; } }
+.article-hero img { aspect-ratio: 16 / 10; }
+.jcard-big .jcard-img { position: relative; }
+.jcard-big .jcard-img img { position: absolute; inset: 0; }
+@media (max-width: 760px) { .jcard-big .jcard-img { min-height: 0; aspect-ratio: 16 / 10; } }
