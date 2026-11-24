@@ -16,6 +16,8 @@ export const metadata: Metadata = {
     "Little Nap Recliners, founded by Ravinder Goel in 2011: two factories, 18 showrooms, 470+ people, recliners in 1,300+ cinema screens, and the companies in the group.",
 };
 
+const AB = "https://www.ambitionbox.com/overview/little-nap-recliners-overview?utm_source=employer-dashboard&utm_campaign=little-nap-recliners&utm_medium=badges";
+
 export default function LittleNap() {
   return (
     <>
@@ -52,6 +54,23 @@ export default function LittleNap() {
             ) : null}
           </details>
         ))}
+      </section>
+      <section className="people-say">
+        <h2>What our people say</h2>
+        <p>Ratings from the employees of Little Nap Recliners on AmbitionBox, shown as AmbitionBox publishes them.</p>
+        <div className="badges">
+          <a href={AB} target="_blank" rel="noopener noreferrer">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="https://employer.ambitionbox.com/api/next/badge/796785?badge-type=employee-ratings2" alt="Little Nap Recliners employee rating on AmbitionBox" loading="lazy" />
+          </a>
+          <a href={AB} target="_blank" rel="noopener noreferrer">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="https://employer.ambitionbox.com/api/next/badge/796785?badge-type=ratings-detailed" alt="Little Nap Recliners detailed ratings on AmbitionBox" loading="lazy" />
+          </a>
+        </div>
+        <a className="btn" href="https://www.ambitionbox.com/reviews/little-nap-recliners-reviews" target="_blank" rel="noopener noreferrer">
+          Read every review on AmbitionBox
+        </a>
       </section>
       <section className="vision vision-xl closing">
         <p>{littleNap.outro}</p>

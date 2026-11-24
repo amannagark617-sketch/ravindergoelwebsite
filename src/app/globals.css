@@ -3002,3 +3002,11 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 .rec-pic-none { aspect-ratio: 16 / 7; }
 
 .rec-embed { display: block; margin: 0 auto; max-width: 100%; border: 0; background: var(--mist); }
+
+/* ---------- AmbitionBox badges ---------- */
+.people-say { max-width: 72rem; margin: 0 auto; padding: clamp(3rem, 7vw, 6rem) var(--gutter); }
+.people-say h2 { margin: 0 0 0.75rem; }
+.people-say > p { max-width: 40rem; color: var(--slate); margin: 0 0 2rem; }
+.badges { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; margin-bottom: 2rem; }
+.badges a { display: block; }
+.badges img { display: block; max-width: 100%; height: auto; }
