@@ -1,0 +1,21 @@
+// Natural sizes of the award and press images, so cards can match each picture's shape.
+export const imageSizes: Record<string, [number, number]> = {
+  "/images/awards/business-fame-2025.jpg": [1100, 1555],
+  "/images/awards/ceo-cover-2021.jpg": [1000, 1305],
+  "/images/awards/ceo-luxury-2021.jpg": [1500, 1142],
+  "/images/awards/crisil-sme-2022.jpg": [1500, 1164],
+  "/images/awards/eoy-2026.jpg": [1100, 1555],
+  "/images/awards/et-msme-2024.jpg": [1400, 989],
+  "/images/awards/indian-achievers-2021-22.jpg": [1016, 1329],
+  "/images/awards/indian-achievers-2024.jpg": [1000, 1441],
+  "/images/awards/prime-best-company-2023.jpg": [1500, 1151],
+  "/images/awards/prime-cover-2023.jpg": [202, 262],
+  "/images/awards/purple-ticket-2018.jpg": [1013, 1230],
+  "/images/awards/startup-summit-2022.jpg": [1401, 991],
+  "/images/awards/teoi-feature.jpg": [1186, 1468],
+  "/images/awards/tradefloc-2025.jpg": [1500, 1068],
+  "/images/awards/worlds-greatest-brands-2015.jpg": [1120, 1268],
+  "/images/awards/worlds-greatest-leaders-2015.jpg": [972, 1280],
+  "https://static.wixstatic.com/media/ec32c5_0d863dda8344498cb7a1ad0c4e55ec85~mv2.jpeg/v1/fill/w_1066,h_1600,al_c,q_85/ec32c5_0d863dda8344498cb7a1ad0c4e55ec85~mv2.jpeg": [1066, 1600],
+  "https://sugermint.com/wp-content/uploads/2026/02/Ravinder-Goel.jpg": [1200, 750],
+};

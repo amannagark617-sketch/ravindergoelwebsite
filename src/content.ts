@@ -202,7 +202,7 @@ export const chapters: Chapter[] = [
     year: "2018",
     title: "A purple ticket on national television.",
     img: "/images/journey-moments/purple-ticket-2018.jpg",
-    href: "/recognition#talks",
+    href: "/recognition",
     hrefLabel: "See the feature",
     body:
       "At the Franchise India Show on Times Now, he presented Little Nap Recliners to the jury on India's biggest business reality show. Little Nap won the purple ticket.",
@@ -394,6 +394,8 @@ export type Entry = {
   full?: string;
   /** Awards only: given to him, or to the company. */
   who?: "him" | "company";
+  /** Label for the link in the viewer. Defaults to "Read at the source". */
+  hrefLabel?: string;
 };
 
 const aw = "/images/awards/";
@@ -464,6 +466,17 @@ export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = 
       href: "https://www.ceoinsightsindia.com/leader/ravinder-goel-steering-indian-furniture-industry-to-a-promising-future-cid-3371.html",
       img: aw + "ceo-luxury-2021.jpg",
       full: aw + "ceo-luxury-2021.jpg",
+    },
+    {
+      who: "him",
+      year: "2018",
+      title: "Purple Ticket Winner, Franchise India Show 2018",
+      source: "Times Now",
+      note: "He presented Little Nap Recliners to the jury on India's biggest business reality show, and Little Nap won the purple ticket.",
+      href: "http://www.youtube.com/watch?v=DcIbyzaTmvE",
+      hrefLabel: "Watch the episode",
+      img: aw + "purple-ticket-2018.jpg",
+      full: aw + "purple-ticket-2018.jpg",
     },
     {
       who: "him",
@@ -579,7 +592,7 @@ export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = 
     { year: "2025", title: "How He Built a ₹100 Crore Furniture Empire", source: "Personal story episode", note: "On failed entrance exams, a fifth-grade math book and learning sales door to door.", href: "https://youtu.be/lZpzhJfoxog" },
     { year: "2025", title: "How One Simple Observation Built a ₹100 Crore Brand", source: "Podcast", note: "On the 2011 observation that customers on a recliner didn't want to get up.", href: "https://www.youtube.com/watch?v=h8XsLDtAtxQ&t=752s" },
     { year: "2019", title: "Business Ki Aawaz", source: "Janta TV, 7 September 2019", note: "A full interview on his entrepreneurial journey and business challenges.", href: "https://www.youtube.com/watch?v=pYPJTgM-lv8" },
-    { year: "2018", title: "Franchise India Show 2018: the purple ticket winner is Little Nap", source: "Times Now", note: "He presented Little Nap Recliners on India's biggest business reality show, and Little Nap won the purple ticket.", href: "http://www.youtube.com/watch?v=DcIbyzaTmvE", img: "/images/journey-moments/purple-ticket-2018.jpg" },
+    { year: "2018", title: "Franchise India Show 2018", source: "Times Now", note: "He presented Little Nap Recliners on the show and won the purple ticket. See the award in the Awards tab.", href: "http://www.youtube.com/watch?v=DcIbyzaTmvE" },
   ],
 };
 

@@ -2992,3 +2992,11 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 .rec-dialog figcaption a { color: #fff; text-decoration: underline; text-underline-offset: 3px; margin-top: 0.4rem; }
 .rec-close { position: absolute; top: 0.9rem; right: var(--gutter); padding: 0.55rem 1.1rem; background: #fff; color: var(--ink); border: 0; font-family: var(--display); font-weight: 700; cursor: pointer; }
 .rec-close:focus-visible, .rec-card > button.rec-open:focus-visible { outline: 3px solid var(--garnet); outline-offset: 2px; }
+
+/* ---------- Recognition cards follow the shape of their picture ---------- */
+.rec-grid { align-items: start; }
+.rec-grid.is-masonry { grid-auto-rows: 1px; row-gap: 0; }
+.rec-grid.is-masonry > .rec-card { align-self: start; }
+.rec-pic { aspect-ratio: auto; }
+.rec-pic img, .rec-pic img[src^="/images/awards/"] { display: block; width: 100%; height: auto; margin: 0 auto; object-fit: contain; object-position: center; }
+.rec-pic-none { aspect-ratio: 16 / 7; }
