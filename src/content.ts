@@ -756,3 +756,13 @@ export const showrooms: Showroom[] = [
   { city: "Raipur", state: "Chhattisgarh", region: "Central", phone: "+91 88828 00600", map: "https://maps.app.goo.gl/dpXJU888sNZqVaD16", img: `${SR}/raipur/1.webp?v=5c6ec95c` },
   { city: "Vapi", state: "Gujarat", region: "West", phone: "+91 88828 00600", map: "https://maps.app.goo.gl/iTaWQZw1omvatDJD6", img: `${SR}/vapi/1.webp?v=412bc705` },
 ];
+
+/* ---------- AmbitionBox employee reviews (5-star, quoted as written) ---------- */
+
+export const employeeReviews: { quote: string; by: string; date: string }[] = [
+  { quote: "The positive work environment, supportive management, and helpful team have made this journey a great learning experience. I truly appreciate the opportunity to learn, grow, and improve every day. Happy to be part of the little Nap family", by: "Process Coordinator, Gurugram", date: "23 Nov 2026" },
+  { quote: "The supportive management friendly team positive work environment", by: "HR Executive, Manesar", date: "12 Nov 2026" },
+  { quote: "I have loved the environment here of staff and management, everyone is very helpful here and I have learned a lot of things from my seniors and juniors.", by: "HR Executive, Manesar", date: "17 Oct 2026" },
+  { quote: "The company is very good… They always support us. I got injured, and the company got my entire treatment done.", by: "Master Carpenter, Manesar", date: "17 Oct 2026" },
+  { quote: "The company provides opportunities to learn all aspects of HR and helps us to take ownership. The culture of the company is also very good", by: "Senior HR Executive, New Delhi", date: "24 Aug 2026" },
+];

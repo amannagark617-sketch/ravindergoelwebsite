@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import CinemaStrip from "@/components/CinemaStrip";
 import GrowthScene from "@/components/GrowthScene";
 import CountLine from "@/components/CountLine";
-import { littleNap } from "@/content";
+import { employeeReviews, littleNap } from "@/content";
 
 const ReclinerJourney = dynamic(() => import("@/components/ReclinerJourney"));
 
@@ -68,6 +68,25 @@ export default function LittleNap() {
             <img src="https://employer.ambitionbox.com/api/next/badge/796785?badge-type=ratings-detailed" alt="Little Nap Recliners detailed ratings on AmbitionBox" />
           </a>
         </div>
+        <div className="reviews-marquee" aria-label="Selected 5-star employee reviews from AmbitionBox">
+          <div className="reviews-track">
+            {[0, 1].map((n) => (
+              <ul key={n} aria-hidden={n === 1 ? true : undefined}>
+                {employeeReviews.map((r) => (
+                  <li key={r.quote.slice(0, 20)}>
+                    <blockquote>
+                      <p>{r.quote}</p>
+                      <footer>
+                        <strong>{r.by}</strong> on AmbitionBox, {r.date}. Rated 5 out of 5.
+                      </footer>
+                    </blockquote>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </div>
+        <p className="reviews-note">Selected 5-star reviews, quoted as written. The full set is on AmbitionBox.</p>
         <a className="btn" href="https://www.ambitionbox.com/reviews/little-nap-recliners-reviews" target="_blank" rel="noopener noreferrer">
           Read every review on AmbitionBox
         </a>
