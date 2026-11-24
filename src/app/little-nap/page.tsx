@@ -22,7 +22,7 @@ const AB = "https://www.ambitionbox.com/overview/little-nap-recliners-overview?u
 const five = abReviews.filter((r) => !r.stars);
 const four = abReviews.filter((r) => r.stars);
 const mixed = five.flatMap((r, i) => (i % 6 === 5 && four[Math.floor(i / 6)] ? [r, four[Math.floor(i / 6)]] : [r]));
-const rows = [0, 1, 2].map((i) => mixed.filter((_, n) => n % 3 === i));
+const rows = [mixed];
 
 export default function LittleNap() {
   return (
@@ -77,7 +77,7 @@ export default function LittleNap() {
         <div className="ab-rows" aria-label="Employee reviews from AmbitionBox">
           {rows.map((row, ri) => (
             <div className="ab-marquee" key={ri}>
-              <div className={"ab-track" + (ri % 2 ? " rev" : "")} style={{ animationDuration: `${row.length * 9}s` }}>
+              <div className={"ab-track" + (ri % 2 ? " rev" : "")} style={{ animationDuration: `${row.length * 5}s` }}>
                 {[0, 1].map((n) => (
                   <ul key={n} aria-hidden={n === 1 ? true : undefined}>
                     {row.map((r) => (
