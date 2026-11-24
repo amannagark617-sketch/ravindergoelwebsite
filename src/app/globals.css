@@ -2953,7 +2953,7 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 .jlist-h { font-family: var(--display); font-weight: 600; font-size: 1.4rem; }
 .article-more { border-top: 0; padding-top: 0; }
 .article-more:has(.jlist) { border-top: 1px solid var(--rule); padding-top: 2rem; }
-.article-more h2:not(.jlist-h) { display: none; }
+.article-more > h2 { display: none; }
 @media (max-width: 760px) { .article-hero { margin-inline: 0; } }
 .article-hero img { aspect-ratio: 16 / 10; }
 .jcard-big .jcard-img { position: relative; }

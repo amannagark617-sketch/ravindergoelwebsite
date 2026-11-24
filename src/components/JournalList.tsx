@@ -1,15 +1,19 @@
 import Link from "next/link";
+import { existsSync } from "node:fs";
+import path from "node:path";
 import { articles, media, type Article } from "@/journal";
 
 const fmt = (d: string) => new Date(d).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
 
 function Card({ a, big }: { a: Article; big?: boolean }) {
   const m = media[a.slug];
+  const hasScene = existsSync(path.join(process.cwd(), "public/images/journal", `${a.slug}.jpg`));
+  const cover = hasScene ? `/images/journal/${a.slug}.jpg` : `/images/${m.hero.src}`;
   return (
     <Link href={`/journal/${a.slug}`} className={"jcard" + (big ? " jcard-big" : "")}>
       <span className="jcard-img">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`/images/${m.hero.src}`} alt="" loading={big ? "eager" : "lazy"} style={{ objectPosition: m.hero.pos }} />
+        <img src={cover} alt="" loading={big ? "eager" : "lazy"} style={hasScene ? undefined : { objectPosition: m.hero.pos }} />
       </span>
       <span className="jcard-body">
         <span className="j-topic">{a.topic}</span>
