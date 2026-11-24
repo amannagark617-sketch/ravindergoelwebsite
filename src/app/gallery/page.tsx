@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Gallery() {
   return (
     <>
-      <PageIntro title="Gallery" lede="Select a photograph to see it larger. Use the arrow keys to move between them." />
+      <PageIntro title="Gallery" lede="Photographs of Ravinder Goel, Little Nap and its people." />
       <GalleryWall />
     </>
   );

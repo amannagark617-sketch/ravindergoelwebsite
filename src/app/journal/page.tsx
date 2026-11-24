@@ -14,7 +14,7 @@ export default function Journal() {
     <main>
       <PageIntro
         title="Journal"
-        lede="Stories about Ravinder Goel and Little Nap, drawn from his own posts, interviews and the press. Every article lists its sources."
+        lede="Stories about Ravinder Goel and Little Nap, drawn from his own posts, interviews and the press."
       />
       <section className="journal-wrap">
         <JournalList featured />

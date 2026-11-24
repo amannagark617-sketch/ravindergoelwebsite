@@ -63,7 +63,7 @@ export default function LittleNap() {
       </section>
       <section className="people-say">
         <h2>What our people say</h2>
-        <p>Our team rates us 4.7 out of 5 on AmbitionBox. Here is what they wrote.</p>
+        <p>Employees rate Little Nap Recliners 4.7 out of 5 on AmbitionBox.</p>
         <div className="badges">
           <a href={AB} target="_blank" rel="noopener noreferrer">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -97,7 +97,6 @@ export default function LittleNap() {
             </div>
           ))}
         </div>
-        <p className="reviews-note">A selection of reviews, copied as posted. All 266 are on AmbitionBox.</p>
         <a className="btn" href="https://www.ambitionbox.com/reviews/little-nap-recliners-reviews?sort_by=latest" target="_blank" rel="noopener noreferrer">
           Read more reviews on AmbitionBox
         </a>

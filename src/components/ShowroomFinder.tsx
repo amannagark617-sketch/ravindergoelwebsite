@@ -65,7 +65,7 @@ export default function ShowroomFinder({ items }: { items: Showroom[] }) {
                   <i className="k-sq" /> 2 factories: Manesar and Indore (Dewas)
                 </li>
               </ul>
-              <p>Hover or tap a city on the map to see its showroom.</p>
+              <p>Little Nap showrooms, city by city.</p>
             </>
           )}
         </aside>

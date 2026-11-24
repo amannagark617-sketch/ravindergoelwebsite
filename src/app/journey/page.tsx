@@ -16,7 +16,7 @@ export default function Journey() {
     <>
       <PageIntro
         title="The journey"
-        lede="From a middle-class family in Khanpur to a group of companies with 470+ people. Keep scrolling and the film moves sideways, chapter by chapter."
+        lede="From a middle-class family in Khanpur to a group of companies with 470+ people."
       />
       <section className="sixty">
         <h2>His story in 60 seconds</h2>

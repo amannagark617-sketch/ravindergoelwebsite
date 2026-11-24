@@ -49,7 +49,7 @@ export default function Press() {
     <main>
       <PageIntro
         title="Press kit"
-        lede="The short biography, the facts and the photographs, ready to use."
+        lede="Biography, key facts and photographs of Ravinder Goel."
       />
       <section className="presskit">
         <div className="pk-bio">

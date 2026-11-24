@@ -61,7 +61,7 @@ export const navGroups: NavGroup[] = [
     label: "Media",
     items: [
       { href: "/recognition", label: "Awards and press", note: "Awards, articles, conversations" },
-      { href: "/press", label: "Press kit", note: "Bio, facts and photos, ready to use" },
+      { href: "/press", label: "Press kit", note: "Biography, facts and photographs" },
       { href: "/gallery", label: "Gallery", note: "Photographs" },
     ],
   },
@@ -273,7 +273,7 @@ export type Stop = {
 
 export const laZBoy = {
   intro:
-    "From Monroe, Michigan in 1927 to Thailand and across Asia, then to the exclusive partnership in India in 2020. Scroll to fly the route.",
+    "From Monroe, Michigan in 1927 to Thailand and across Asia, then to the exclusive partnership in India in 2020.",
   stops: [
     {
       place: "Monroe, Michigan",
@@ -554,7 +554,7 @@ export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = 
     { year: "2026", title: "How Ravinder Goel Made Little Nap the Go-To for Ultimate Relaxation", source: "Sugermint", note: "Published 5 February 2026.", href: "https://sugermint.com/ravinder-goel/", img: aw + "sugermint-logo.png" },
     { year: "2025", title: "Ravinder Goel: Redefining Comfort with Craft, Conviction, and a Cause", source: "The Business Fame", note: "A long profile of how he started Little Nap with a ₹5 lakh loan and a 600 sq. ft. workshop, and of his role as Vice President (North) of the Association of Furniture Manufacturers of India. Published 7 July 2025.", href: "https://thebusinessfame.com/ravinder-goel-redefining-comfort-with-craft-conviction-and-a-cause/", img: aw + "business-fame-logo.png" },
     { year: "2025", title: "10 Best Business Leaders in India 2025: Ravinder Goel", source: "TradeFlock, April 2025 (Vol 09, Issue 06)", note: "A two-page feature in the magazine's April 2025 cover issue. See the certificate in the Awards tab.", href: "https://tradeflock.com/magazine-10-best-business-leaders-in-india-2025/", hrefLabel: "Read the magazine", img: aw + "tradeflock-cover-2025.jpg", full: aw + "tradeflock-page-2025.jpg" },
-    { year: "2026", title: "Little Nap Recliners achieves BIS certification under IS 302 (Part 1):2024 for motorized recliners", source: "ArticleBiz, written by Little Nap's team", note: "An article by the company, published on 3 September 2026, on its BIS product certification. Not independent press.", href: "https://articlebiz.com/article/1052835058-little-nap-recliners-achieves-bis-certification-under-is-302-part-12024-for-motorized-recliners", img: aw + "articlebiz-logo.png" },
+    { year: "2026", title: "Little Nap Recliners achieves BIS certification under IS 302 (Part 1):2024 for motorized recliners", source: "ArticleBiz, written by Little Nap's team", note: "Published on 3 September 2026 by the company, on its BIS product certification.", href: "https://articlebiz.com/article/1052835058-little-nap-recliners-achieves-bis-certification-under-is-302-part-12024-for-motorized-recliners", img: aw + "articlebiz-logo.png" },
     {
       year: "2023",
       title: "Little Nap Recliners: A Brand Committed to Elevating the Future of the Recliner Industry Worldwide",
