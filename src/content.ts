@@ -72,14 +72,14 @@ export const navGroups: NavGroup[] = [
 
 export const gallery = [
   { src: "/images/ravinder-portrait.jpg", w: 1333, h: 2000, alt: "Ravinder Goel in a navy suit against a dark studio backdrop" },
-  { src: "/images/ravinder-relaxed.jpg", w: 1800, h: 1200, alt: "Ravinder Goel in a light jacket, seated in a recliner" },
   { src: "/images/ravinder-gesture.jpg", w: 1333, h: 2000, alt: "Ravinder Goel gesturing in a home theatre" },
-  { src: "/images/ravinder-cinema-wide.jpg", w: 1500, h: 1000, alt: "Ravinder Goel seated in a cinema lounge with leather recliners" },
-  { src: "/images/ravinder-lounge.jpg", w: 1333, h: 2000, alt: "Ravinder Goel leaning on a cream recliner" },
-  { src: "/images/ravinder-studio-point.jpg", w: 1800, h: 1200, alt: "Ravinder Goel pointing upward against a dark backdrop" },
-  { src: "/images/ravinder-sofa-seated.jpg", w: 1800, h: 1200, alt: "Ravinder Goel seated on a grey recliner sofa" },
-  { src: "/images/ravinder-cinema-seated.jpg", w: 1500, h: 1000, alt: "Ravinder Goel seated in a brown leather cinema recliner" },
   { src: "/images/ravinder-red-wall.jpg", w: 1333, h: 2000, alt: "Ravinder Goel standing in front of a red feature wall" },
+  { src: "/images/ravinder-studio-point.jpg", w: 1800, h: 1200, alt: "Ravinder Goel pointing upward against a dark backdrop" },
+  { src: "/images/ravinder-showroom-arms.jpg", w: 1333, h: 2000, alt: "Ravinder Goel with arms folded in a Little Nap showroom" },
+  { src: "/images/ravinder-lounge.jpg", w: 1333, h: 2000, alt: "Ravinder Goel standing beside a cream recliner" },
+  { src: "/images/ravinder-showroom-smile.jpg", w: 1333, h: 2000, alt: "Ravinder Goel smiling in a Little Nap showroom" },
+  { src: "/images/ravinder-theatre-hands.jpg", w: 1333, h: 2000, alt: "Ravinder Goel in a Little Nap home theatre" },
+  { src: "/images/ravinder-showroom-standing.jpg", w: 1333, h: 2000, alt: "Ravinder Goel in a navy suit standing in a Little Nap showroom" },
 ];
 
 /* ---------- Home ---------- */
@@ -114,13 +114,13 @@ export const vision = {
 };
 
 export const homeIndex = [
-  { href: "/journey", title: "Journey", note: "From failed entrance exams to a ₹100 crore+ brand.", img: "/images/ravinder-lounge.jpg" },
-  { href: "/la-z-boy", title: "La-Z-Boy", note: "How La-Z-Boy came to India through Little Nap.", img: "/images/ravinder-gesture.jpg" },
-  { href: "/values", title: "Values", note: "The DNA and five core values he built Little Nap on.", img: "/images/ravinder-sofa-seated.jpg" },
-  { href: "/beliefs", title: "Beliefs", note: "What he believes about comfort, customers and teams.", img: "/images/ravinder-studio-point.jpg" },
-  { href: "/recognition", title: "Recognition", note: "Awards, press and podcasts.", img: "/images/ravinder-showroom-smile.jpg" },
-  { href: "/gallery", title: "Gallery", note: `${gallery.length} photographs.`, img: "/images/ravinder-cinema-seated.jpg" },
-  { href: "/little-nap", title: "Little Nap", note: "The company, the group and its partners.", img: "/images/ravinder-showroom-arms.jpg" },
+  { href: "/journey", title: "Journey", note: "From failed entrance exams to a ₹100 crore+ brand.", img: "/images/journal/from-5-lakh-to-100-crore.jpg" },
+  { href: "/la-z-boy", title: "La-Z-Boy", note: "How La-Z-Boy came to India through Little Nap.", img: "/images/journal/la-z-boy-in-india.jpg" },
+  { href: "/values", title: "Values", note: "The DNA and five core values he built Little Nap on.", img: "/images/journal/building-a-470-person-team.jpg" },
+  { href: "/beliefs", title: "Beliefs", note: "What he believes about comfort, customers and teams.", img: "/images/journal/leading-through-uncertainty.jpg" },
+  { href: "/recognition", title: "Recognition", note: "Awards, press and podcasts.", img: "/images/journal/afmt-north-india-chapter.jpg" },
+  { href: "/gallery", title: "Gallery", note: `${gallery.length} photographs.`, img: "/images/ravinder-portrait.jpg" },
+  { href: "/little-nap", title: "Little Nap", note: "The company, the group and its partners.", img: "/images/journal/little-nap-franchise.jpg" },
   { href: "/connect", title: "Connect", note: "His LinkedIn and every Little Nap handle in one place.", img: "/images/ravinder-red-wall.jpg" },
 ];
 
@@ -178,7 +178,7 @@ export const chapters: Chapter[] = [
   {
     year: "2011",
     title: "He noticed people didn't want to get up.",
-    img: "/images/ravinder-sofa-seated.jpg",
+    img: "/images/journal/the-observation-behind-little-nap.jpg",
     body:
       "Recliners were far from mainstream in India. He noticed that the moment customers sat on one, they didn't want to get up. He saw an experience, not just furniture.",
   },
@@ -206,7 +206,7 @@ export const chapters: Chapter[] = [
   {
     year: "2020",
     title: "La-Z-Boy chose Little Nap.",
-    img: "/images/ravinder-lounge.jpg",
+    img: "/images/journal/la-z-boy-in-india.jpg",
     body:
       "In April 2020, during the lockdown, Little Nap signed its first contract with La-Z-Boy and became the brand's exclusive partner in India.",
     facts: [
@@ -224,7 +224,7 @@ export const chapters: Chapter[] = [
   {
     year: "2022",
     title: "From one room to twelve showrooms.",
-    img: "/images/ravinder-showroom-standing.jpg",
+    img: "/images/journal/little-nap-franchise.jpg",
     body:
       "By 2022 Little Nap had grown from a 600 sq. ft. showroom to 12 showrooms and 75,000 sq. ft. of production units.",
   },
@@ -238,7 +238,7 @@ export const chapters: Chapter[] = [
   {
     year: "2026",
     title: "Fifteen years on.",
-    img: "/images/ravinder-cinema-wide.jpg",
+    img: "/images/journal/recliners-in-1300-cinema-screens.jpg",
     body:
       "Little Nap now runs 2 factories and 18 showrooms with a team of 470+, and a monthly capacity of 5,000 recliners. Its seats are in 1,300+ cinema screens. In February 2026 the Indian Achievers Forum named him Entrepreneur of the Year.",
   },
@@ -394,6 +394,13 @@ export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = 
     { year: "2025", title: "10 Best Business Leaders in India 2025", source: "TradeFlock", href: "https://tradeflock.com/ravinder-goel-10-best-business-leaders-in-india-2025",
       img: "https://tradeflock.com/wp-content/uploads/2025/04/Ravider-goel-1.jpg" },
     {
+      year: "2024",
+      title: "Indian Achievers' Award for Promising MSME",
+      source: "Indian Achievers",
+      note: "Awarded to Little Nap Recliners, as listed on the company's awards page.",
+      href: "https://www.littlenap.in/awards",
+    },
+    {
       year: "2023",
       title: "Pride of Welingkar Award, Entrepreneurial Success",
       source: "Welingkar Institute of Management",
@@ -405,6 +412,20 @@ export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = 
       source: "The Entrepreneurs of India",
       href: "https://www.theentrepreneursofindia.in/post/ravinder-goel-100-inspiring-entrepreneurs-of-india-2023",
       img: "https://static.wixstatic.com/media/ec32c5_0d863dda8344498cb7a1ad0c4e55ec85~mv2.jpeg/v1/fill/w_1066,h_1600,al_c,q_85/ec32c5_0d863dda8344498cb7a1ad0c4e55ec85~mv2.jpeg",
+    },
+    {
+      year: "2023",
+      title: "Best Company to Work for",
+      source: "Prime Insights",
+      note: "Awarded to Little Nap Recliners, as listed on the company's awards page.",
+      href: "https://www.littlenap.in/awards",
+    },
+    {
+      year: "2022",
+      title: "Certificate of Appreciation",
+      source: "Franchise India Holdings Limited",
+      note: "Awarded to Little Nap Recliners, as listed on the company's awards page.",
+      href: "https://www.littlenap.in/awards",
     },
     {
       year: "2015",
@@ -444,6 +465,12 @@ export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = 
       note: "November 2021 cover feature.",
       href: "https://www.ceoinsightsindia.com/leader/ravinder-goel-steering-indian-furniture-industry-to-a-promising-future-cid-3371.html",
       img: "https://www.ceoinsightsindia.com/uploaded_images/mag_cover/kb8dUntitleMangru34-er270d-1.jpg",
+    },
+    {
+      year: "Interview",
+      title: "Advance knowledge and particular demands of our clients motivates us to beat our competitors",
+      source: "Franchise India, interview with directors Ravinder and Naveen Goel",
+      href: "https://franchiseindia.com/insights/en/article/advance-knowledge-and-particular-demands-of-our-clients-motivates-us-to-beat-our-competitors-ravinder-and-naveen-goel.39397",
     },
     {
       year: "2019",

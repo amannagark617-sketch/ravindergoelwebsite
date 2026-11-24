@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "The DNA and five core values behind Little Nap Recliners, the comfort company founded by Ravinder Goel.",
 };
 
-const beliefSlugs = ["comfort", "design", "home", "customers", "india", "teams", "learning", "values"];
+const beliefSlugs = ["comfort", "design", "home", "customers", "india", "teams", "students", "truth"];
 
 export default function Values() {
   return (
