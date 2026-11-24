@@ -2959,3 +2959,4 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 .jcard-big .jcard-img { position: relative; }
 .jcard-big .jcard-img img { position: absolute; inset: 0; }
 @media (max-width: 760px) { .jcard-big .jcard-img { min-height: 0; aspect-ratio: 16 / 10; } }
+.article-fig img { aspect-ratio: 16 / 9; }

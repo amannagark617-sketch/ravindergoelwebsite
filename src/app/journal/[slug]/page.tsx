@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { existsSync } from "node:fs";
+import path from "node:path";
 import JournalList from "@/components/JournalList";
 import { articles, bySlug, media, caption } from "@/journal";
 
@@ -30,6 +32,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const a = bySlug(slug);
   if (!a) notFound();
   const m = media[a.slug];
+  // A scene image dropped in public/images/journal/<slug>.jpg appears inside the article automatically.
+  const scene = existsSync(path.join(process.cwd(), "public/images/journal", `${a.slug}.jpg`)) ? `/images/journal/${a.slug}.jpg` : null;
 
   const ld = {
     "@context": "https://schema.org",
@@ -71,11 +75,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               {b.p.map((t, j) => (
                 <p key={j}>{t}</p>
               ))}
-              {k === 1 && (
+              {k === 1 && scene && (
                 <figure className="article-fig">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`/images/${m.figure.src}`} alt={caption} loading="lazy" style={{ objectPosition: m.figure.pos }} width={1200} height={800} />
-                  <figcaption>{caption}</figcaption>
+                  <img src={scene} alt="" loading="lazy" width={1536} height={864} />
                 </figure>
               )}
             </section>
