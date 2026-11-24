@@ -22,4 +22,8 @@ export const imageSizes: Record<string, [number, number]> = {
   "/images/awards/tradeflock-page-2025.jpg": [549, 744],
   "/images/awards/sugermint-logo.png": [430, 144],
   "/images/awards/forty-over-40-2026.jpg": [640, 265],
+  "/images/awards/business-fame-logo.png": [541, 297],
+  "/images/awards/articlebiz-logo.png": [279, 139],
+  "/images/awards/franchiseindia-logo.png": [403, 157],
+  "/images/awards/rahul-jain-reel.jpg": [608, 1080],
 };
