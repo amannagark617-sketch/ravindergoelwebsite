@@ -19,7 +19,10 @@ export const metadata: Metadata = {
 
 const AB = "https://www.ambitionbox.com/overview/little-nap-recliners-overview?utm_source=employer-dashboard&utm_campaign=little-nap-recliners&utm_medium=badges";
 
-const rows = [0, 1, 2].map((i) => abReviews.filter((_, n) => n % 3 === i));
+const five = abReviews.filter((r) => !r.stars);
+const four = abReviews.filter((r) => r.stars);
+const mixed = five.flatMap((r, i) => (i % 6 === 5 && four[Math.floor(i / 6)] ? [r, four[Math.floor(i / 6)]] : [r]));
+const rows = [0, 1, 2].map((i) => mixed.filter((_, n) => n % 3 === i));
 
 export default function LittleNap() {
   return (
@@ -71,17 +74,17 @@ export default function LittleNap() {
             <img src="https://employer.ambitionbox.com/api/next/badge/796785?badge-type=ratings-detailed" alt="Little Nap Recliners detailed ratings on AmbitionBox" />
           </a>
         </div>
-        <div className="ab-rows" aria-label="5-star employee reviews from AmbitionBox">
+        <div className="ab-rows" aria-label="Employee reviews from AmbitionBox">
           {rows.map((row, ri) => (
             <div className="ab-marquee" key={ri}>
               <div className={"ab-track" + (ri % 2 ? " rev" : "")} style={{ animationDuration: `${row.length * 9}s` }}>
                 {[0, 1].map((n) => (
                   <ul key={n} aria-hidden={n === 1 ? true : undefined}>
                     {row.map((r) => (
-                      <li key={r.likes.slice(0, 30)}>
+                      <li key={r.role + r.date + r.likes.slice(0, 12)}>
                         <article className="ab-card">
                           <div className="ab-head">
-                            <b className="ab-star">&#9733; 5.0</b>
+                            <b className={"ab-star" + (r.stars === 4 ? " s4" : "")}>&#9733; {r.stars ?? 5}.0</b>
                             <span>{r.role} · {r.date}</span>
                           </div>
                           <p className="ab-text">{r.likes}</p>
@@ -94,7 +97,7 @@ export default function LittleNap() {
             </div>
           ))}
         </div>
-        <p className="reviews-note">Latest 5-star reviews, copied as posted.</p>
+        <p className="reviews-note">A selection of reviews, copied as posted. All 266 are on AmbitionBox.</p>
         <a className="btn" href="https://www.ambitionbox.com/reviews/little-nap-recliners-reviews?sort_by=latest" target="_blank" rel="noopener noreferrer">
           Read more reviews on AmbitionBox
         </a>

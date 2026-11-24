@@ -3052,3 +3052,6 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 .jcard-body { min-width: 0; overflow-wrap: anywhere; }
 .jcard-body > span:first-child { display: block; }
 .rec-card .rec-main { min-width: 0; }
+
+.ab-star.s4 { background: #7ab51d; }
+.ab-card:has(.s4) { border-left-color: #7ab51d; }
