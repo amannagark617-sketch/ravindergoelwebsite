@@ -2960,3 +2960,8 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 .jcard-big .jcard-img img { position: absolute; inset: 0; }
 @media (max-width: 760px) { .jcard-big .jcard-img { min-height: 0; aspect-ratio: 16 / 10; } }
 .article-fig img { aspect-ratio: 16 / 9; }
+
+/* Values wipe: keep the zoom inside the frame so the previous image never pokes out beside the next one */
+.vw.is-scrubbed .vw-figs { overflow: hidden; }
+.vw.is-scrubbed .vw-fig { overflow: hidden; border-radius: 0; }
+.vw.is-scrubbed .vw-fig .concept { border-radius: 0; transform-origin: 50% 50%; }

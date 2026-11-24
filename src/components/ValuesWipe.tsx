@@ -32,7 +32,7 @@ export default function ValuesWipe({ photos }: { photos: (string | null)[] }) {
         for (let i = 1; i < n; i++) {
           const t = 2 * i - 1;
           tl.to(figs[i], { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2 }, t)
-            .to(figs[i - 1], { scale: 1.12, duration: 1.2 }, t)
+            .to(figs[i - 1].querySelector(".concept"), { scale: 1.12, duration: 1.2 }, t)
             .to(texts[i - 1], { autoAlpha: 0, y: -30, duration: 0.5 }, t)
             .to(stack, { yPercent: -(100 / n) * i, duration: 1 }, t)
             .to(texts[i], { autoAlpha: 1, y: 0, duration: 0.6 }, t + 0.5);
