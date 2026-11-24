@@ -5,7 +5,7 @@ import RecognitionList from "@/components/RecognitionList";
 export const metadata: Metadata = {
   title: "Awards, Press and Interviews",
   description:
-    "Awards, press features and interviews of Ravinder Goel, Founder and CEO of Little Nap Recliners, including the Pride of Welingkar Award 2023.",
+    "Awards, press features and interviews of Ravinder Goel, Founder and CEO of Little Nap Recliners, including the Indian Achievers Forum Entrepreneur of the Year 2026, TradeFlock and The Business Fame listings and the Pride of Welingkar Award 2023.",
 };
 
 export default function Recognition() {

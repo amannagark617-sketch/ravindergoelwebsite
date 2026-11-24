@@ -2971,3 +2971,24 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 .partner-logos img:last-child { height: clamp(3.1rem, 7.6vw, 5.1rem); }
 .partner-logos { gap: 0.5rem; }
 .group-logo[src$="little-nap.png"], .group-logo[src$="la-z-boy.png"] { height: 3.4rem; margin-block: -0.5rem; }
+
+/* ---------- Recognition: grouped awards and full-size viewer ---------- */
+.rec-group { font-family: var(--display); font-weight: 800; font-size: clamp(1.4rem, 2.6vw, 2rem); letter-spacing: -0.03em; margin: 3rem 0 0; color: var(--ink); }
+.rec-group + .rec-grid { margin-top: 1.25rem; }
+.rec-card > button.rec-open { display: flex; flex-direction: column; width: 100%; padding: 0; border: 0; background: none; text-align: left; font: inherit; color: inherit; cursor: zoom-in; }
+.rec-pic img[src^="/images/awards/"] { object-position: center top; }
+.rec-zoom { position: absolute; right: 0.6rem; bottom: 0.6rem; padding: 0.3rem 0.6rem; background: rgba(20, 33, 61, 0.88); color: #fff; font-style: normal; font-family: var(--display); font-weight: 600; font-size: 0.8rem; opacity: 0; transition: opacity 0.2s ease; }
+.rec-card:hover .rec-zoom, .rec-card:focus-within .rec-zoom { opacity: 1; }
+@media (hover: none) { .rec-zoom { opacity: 1; } }
+.rec-dialog { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100%; height: 100%; overflow: auto; }
+.rec-dialog::backdrop { background: rgba(14, 20, 38, 0.82); }
+.rec-dialog figure { position: relative; margin: 0 auto; padding: 3.5rem var(--gutter) 2rem; max-width: 62rem; display: flex; flex-direction: column; gap: 1rem; align-items: center; }
+.rec-dialog img { max-width: 100%; max-height: 78vh; width: auto; height: auto; background: #fff; box-shadow: 0 20px 70px rgba(0, 0, 0, 0.45); }
+.rec-dialog figcaption { color: #fff; display: flex; flex-direction: column; gap: 0.35rem; align-self: stretch; max-width: 46rem; margin: 0 auto; }
+.rec-dialog figcaption strong { font-family: var(--display); font-weight: 700; font-size: 1.25rem; }
+.rec-dialog figcaption strong span { font-weight: 500; opacity: 0.7; margin-left: 0.4rem; }
+.rec-dialog figcaption > span { opacity: 0.85; }
+.rec-dialog figcaption p { color: rgba(255, 255, 255, 0.86); font-size: 1rem; line-height: 1.5; margin: 0.25rem 0 0; }
+.rec-dialog figcaption a { color: #fff; text-decoration: underline; text-underline-offset: 3px; margin-top: 0.4rem; }
+.rec-close { position: absolute; top: 0.9rem; right: var(--gutter); padding: 0.55rem 1.1rem; background: #fff; color: var(--ink); border: 0; font-family: var(--display); font-weight: 700; cursor: pointer; }
+.rec-close:focus-visible, .rec-card > button.rec-open:focus-visible { outline: 3px solid var(--garnet); outline-offset: 2px; }

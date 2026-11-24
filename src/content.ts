@@ -192,14 +192,18 @@ export const chapters: Chapter[] = [
   {
     year: "2015",
     title: "Recognised in Dubai.",
-    img: "/images/ravinder-showroom-smile.jpg",
+    img: "/images/journey-moments/worlds-greatest-leaders-2015.jpg",
+    href: "/recognition",
+    hrefLabel: "See the award",
     body:
       "He was named The World's Greatest Leader 2015 for Asia and the GCC, selected among 120 business leaders from more than 1,100 nominations. The award was presented at the Jumeirah Tower Hotel in Dubai.",
   },
   {
     year: "2018",
     title: "A purple ticket on national television.",
-    img: "/images/ravinder-gesture.jpg",
+    img: "/images/journey-moments/purple-ticket-2018.jpg",
+    href: "/recognition#talks",
+    hrefLabel: "See the feature",
     body:
       "At the Franchise India Show on Times Now, he presented Little Nap Recliners to the jury on India's biggest business reality show. Little Nap won the purple ticket.",
   },
@@ -379,34 +383,63 @@ export const beliefs = [
 
 /* ---------- Recognition ---------- */
 
-export type Entry = { year: string; title: string; source: string; note?: string; href?: string; img?: string };
+export type Entry = {
+  year: string;
+  title: string;
+  source: string;
+  note?: string;
+  href?: string;
+  img?: string;
+  /** Full-size picture of the certificate, cover or page. When present the card opens it in a viewer. */
+  full?: string;
+  /** Awards only: given to him, or to the company. */
+  who?: "him" | "company";
+};
+
+const aw = "/images/awards/";
 
 export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = {
   awards: [
+    // ---- Awarded to Ravinder Goel ----
     {
+      who: "him",
       year: "2026",
       title: "Entrepreneur of the Year 2026",
       source: "Indian Achievers Forum",
-      note: "For entrepreneurial leadership, manufacturing excellence and contribution to India's premium furniture and recliner industry, under the vision of Viksit Bharat 2047.",
+      note: "For outstanding entrepreneurial leadership contributing to India's manufacturing growth and socio-economic development under the Viksit Bharat @2047 vision. Conferred at the National Summit 2026 on 11 February 2026 in New Delhi.",
       href: "https://www.iafindia.com/mr-ravinder-goel/",
-      img: "https://www.iafindia.com/wp-content/uploads/2026/02/Mr-Ravinder-Goel.jpg",
-    },
-    { year: "2025", title: "10 Best Business Leaders in India 2025", source: "TradeFlock", href: "https://tradeflock.com/ravinder-goel-10-best-business-leaders-in-india-2025",
-      img: "https://tradeflock.com/wp-content/uploads/2025/04/Ravider-goel-1.jpg" },
-    {
-      year: "2024",
-      title: "Indian Achievers' Award for Promising MSME",
-      source: "Indian Achievers",
-      note: "Awarded to Little Nap Recliners, as listed on the company's awards page.",
-      href: "https://www.littlenap.in/awards",
+      img: aw + "eoy-2026.jpg",
+      full: aw + "eoy-2026.jpg",
     },
     {
+      who: "him",
+      year: "2025",
+      title: "The Most Influential Business Leaders of 2025",
+      source: "The Business Fame",
+      note: "An annual listing for exceptional leadership, innovation and contribution to the industry. He is also profiled in the issue: \"Ravinder Goel: Redefining Comfort with Craft, Conviction, and a Cause\".",
+      href: "https://thebusinessfame.com/magazines/digital/the-most-influential-leaders-to-follow-in-2025-vol04/#page=1",
+      img: aw + "business-fame-2025.jpg",
+      full: aw + "business-fame-2025.jpg",
+    },
+    {
+      who: "him",
+      year: "2025",
+      title: "10 Best Business Leaders in India 2025",
+      source: "TradeFlock",
+      note: "Honoured for remarkable efforts and unwavering commitment in revolutionising the Indian business landscape.",
+      href: "https://tradeflock.com/ravinder-goel-10-best-business-leaders-in-india-2025",
+      img: aw + "tradefloc-2025.jpg",
+      full: aw + "tradefloc-2025.jpg",
+    },
+    {
+      who: "him",
       year: "2023",
       title: "Pride of Welingkar Award, Entrepreneurial Success",
       source: "Welingkar Institute of Management",
       note: "A distinguished alumnus honour, awarded at the Annual Alumni Awards ceremony in Mumbai in December 2023.",
     },
     {
+      who: "him",
       year: "2023",
       title: "100 Inspiring Entrepreneurs of India 2023",
       source: "The Entrepreneurs of India",
@@ -414,57 +447,119 @@ export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = 
       img: "https://static.wixstatic.com/media/ec32c5_0d863dda8344498cb7a1ad0c4e55ec85~mv2.jpeg/v1/fill/w_1066,h_1600,al_c,q_85/ec32c5_0d863dda8344498cb7a1ad0c4e55ec85~mv2.jpeg",
     },
     {
-      year: "2023",
-      title: "Best Company to Work for",
-      source: "Prime Insights",
-      note: "Awarded to Little Nap Recliners, as listed on the company's awards page.",
-      href: "https://www.littlenap.in/awards",
-    },
-    {
+      who: "him",
       year: "2022",
-      title: "Certificate of Appreciation",
+      title: "Certificate of Appreciation, Startup Summit 2022",
       source: "Franchise India Holdings Limited",
-      note: "Awarded to Little Nap Recliners, as listed on the company's awards page.",
-      href: "https://www.littlenap.in/awards",
+      note: "For his contribution to the Startup Summit at the 126th Franchise & Retail Opportunity Expo, held on 2 and 3 December 2022 at the Bombay Exhibition Centre, Mumbai. Signed by Ritu Marya, Editor-in-Chief, Franchise India & Entrepreneur Media.",
+      img: aw + "startup-summit-2022.jpg",
+      full: aw + "startup-summit-2022.jpg",
     },
     {
+      who: "him",
+      year: "2021",
+      title: "Top 10 Luxury Brand Leaders in Sofa 2021",
+      source: "CEO Insights",
+      note: "An annual recognition of leaders of luxury sofa brands. He was also the magazine's October 2021 cover story.",
+      href: "https://www.ceoinsightsindia.com/leader/ravinder-goel-steering-indian-furniture-industry-to-a-promising-future-cid-3371.html",
+      img: aw + "ceo-luxury-2021.jpg",
+      full: aw + "ceo-luxury-2021.jpg",
+    },
+    {
+      who: "him",
       year: "2015",
       title: "The World's Greatest Leader 2015, Asia and GCC",
       source: "URS Group and PwC",
-      note: "Selected among 120 business leaders from more than 1,100 nominations. Presented in Dubai in December 2015.",
+      note: "Selected among 120 business leaders from more than 1,100 nominations. Research by United Research Services, chosen by consumers and industry, process reviewed by PwC. Presented in Dubai in December 2015.",
+      img: aw + "worlds-greatest-leaders-2015.jpg",
+      full: aw + "worlds-greatest-leaders-2015.jpg",
+    },
+    // ---- Awarded to Little Nap ----
+    {
+      who: "company",
+      year: "2024",
+      title: "Indian Achievers' Award for Promising MSME",
+      source: "Indian Achievers' Forum",
+      note: "Presented to Little Nap Recliners in recognition of outstanding professional achievement and contribution towards nation building.",
+      href: "https://www.littlenap.in/awards",
+      img: aw + "indian-achievers-2024.jpg",
+      full: aw + "indian-achievers-2024.jpg",
+    },
+    {
+      who: "company",
+      year: "2024",
+      title: "ET MSME Awards 2024, shortlisted nominee",
+      source: "The Economic Times",
+      note: "Little Nap Designs Private Limited was shortlisted as a nominee for its contribution to the MSME sector.",
+      img: aw + "et-msme-2024.jpg",
+      full: aw + "et-msme-2024.jpg",
+    },
+    {
+      who: "company",
+      year: "2023",
+      title: "Best Companies to Work For 2023",
+      source: "Prime Insights",
+      note: "For empowering its people, motivating employees to grow by learning from mistakes and building an amiable corporate environment.",
+      href: "https://primeinsights.in/little-nap-recliners/",
+      img: aw + "prime-best-company-2023.jpg",
+      full: aw + "prime-best-company-2023.jpg",
+    },
+    {
+      who: "company",
+      year: "2022",
+      title: "CRISIL SME Grading: SME 2",
+      source: "CRISIL, an S&P Global company",
+      note: "Awarded to Little Nap Designs Private Limited on 10 September 2022, valid until 9 September 2023. The grading indicates a high level of creditworthiness relative to other SMEs.",
+      img: aw + "crisil-sme-2022.jpg",
+      full: aw + "crisil-sme-2022.jpg",
+    },
+    {
+      who: "company",
+      year: "2021",
+      title: "Indian Achievers' Award for Excellence in Manufacturing, 2021-22",
+      source: "Indian Achievers' Forum",
+      note: "Presented to Little Nap Designs Pvt. Ltd. for outstanding achievement in manufacturing of recliners and contribution in nation building.",
+      img: aw + "indian-achievers-2021-22.jpg",
+      full: aw + "indian-achievers-2021-22.jpg",
+    },
+    {
+      who: "company",
+      year: "2015",
+      title: "The World's Greatest Brands 2015, Asia and GCC",
+      source: "URS International Asia One",
+      note: "Little Nap Design Pvt. Ltd, manufacturing industry, recliner category. Research by United Research Services, chosen by consumers and industry, process reviewed by PwC.",
+      img: aw + "worlds-greatest-brands-2015.jpg",
+      full: aw + "worlds-greatest-brands-2015.jpg",
     },
   ],
   press: [
     { year: "2026", title: "How Ravinder Goel Made Little Nap the Go-To for Ultimate Comfort", source: "Sugermint", href: "https://sugermint.com/ravinder-goel/",
       img: "https://sugermint.com/wp-content/uploads/2026/02/Ravinder-Goel.jpg" },
     {
-      year: "2025",
-      title: "Ravinder Goel: Redefining Comfort with Craft, Conviction, and a Cause",
-      source: "The Business Fame",
-      note: "From the issue naming The Most Influential Leaders to Follow in 2025.",
-      href: "https://thebusinessfame.com/magazines/digital/the-most-influential-leaders-to-follow-in-2025-vol04/#page=1",
-    },
-    {
       year: "2023",
       title: "Little Nap Recliners: A Brand Committed to Elevating the Future of the Recliner Industry Worldwide",
       source: "Prime Insights",
+      note: "The March 2023 cover story, with Little Nap on the cover.",
       href: "https://primeinsights.in/little-nap-recliners/",
-      img: "https://primeinsights.in/wp-content/uploads/2023/03/Banner-little-nap.jpg",
+      img: aw + "prime-cover-2023.jpg",
     },
     {
       year: "2022",
       title: "Meet Ravinder Goel, Brain Behind the Little Nap Recliner",
       source: "The Entrepreneurs of India",
+      note: "In his own words: why he chose entrepreneurship, how Little Nap began in 2011 and what he considers the key to success.",
       href: "https://www.theentrepreneursofindia.in/post/meet-ravinder-goel-brain-behind-the-little-nap-recliner",
-      img: "https://static.wixstatic.com/media/ec32c5_6a1ea37e16b547439115c0685855e242~mv2.jpeg/v1/fill/w_900,h_1350,al_c,q_85/ec32c5_6a1ea37e16b547439115c0685855e242~mv2.jpeg",
+      img: aw + "teoi-feature.jpg",
+      full: aw + "teoi-feature.jpg",
     },
     {
       year: "2021",
-      title: "Top 10 Luxury Brand Leaders in Sofa 2021",
-      source: "CEO Insights magazine",
-      note: "November 2021 cover feature.",
+      title: "Steering Indian Furniture Industry to a Promising Future",
+      source: "CEO Insights, October 2021 cover story",
+      note: "His cover story as one of the Top 10 Luxury Brand Leaders in Sofa.",
       href: "https://www.ceoinsightsindia.com/leader/ravinder-goel-steering-indian-furniture-industry-to-a-promising-future-cid-3371.html",
-      img: "https://www.ceoinsightsindia.com/uploaded_images/mag_cover/kb8dUntitleMangru34-er270d-1.jpg",
+      img: aw + "ceo-cover-2021.jpg",
+      full: aw + "ceo-cover-2021.jpg",
     },
     {
       year: "Interview",
@@ -484,7 +579,7 @@ export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = 
     { year: "2025", title: "How He Built a ₹100 Crore Furniture Empire", source: "Personal story episode", note: "On failed entrance exams, a fifth-grade math book and learning sales door to door.", href: "https://youtu.be/lZpzhJfoxog" },
     { year: "2025", title: "How One Simple Observation Built a ₹100 Crore Brand", source: "Podcast", note: "On the 2011 observation that customers on a recliner didn't want to get up.", href: "https://www.youtube.com/watch?v=h8XsLDtAtxQ&t=752s" },
     { year: "2019", title: "Business Ki Aawaz", source: "Janta TV, 7 September 2019", note: "A full interview on his entrepreneurial journey and business challenges.", href: "https://www.youtube.com/watch?v=pYPJTgM-lv8" },
-    { year: "2018", title: "Franchise India Show 2018", source: "Times Now", note: "Little Nap won the purple ticket.", href: "http://www.youtube.com/watch?v=DcIbyzaTmvE" },
+    { year: "2018", title: "Franchise India Show 2018: the purple ticket winner is Little Nap", source: "Times Now", note: "He presented Little Nap Recliners on India's biggest business reality show, and Little Nap won the purple ticket.", href: "http://www.youtube.com/watch?v=DcIbyzaTmvE", img: "/images/journey-moments/purple-ticket-2018.jpg" },
   ],
 };
 

@@ -68,7 +68,14 @@ const jsonLd = {
       sameAs: ["https://www.linkedin.com/in/ravindergoel/"],
       knowsAbout: ["Recliners", "Comfort", "Furniture manufacturing", "Cinema seating", "La-Z-Boy India"],
       memberOf: { "@type": "Organization", name: "AFMT, Association of Furniture Manufacturers & Traders (INDIA)" },
-      award: "Pride of Welingkar Award, 2023",
+      award: [
+        "Entrepreneur of the Year 2026, Indian Achievers Forum",
+        "The Most Influential Business Leaders of 2025, The Business Fame",
+        "10 Best Business Leaders in India 2025, TradeFlock",
+        "Pride of Welingkar Award, 2023",
+        "Top 10 Luxury Brand Leaders in Sofa 2021, CEO Insights",
+        "The World's Greatest Leader 2015, Asia and GCC",
+      ],
     },
     {
       "@type": "Organization",
