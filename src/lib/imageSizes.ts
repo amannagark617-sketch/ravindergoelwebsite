@@ -18,4 +18,5 @@ export const imageSizes: Record<string, [number, number]> = {
   "/images/awards/worlds-greatest-leaders-2015.jpg": [972, 1280],
   "https://static.wixstatic.com/media/ec32c5_0d863dda8344498cb7a1ad0c4e55ec85~mv2.jpeg/v1/fill/w_1066,h_1600,al_c,q_85/ec32c5_0d863dda8344498cb7a1ad0c4e55ec85~mv2.jpeg": [1066, 1600],
   "https://sugermint.com/wp-content/uploads/2026/02/Ravinder-Goel.jpg": [1200, 750],
+  "/images/awards/forty-over-40-2026.jpg": [640, 265],
 };

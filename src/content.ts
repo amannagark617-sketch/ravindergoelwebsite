@@ -546,6 +546,7 @@ export const recognition: { awards: Entry[]; press: Entry[]; talks: Entry[] } = 
     },
   ],
   press: [
+    { year: "2026", title: "Forty Over 40: 40 leaders driving growth and innovation after 40", source: "Hindustan Times Brand Studio, compiled by StartupNxt", note: "Ravinder Goel is featured among 40 founders and leaders in the Consumer Brands category. Published 12 October 2026 as a brand story created by HT Brand Studio.", href: "https://www.hindustantimes.com/brand-stories/startupnxt-features-40-leaders-driving-growth-and-innovation-after-40-101791808753700.html", img: aw + "forty-over-40-2026.jpg" },
     { year: "2026", title: "How Ravinder Goel Made Little Nap the Go-To for Ultimate Comfort", source: "Sugermint", href: "https://sugermint.com/ravinder-goel/",
       img: "https://sugermint.com/wp-content/uploads/2026/02/Ravinder-Goel.jpg" },
     {
