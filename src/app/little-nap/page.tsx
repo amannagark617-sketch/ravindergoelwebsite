@@ -61,11 +61,11 @@ export default function LittleNap() {
         <div className="badges">
           <a href={AB} target="_blank" rel="noopener noreferrer">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="https://employer.ambitionbox.com/api/next/badge/796785?badge-type=employee-ratings2" alt="Little Nap Recliners employee rating on AmbitionBox" loading="lazy" />
+            <img src="https://employer.ambitionbox.com/api/next/badge/796785?badge-type=employee-ratings2" alt="Little Nap Recliners employee rating on AmbitionBox" />
           </a>
           <a href={AB} target="_blank" rel="noopener noreferrer">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="https://employer.ambitionbox.com/api/next/badge/796785?badge-type=ratings-detailed" alt="Little Nap Recliners detailed ratings on AmbitionBox" loading="lazy" />
+            <img src="https://employer.ambitionbox.com/api/next/badge/796785?badge-type=ratings-detailed" alt="Little Nap Recliners detailed ratings on AmbitionBox" />
           </a>
         </div>
         <a className="btn" href="https://www.ambitionbox.com/reviews/little-nap-recliners-reviews" target="_blank" rel="noopener noreferrer">
