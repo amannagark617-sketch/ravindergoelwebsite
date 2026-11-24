@@ -60,7 +60,7 @@ export default function LittleNap() {
       </section>
       <section className="people-say">
         <h2>What our people say</h2>
-        <p>Ratings from the employees of Little Nap Recliners on AmbitionBox, shown as AmbitionBox publishes them.</p>
+        <p>Our team rates us 4.7 out of 5 on AmbitionBox. Here is what they wrote.</p>
         <div className="badges">
           <a href={AB} target="_blank" rel="noopener noreferrer">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -82,23 +82,9 @@ export default function LittleNap() {
                         <article className="ab-card">
                           <div className="ab-head">
                             <b className="ab-star">&#9733; 5.0</b>
-                            <span>rated by {r.role} on {r.date}</span>
+                            <span>{r.role} · {r.date}</span>
                           </div>
-                          <div className="ab-dept">{r.dept} Department{r.type ? ` · ${r.type}` : ""}</div>
-                          <div className="ab-chips">
-                            {r.ratings.map(([k, v]) => (
-                              <span key={k}>&#9733; {v} {k}</span>
-                            ))}
-                          </div>
-                          <h3>Likes</h3>
                           <p className="ab-text">{r.likes}</p>
-                          {r.dislikes ? (
-                            <>
-                              <h3>Dislikes</h3>
-                              <p className="ab-short">{r.dislikes}</p>
-                            </>
-                          ) : null}
-                          {r.work ? <p className="ab-work">{r.work}</p> : null}
                         </article>
                       </li>
                     ))}
@@ -108,7 +94,7 @@ export default function LittleNap() {
             </div>
           ))}
         </div>
-        <p className="reviews-note">Reviews from AmbitionBox, quoted as written. More are on AmbitionBox.</p>
+        <p className="reviews-note">Latest 5-star reviews, copied as posted.</p>
         <a className="btn" href="https://www.ambitionbox.com/reviews/little-nap-recliners-reviews?sort_by=latest" target="_blank" rel="noopener noreferrer">
           Read more reviews on AmbitionBox
         </a>

@@ -3032,7 +3032,7 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 .ab-marquee:hover .ab-track { animation-play-state: paused; }
 .ab-track ul { display: flex; gap: 1rem; list-style: none; margin: 0; padding: 0 0.5rem; }
 .ab-track li { flex: 0 0 min(23rem, 84vw); width: min(23rem, 84vw); min-width: 0; display: flex; }
-.ab-card { width: 100%; min-width: 0; height: 27rem; overflow: hidden; display: flex; flex-direction: column; gap: 0.5rem; padding: 1.1rem 1.25rem; background: var(--paper); border: 1px solid rgba(20, 33, 61, 0.12); border-left: 3px solid #3f9a3a; border-radius: 6px; font-size: 0.9375rem; line-height: 1.45; color: var(--ink); }
+.ab-card { width: 100%; min-width: 0; height: 10.5rem; overflow: hidden; display: flex; flex-direction: column; gap: 0.5rem; padding: 1.1rem 1.25rem; background: var(--paper); border: 1px solid rgba(20, 33, 61, 0.12); border-left: 3px solid #3f9a3a; border-radius: 6px; font-size: 0.9375rem; line-height: 1.45; color: var(--ink); }
 .ab-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; font-size: 0.8125rem; color: var(--slate); }
 .ab-star { background: #3f9a3a; color: #fff; padding: 0.15rem 0.5rem; border-radius: 3px; font-size: 0.9375rem; }
 .ab-dept { font-weight: 600; font-size: 0.8125rem; }
@@ -3040,7 +3040,15 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 .ab-card h3 { margin: 0.25rem 0 0; font-size: 0.9375rem; font-weight: 700; }
 .ab-card p { margin: 0; }
 .ab-card > * { flex-shrink: 0; }
-.ab-text { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+.ab-text { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .ab-short { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .ab-work { margin-top: auto !important; font-size: 0.8125rem; color: var(--slate); }
 @media (prefers-reduced-motion: reduce) { .ab-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } .ab-track { animation: none; } .ab-track ul[aria-hidden] { display: none; } }
+
+/* Spacing fixes */
+.globe.is-scrubbed .globe-steps li.is-active { padding: 1.5rem 1.75rem; }
+.vs.is-scrubbed .vs-lines { min-height: 9.5rem; padding: 1.25rem 1.5rem; }
+.afmt-stats > div { padding: 1.25rem 1.5rem; }
+.jcard-body { min-width: 0; overflow-wrap: anywhere; }
+.jcard-body > span:first-child { display: block; }
+.rec-card .rec-main { min-width: 0; }
