@@ -2965,3 +2965,9 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 .vw.is-scrubbed .vw-figs { overflow: hidden; }
 .vw.is-scrubbed .vw-fig { overflow: hidden; border-radius: 0; }
 .vw.is-scrubbed .vw-fig .concept { border-radius: 0; transform-origin: 50% 50%; }
+
+/* Partner logos now carry clear space around them, so they are no longer cut at the edges. Heights are raised to keep the artwork the same size. */
+.partner-logos img:first-child { height: clamp(3.3rem, 8vw, 5.3rem); }
+.partner-logos img:last-child { height: clamp(3.1rem, 7.6vw, 5.1rem); }
+.partner-logos { gap: 0.5rem; }
+.group-logo[src$="little-nap.png"], .group-logo[src$="la-z-boy.png"] { height: 3.4rem; margin-block: -0.5rem; }
