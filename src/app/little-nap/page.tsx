@@ -12,7 +12,7 @@ import { abReviews } from "@/abReviews";
 const ReclinerJourney = dynamic(() => import("@/components/ReclinerJourney"));
 
 export const metadata: Metadata = {
-  title: "Little Nap Recliners and the Little Nap Group",
+  title: "Little Nap Recliners: Company, Factories and Showrooms",
   description:
     "Little Nap Recliners, founded by Ravinder Goel in 2011: two factories, 18 showrooms, 470+ people, recliners in 1,300+ cinema screens, and the companies in the group.",
 };
@@ -61,6 +61,9 @@ export default function LittleNap() {
           </details>
         ))}
       </section>
+      <p className="partner-note">
+        See the full <Link href="/recliners">Little Nap recliner range</Link>, including motorized, home theatre and cinema recliners, and the <Link href="/la-z-boy">La-Z-Boy partnership</Link>.
+      </p>
       <section className="people-say">
         <h2>What our people say</h2>
         <p>Employees rate Little Nap Recliners 4.7 out of 5 on AmbitionBox.</p>

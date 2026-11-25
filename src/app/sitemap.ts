@@ -7,6 +7,7 @@ const routes: [string, number][] = [
   ["", 1],
   ["/journey", 0.9],
   ["/little-nap", 0.9],
+  ["/recliners", 0.9],
   ["/la-z-boy", 0.8],
   ["/press", 0.8],
   ["/recognition", 0.8],

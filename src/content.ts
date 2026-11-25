@@ -34,6 +34,7 @@ export const nav = [
   { href: "/journal", label: "Journal" },
   { href: "/gallery", label: "Gallery" },
   { href: "/little-nap", label: "Little Nap" },
+  { href: "/recliners", label: "Recliners" },
   { href: "/showrooms", label: "Showrooms" },
   { href: "/connect", label: "Connect" },
 ];
@@ -53,6 +54,7 @@ export const navGroups: NavGroup[] = [
     label: "Little Nap",
     items: [
       { href: "/little-nap", label: "The Little Nap story", note: "From one chair to 1,300+ screens" },
+      { href: "/recliners", label: "Recliners", note: "Motorized, home theatre and cinema recliners" },
       { href: "/showrooms", label: "Showrooms", note: "18 showrooms and 2 factories" },
       { href: "/la-z-boy", label: "La-Z-Boy", note: "The exclusive partnership in India" },
     ],

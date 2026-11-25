@@ -5,9 +5,9 @@ import GlobeJourney from "@/components/GlobeJourney";
 import { laZBoy } from "@/content";
 
 export const metadata: Metadata = {
-  title: "La-Z-Boy in India: Exclusive Partner Little Nap",
+  title: "La-Z-Boy India: Little Nap, the Exclusive La-Z-Boy Partner",
   description:
-    "How La-Z-Boy, the American recliner brand founded in 1927, chose Little Nap Recliners and Ravinder Goel as its exclusive partner in India in April 2020.",
+    "La-Z-Boy recliners in India: how the American recliner brand founded in 1927 chose Little Nap Recliners and Ravinder Goel as its exclusive partner in India in April 2020.",
 };
 
 export default function LaZBoy() {

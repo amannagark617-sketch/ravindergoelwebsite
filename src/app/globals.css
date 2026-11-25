@@ -3055,3 +3055,13 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 
 .ab-star.s4 { background: #7ab51d; }
 .ab-card:has(.s4) { border-left-color: #7ab51d; }
+
+/* Recliners page */
+.range-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.25rem; max-width: 64rem; }
+.range-list li { padding: 1.25rem 1.5rem; border: 1px solid var(--rule); border-radius: var(--r-md); background: var(--paper); }
+.range-list a { font-family: var(--display); font-weight: 700; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
+.range-list a:hover { color: var(--garnet); }
+.range-list p { margin: 0.5rem 0 0; font-size: 0.975rem; }
+.faq dl { max-width: 44rem; display: grid; gap: 1.25rem; }
+.faq dt { font-family: var(--display); font-weight: 700; font-size: 1.1rem; color: var(--ink); }
+.faq dd { margin: 0.35rem 0 0; color: var(--slate); }
