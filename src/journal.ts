@@ -539,10 +539,10 @@ export const media: Record<string, { hero: Pic }> = {
   "leading-through-uncertainty": { hero: { src: "ravinder-studio-point.jpg", pos: "50% 30%" } },
   "fifteen-years-of-little-nap": { hero: { src: "ravinder-office.jpg", pos: "50% 22%" } },
   "little-nap-franchise": { hero: { src: "ravinder-lounge.jpg", pos: "50% 22%" } },
-  "manual-vs-motorised-recliners": { hero: { src: "ravinder-lounge.jpg", pos: "50% 22%" } },
-  "how-to-choose-a-recliner": { hero: { src: "ravinder-showroom-lean.jpg", pos: "50% 22%" } },
-  "how-a-little-nap-recliner-is-made": { hero: { src: "ravinder-studio-point.jpg", pos: "50% 30%" } },
-  "home-theatre-recliners-how-to-plan": { hero: { src: "ravinder-theatre-hands.jpg", pos: "50% 20%" } },
-  "how-long-do-recliners-last-and-how-to-care-for-them": { hero: { src: "ravinder-showroom-smile.jpg", pos: "50% 22%" } },
+  "manual-vs-motorised-recliners": { hero: { src: "concepts/design.jpg", pos: "50% 50%" } },
+  "how-to-choose-a-recliner": { hero: { src: "concepts/home.jpg", pos: "50% 50%" } },
+  "how-a-little-nap-recliner-is-made": { hero: { src: "concepts/learning.jpg", pos: "50% 50%" } },
+  "home-theatre-recliners-how-to-plan": { hero: { src: "concepts/comfort.jpg", pos: "50% 50%" } },
+  "how-long-do-recliners-last-and-how-to-care-for-them": { hero: { src: "concepts/home.jpg", pos: "50% 50%" } },
 };
 export const caption = CAP;
