@@ -383,6 +383,141 @@ export const articles: Article[] = [
     ],
     related: [{ label: "Showrooms", href: "/showrooms" }],
   },
+  {
+    slug: "manual-vs-motorised-recliners",
+    title: "Manual vs motorised recliners: which one should you buy?",
+    description:
+      "A plain comparison of manual and motorised recliners: how they work, weight, power needs, warranty and who each one suits, with figures from Little Nap.",
+    date: "2026-12-04",
+    minutes: 4,
+    topic: "Guides",
+    body: [
+      {  p: ["A manual recliner is moved by hand. A motorised recliner has an electric motor and moves at the press of a button. Both can be as comfortable. The difference is the effort to operate them, the cost, and what you need around the chair."] },
+      { h: "Positions and weight", p: ["According to Little Nap's FAQ, a manual recliner has 3 positions, while a motorised recliner can stop at any position. A motorised recliner is heavier at about 75 kg, against about 65 kg for a manual one."] },
+      { h: "Power", p: ["A motorised recliner needs a 5-amp socket close by, and it stops working when there is no power. Little Nap uses an Okin motor rated at 58 W and 29 V. Options include a headrest motor, dual motor and triple motor, and the dual motor control is priced separately."] },
+      { h: "Warranty and life", p: ["Little Nap gives 5 years on the mechanism and 2 years on the motor, both on site. Damage from power spikes is not covered. The company says motorised units last 10 to 15 years. The mechanism is rated for 160 kg, and motorised units for up to 165 kg."] },
+      { h: "Who each one suits", p: ["Manual recliners suit a tighter budget and users with no trouble moving. Motorised recliners suit elderly users and anyone who wants easy, one-touch control, and they allow extras such as a massage function. Motorised recliners generally cost more. For a compact room, a manual model needs less electrical planning."] },
+      { h: "A note on certification", p: ["In 2026 Little Nap Recliners achieved BIS certification under IS 302 (Part 1):2024 for motorised recliners."] },
+      { h: "Before you decide", p: ["Both types are for indoor use only. Specifications vary by model, so check the model you like with a Little Nap showroom."] },
+    ],
+    sources: [
+      { label: "Little Nap FAQ", href: "https://www.littlenap.in/faqs" },
+      { label: "Manual Recliners Vs. Motorised Recliners, Little Nap", href: "https://www.littlenap.in/blog/manual-recliners-vs-motorised-recliners" },
+      { label: "Little Nap Recliners achieves BIS certification, ArticleBiz", href: "https://articlebiz.com/article/1052835058-little-nap-recliners-achieves-bis-certification-under-is-302-part-12024-for-motorized-recliners" },
+    ],
+    related: [
+      { label: "Little Nap recliners", href: "/recliners" },
+      { label: "Showrooms", href: "/showrooms" },
+    ],
+  },
+  {
+    slug: "how-to-choose-a-recliner",
+    title: "How to choose a recliner: size, fit, frame and fabric",
+    description:
+      "A buying guide for recliner chairs in India: how to measure the room, check the fit, look under the seat, and choose a fabric, with sizes Little Nap offers.",
+    date: "2026-12-05",
+    minutes: 5,
+    topic: "Guides",
+    body: [
+      {  p: ["A recliner is a chair you will sit in for years, so the choice is worth a little care. These are the checks Little Nap suggests, in the order they usually matter."] },
+      { h: "Measure the room, and the wall behind it", p: ["Measure the space for the chair upright and fully reclined. A standard recliner needs about 6 inches behind it, a motorised lounger about 9 inches, and a slider about 5 inches. In a small apartment, leave 10 to 15 cm behind the chair and put it beside a window or in a corner, not the middle of the room. A chair needs a door at least 24 inches wide to come in."] },
+      { h: "Check that it fits you", p: ["Sit in it. Your feet should reach the floor and your head should rest on the headrest. The gap between the leg rest and the seat should be 5 inches or less, and the footrest should support your heels. Lumbar support should be firm without being hard. A poor fit is a common cause of back pain."] },
+      { h: "Look under the seat", p: ["A four-sided frame lasts longer than a two- or three-sided one, which can warp when people push on the arms to stand up. Look for a mesh layer between springs and cushions, and a hardwood base instead of plastic. Little Nap's frames are hardwood, with no-sag springs."] },
+      { h: "Choose the fabric", p: ["Leatherette is easy to clean but can feel warm. Fabric is more comfortable but needs more care. Full leather costs extra. Little Nap offers fabric, leatherette, full leather and touch leather, in more than 150 colours. In a small room, light neutrals make it feel more open."] },
+      { h: "Sizes you can ask for", p: ["Little Nap offers seat widths of 22, 23 or 24 inches and arm heights from 4 to 7 inches. A cup holder needs an arm at least 5.5 inches high, and a chiller glass holder at least 6 inches. Changing the arm size carries no extra charge. You can also choose how hard or soft the seat is, and add USB ports."] },
+      { h: "Pick the type for the room", p: ["Living room recliners, home theatre recliners, loungers and recliner sofas are built differently, so choose for where it will sit."] },
+    ],
+    sources: [
+      { label: "Little Nap FAQ", href: "https://www.littlenap.in/faqs" },
+      { label: "A Buying Guide For Comfortable Recliners, Little Nap", href: "https://www.littlenap.in/blog/a-buying-guide-for-comfortable-recliners" },
+      { label: "Best Single-Seater Recliners for Small Indian Apartments, Little Nap", href: "https://www.littlenap.in/blog/best-single-seater-recliners-for-small-indian-apartments" },
+    ],
+    related: [
+      { label: "Little Nap recliners", href: "/recliners" },
+      { label: "Showrooms", href: "/showrooms" },
+      { label: "Manual vs motorised recliners", href: "/journal/manual-vs-motorised-recliners" },
+    ],
+  },
+  {
+    slug: "how-a-little-nap-recliner-is-made",
+    title: "How a Little Nap recliner is made: frame, foam, motor and leather",
+    description:
+      "What goes into a Little Nap recliner: teak and hardwood frame, no-sag springs, foam, Okin motor, leather, a 67-point inspection and the factories in Manesar and Dewas.",
+    date: "2026-12-06",
+    minutes: 5,
+    topic: "Guides",
+    body: [
+      {  p: ["Little Nap recliners are hand-crafted in the company's two factories, in IMT Manesar in Haryana and Dewas in Madhya Pradesh. Together they can build about 5,000 recliners a month. The company describes its method as German engineering, Indian craftsmanship and global design."] },
+      { h: "The frame", p: ["According to Little Nap, the frame is teak wood with no-sag springs, and it uses kiln-dried hardwood. The plywood is 18 mm and 12 mm, and Kitply is used for resistance to moisture and borers."] },
+      { h: "The mechanism and the motor", p: ["The mechanisms are lead-free mild steel. Motorised recliners use an electric Okin motor rated at 58 W and 29 V."] },
+      { h: "Foam, thread and cover", p: ["The foam density is 28 throughout. Stitching uses Gutermann thread. The leather is bovine leather from Gruppo Mastrotto, and one recliner uses about 150 sq ft of leather or about 7 metres of fabric or leatherette."] },
+      { h: "Inspection and lead time", p: ["Every seat goes through a 67-point quality inspection, from material selection to final assembly. Most models take at least 15 days to make. Grande and Versatil take 21 days, and Adorne, Verve, Aderia, Niveo and Fusion take 45 days."] },
+      { h: "How it reaches you", p: ["A recliner ships in two parts, the backrest and the seat. On site, the backrest bracket fits into the seat's KD fitting, and a locking sound tells you it is in place. Little Nap says on-site service is provided within 7 working days."] },
+      { h: "From one chair to cinemas", p: ["The same factories make the recliners in more than 1,300 cinema screens, and the recliners sold through Little Nap's 18 showrooms across India."] },
+    ],
+    sources: [
+      { label: "Little Nap FAQ", href: "https://www.littlenap.in/faqs" },
+      { label: "What to Look for in a High-Quality Leather Recliner Couch, Little Nap", href: "https://www.littlenap.in/blog/what-to-look-for-in-a-high-quality-leather-recliner-couch" },
+      { label: "Little Nap Recliners", href: "https://www.littlenap.in" },
+    ],
+    related: [
+      { label: "Little Nap recliners", href: "/recliners" },
+      { label: "The Little Nap story", href: "/little-nap" },
+      { label: "Cinema recliners", href: "/journal/recliners-in-1300-cinema-screens" },
+    ],
+  },
+  {
+    slug: "home-theatre-recliners-how-to-plan",
+    title: "Home theatre recliners: how to plan your room",
+    description:
+      "Planning a home theatre with recliners: arms, cup holders, power, space behind each seat and what Little Nap's cinema work has taught it about layout.",
+    date: "2026-12-07",
+    minutes: 4,
+    topic: "Guides",
+    body: [
+      {  p: ["A home theatre recliner looks like cinema seating but is made for a private room. Little Nap makes recliners for both, and its multiplex work gives it a clear view of what makes a seating layout work."] },
+      { h: "What is different about a home theatre recliner", p: ["On a home theatre recliner the arms sit on the floor, not in the air as on a living room model, which gives it a commercial look. Accessories can be added freely, and many models include built-in cup holders. A swivel glider is not available on these models. Little Nap offers them in various sizes for different room dimensions, with power reclining and adjustable headrests."] },
+      { h: "Power and space", p: ["Each motorised recliner needs a 5-amp socket, so plan the sockets before the seats go in. Leave about 6 inches behind a standard recliner and more for a lounger. Little Nap's FAQ gives 39 inches as the depth upright and 69 inches as the length fully reclined, so check the room for the reclined size. The door has to be at least 24 inches wide."] },
+      { h: "What cinemas do", p: ["For multiplexes, Little Nap offers 3D layout help, detailed drawings and consultation before installation. Its cinema seats include swivel tables that turn 90 degrees to stay clear of the next seat, and motorised seats for tight spaces. Its recliners are in more than 1,300 cinema screens, with clients including PVR INOX, Cinepolis, Miraj Cinemas and NY Cinemas."] },
+      { h: "Warranty", p: ["Little Nap gives 5 years on the mechanism and 2 years on the motor, both on site."] },
+    ],
+    sources: [
+      { label: "Little Nap: home theatre recliners", href: "https://www.littlenap.in/home-theater-recliners" },
+      { label: "Little Nap: multiplex recliners", href: "https://www.littlenap.in/multiplex-recliners" },
+      { label: "Little Nap FAQ", href: "https://www.littlenap.in/faqs" },
+    ],
+    related: [
+      { label: "Little Nap recliners", href: "/recliners" },
+      { label: "Recliners in 1,300 cinema screens", href: "/journal/recliners-in-1300-cinema-screens" },
+      { label: "Showrooms", href: "/showrooms" },
+    ],
+  },
+  {
+    slug: "how-long-do-recliners-last-and-how-to-care-for-them",
+    title: "How long do recliners last, and how to care for one",
+    description:
+      "A recliner should last 10 to 15 years with care. Cleaning, sunlight, hardware checks and servicing for manual and motorised recliners, with Little Nap's warranty terms.",
+    date: "2026-12-08",
+    minutes: 4,
+    topic: "Guides",
+    body: [
+      {  p: ["Little Nap says a well-made recliner lasts about 10 to 15 years, and sometimes longer. How long yours lasts depends on the materials, the type of mechanism and how often it is used."] },
+      { h: "What decides the life of a recliner", p: ["Hardwood, good foam and a strong fabric last longer than cheaper parts. A chair used every day wears sooner than one used now and then. Motorised recliners may need servicing from time to time, while manual ones generally need less."] },
+      { h: "Looking after it", p: ["Vacuum or wipe the chair every week. Keep it out of long direct sunlight, which can fade or crack fabric and leather. Do not stand or jump on it, and teach children to use the footrest gently. Every few months, check the mechanism for loose screws and bolts. Little Nap recommends a professional service once a year, especially for motorised models."] },
+      { h: "Fabric or leatherette", p: ["Leatherette is easy to clean but can feel warm. Fabric is more comfortable but costs more to maintain. Napper leatherette is fire resistant and looks closer to real leather than standard leatherette."] },
+      { h: "Massage chairs", p: ["Clean a massage chair with a soft cloth, avoid spills and keep it away from direct sunlight."] },
+      { h: "Warranty and service", p: ["Little Nap gives 5 years on the mechanism and 2 years on the motor, both on site, and service within 7 working days. Damage from power spikes is not covered. Recliners are for indoor use only."] },
+    ],
+    sources: [
+      { label: "Do Recliners Last Long?, Little Nap", href: "https://www.littlenap.in/blog/do-recliners-last-long-what-to-expect-and-how-to-extend-lifespan" },
+      { label: "Little Nap FAQ", href: "https://www.littlenap.in/faqs" },
+    ],
+    related: [
+      { label: "Little Nap recliners", href: "/recliners" },
+      { label: "Manual vs motorised recliners", href: "/journal/manual-vs-motorised-recliners" },
+      { label: "Showrooms", href: "/showrooms" },
+    ],
+  },
 ];
 
 export const bySlug = (slug: string) => articles.find((a) => a.slug === slug);
@@ -404,5 +539,10 @@ export const media: Record<string, { hero: Pic }> = {
   "leading-through-uncertainty": { hero: { src: "ravinder-studio-point.jpg", pos: "50% 30%" } },
   "fifteen-years-of-little-nap": { hero: { src: "ravinder-office.jpg", pos: "50% 22%" } },
   "little-nap-franchise": { hero: { src: "ravinder-lounge.jpg", pos: "50% 22%" } },
+  "manual-vs-motorised-recliners": { hero: { src: "ravinder-lounge.jpg", pos: "50% 22%" } },
+  "how-to-choose-a-recliner": { hero: { src: "ravinder-showroom-lean.jpg", pos: "50% 22%" } },
+  "how-a-little-nap-recliner-is-made": { hero: { src: "ravinder-studio-point.jpg", pos: "50% 30%" } },
+  "home-theatre-recliners-how-to-plan": { hero: { src: "ravinder-theatre-hands.jpg", pos: "50% 20%" } },
+  "how-long-do-recliners-last-and-how-to-care-for-them": { hero: { src: "ravinder-showroom-smile.jpg", pos: "50% 22%" } },
 };
 export const caption = CAP;
