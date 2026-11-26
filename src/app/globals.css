@@ -3065,3 +3065,41 @@ img, .vp-frame, .vp-poster, .portrait-frame, .hero-photo, .film-photo, .split-ph
 .faq dl { max-width: 44rem; display: grid; gap: 1.25rem; }
 .faq dt { font-family: var(--display); font-weight: 700; font-size: 1.1rem; color: var(--ink); }
 .faq dd { margin: 0.35rem 0 0; color: var(--slate); }
+
+/* Liquid glass: translucent surfaces with a bright top edge and soft depth */
+:root {
+  --glass: rgba(255, 255, 255, 0.6);
+  --glass-strong: rgba(255, 255, 255, 0.78);
+  --glass-edge: rgba(255, 255, 255, 0.9);
+  --glass-shadow: 0 1px 2px rgba(20, 33, 61, 0.06), 0 14px 38px rgba(20, 33, 61, 0.1),
+    inset 0 1px 0 #fff, inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+  --blur: blur(20px) saturate(180%);
+}
+.btn:not(.btn-solid), .menu-button, .tabs button, .copy {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.5));
+  border: 1px solid rgba(20, 33, 61, 0.12);
+  box-shadow: inset 0 1px 0 #fff, inset 0 -1px 0 rgba(20, 33, 61, 0.05), 0 1px 2px rgba(20, 33, 61, 0.08), 0 8px 22px rgba(20, 33, 61, 0.08);
+  -webkit-backdrop-filter: blur(16px) saturate(180%); backdrop-filter: blur(16px) saturate(180%);
+  color: var(--ink); transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn:not(.btn-solid):hover, .menu-button:hover, .tabs button:hover {
+  background: linear-gradient(180deg, #fff, rgba(255, 255, 255, 0.72)); color: var(--garnet); border-color: rgba(20, 33, 61, 0.18);
+  transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 #fff, inset 0 -1px 0 rgba(20, 33, 61, 0.05), 0 2px 4px rgba(20, 33, 61, 0.08), 0 14px 30px rgba(20, 33, 61, 0.12);
+}
+.btn-solid {
+  background: linear-gradient(180deg, rgba(52, 66, 100, 0.96), rgba(20, 33, 61, 0.94));
+  border: 1px solid rgba(255, 255, 255, 0.16); color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32), inset 0 -1px 0 rgba(0, 0, 0, 0.28), 0 2px 4px rgba(20, 33, 61, 0.2), 0 12px 28px rgba(20, 33, 61, 0.26);
+  -webkit-backdrop-filter: blur(12px) saturate(160%); backdrop-filter: blur(12px) saturate(160%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn-solid:hover {
+  background: linear-gradient(180deg, rgba(64, 80, 118, 0.97), rgba(28, 42, 74, 0.95)); color: #fff; border-color: rgba(255, 255, 255, 0.22); transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.36), inset 0 -1px 0 rgba(0, 0, 0, 0.28), 0 4px 8px rgba(20, 33, 61, 0.2), 0 18px 34px rgba(20, 33, 61, 0.3);
+}
+.btn:active, .btn-solid:active, .menu-button:active { transform: translateY(0); }
+.tabs button[aria-selected="true"], .tabs button.is-on {
+  background: linear-gradient(180deg, rgba(52, 66, 100, 0.96), rgba(20, 33, 61, 0.94)); color: #fff; border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 8px 20px rgba(20, 33, 61, 0.22);
+}
