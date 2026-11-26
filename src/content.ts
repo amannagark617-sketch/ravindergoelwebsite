@@ -31,7 +31,7 @@ export const nav = [
   { href: "/vision", label: "Vision" },
   { href: "/values", label: "Values" },
   { href: "/recognition", label: "Recognition" },
-  { href: "/journal", label: "Journal" },
+  { href: "/journal", label: "Blog" },
   { href: "/gallery", label: "Gallery" },
   { href: "/little-nap", label: "Little Nap" },
   { href: "/recliners", label: "Recliners" },
@@ -47,7 +47,7 @@ export const navGroups: NavGroup[] = [
       { href: "/journey", label: "Journey", note: "His story, 2011 to today" },
       { href: "/vision", label: "Vision", note: "Little Nap's vision, animated" },
       { href: "/values", label: "Values", note: "The DNA and five core values" },
-      { href: "/journal", label: "Journal", note: "Stories, interviews and articles" },
+      { href: "/journal", label: "Blog", note: "Recliner guides, stories and interviews" },
     ],
   },
   {

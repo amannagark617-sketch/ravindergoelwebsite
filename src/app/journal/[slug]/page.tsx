@@ -38,7 +38,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   const ld = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: a.title,
     description: a.description,
     datePublished: a.date,
@@ -57,7 +57,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <article className="article">
         <header className="article-head">
           <p className="j-topic">
-            <Link href="/journal">Journal</Link> / {a.topic}
+            <Link href="/journal">Blog</Link> / {a.topic}
           </p>
           <h1>{a.title}</h1>
           <p className="article-lede">{a.description}</p>

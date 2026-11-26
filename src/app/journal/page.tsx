@@ -4,17 +4,17 @@ import PageIntro from "@/components/PageIntro";
 import JournalList from "@/components/JournalList";
 
 export const metadata: Metadata = {
-  title: "Journal: Stories by and about Ravinder Goel",
+  title: "Blog: Recliner Guides and Stories by Ravinder Goel",
   description:
-    "Articles on Ravinder Goel and Little Nap Recliners: the founding story, cinema seating, La-Z-Boy in India, AFMT, leadership and the team. Each one links to its sources.",
+    "The Little Nap Recliners blog: recliner buying guides, how recliners are made, home theatre and cinema seating, La-Z-Boy in India, and the founder story of Ravinder Goel.",
 };
 
 export default function Journal() {
   return (
     <main>
       <PageIntro
-        title="Journal"
-        lede="Stories about Ravinder Goel and Little Nap, drawn from his own posts, interviews and the press."
+        title="Blog"
+        lede="Recliner guides, and stories about Ravinder Goel and Little Nap."
       />
       <section className="journal-wrap">
         <JournalList featured />
